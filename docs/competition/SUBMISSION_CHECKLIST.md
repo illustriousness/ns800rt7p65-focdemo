@@ -167,8 +167,11 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 3. 标题粘贴：
 
    ```text
-   〖2026嵌入式大赛〗基于 NS800RT7P65D 双核 RT-Thread 的无感 FOC 与 CANopen 驱动平台
+   〖2026嵌入式大赛〗RT-Thread 双核无感 FOC 与 CANopen
    ```
+
+   论坛标题限 10～40 字，本标题 39 字；标签最多 3 个，建议
+   `NS800RT7P65D`、`FOC`、`CANopen`。
 
 4. 正文复制 `docs/competition/FORUM_POST.md` 的全部内容（从一级标题下一行开始）。
 5. 在编辑器中上传：

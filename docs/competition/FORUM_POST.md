@@ -1,4 +1,4 @@
-# 〖2026嵌入式大赛〗基于 NS800RT7P65D 双核 RT-Thread 的无感 FOC 与 CANopen 驱动平台
+# 〖2026嵌入式大赛〗RT-Thread 双核无感 FOC 与 CANopen
 
 > **作品类型：** 嵌入式电机控制 / CANopen 通信原型平台
 >
