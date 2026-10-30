@@ -12,8 +12,6 @@
 >
 > **演示视频：** https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition
 
-> 发布前请确认图片链接可访问，并保留文中关于 CAN 命令尚未实板验收的边界说明，不要改成“已通过”。
-
 ---
 
 ## 一、项目概述
