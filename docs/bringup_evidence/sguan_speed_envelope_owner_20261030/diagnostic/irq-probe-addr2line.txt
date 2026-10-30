@@ -1,0 +1,2 @@
+rt_sched_lock
+/home/ari/code/ns800rt7p65-focdemo/rt-thread/src/scheduler_mp.c:571

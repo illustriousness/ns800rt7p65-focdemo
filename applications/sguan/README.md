@@ -24,7 +24,7 @@
 
 当前 CPU0 控制、CPU1 通信的任务/IRQ 分配和异步命令接口见
 [双核业务分工](../../docs/CORE_LAYOUT.md)。CANopen 已接入真实异步启停、改速和故障复位，
-具体范围见 [CANopen 桥接说明](../../docs/CANOPEN.md)。新桥接仅完成主机回归和编译，未烧录或运行电机验证。
+具体范围见 [CANopen 桥接说明](../../docs/CANOPEN.md)。固件已烧录，CAN 常驻时的 UART owner 运行及交接已实测；经 CAN 命令启停的实板验收仍需单独进行。
 
 板级 `UserData_*.h` 已放回子模块的默认位置，主仓库适配目录不再保留第二份参数。
 这避免了源码同目录 `#include "UserData_*.h"` 优先选中上游示例的问题，也无需额外的
@@ -42,9 +42,10 @@
 | `VBUS_MIN` | 修正上游两处与最新头文件不一致的字段名 |
 | 反转 | SMO 模式下仅翻转反向相位检测误差的符号，保留原版检测器和 20 kHz PLL |
 | 无编码器启动 | 仅在本板 SMO 模式跳过绝对编码器校准，避免零回调错误交换相序 |
-| 电压量纲及限幅 | 仅本板 SMO 模式保留 SVPWM `sqrt(3)` 缩放和 6 V/母线比例试验限幅 |
+| 电压量纲及限幅 | SMO 模式保留 SVPWM `sqrt(3)` 缩放；矢量限幅为 `min(11.5 V, .43×VBUS)`，Q 轴 PI 输出/积分上限为 ±11.5 V |
 | GCC/ITCM | 固定模式表分派及范围检查，两个高/低环入口的 `.fast` 标记 |
-| SMO 直接反馈 | 积分前计算硬 sign 注入，直接反馈电流预测器；同一注入的低通结果仅作为反电动势输出，保留原参数及结构体 |
+| SMO 直接反馈 | 积分前计算硬 sign 注入，直接反馈电流预测器；同一注入的低通结果仅作为反电动势输出，不增加公开状态字段 |
+| 转速包络 | 注入 h 在 800 rpm 以下为 6，800～2000 rpm 随平滑参考升至 12；复用上游角度补偿，Td=1.1 ms、固定偏置为 0 |
 
 `Sguan_math.c/.h` 与基点逐字节一致，使用原版 512 点正弦表和软件平方根，不使用 eMATH。
 相位检测已回到上游的反电动势 sin/cos 检测，不再使用项目后来新增的 `atan2f()` 方案，
@@ -63,14 +64,32 @@
 `Sensorless_Flag` 不被适配层伪造。原库 `Low_angle` 接管后仍按原逻辑更新；
 历史日志中的 `forced_mrad` 仅为 IF 诊断快照，`pll_error_mV` 是电压量纲；
 当前精简接口不再发布这些诊断字段，不能用它们声称有独立角度测量。
-SMO 原始 `h=6`、`Wc=800`、PI/PLL 等参数未重调，仅删除已不存在的 `Boundary` 配置。
+SMO 仍为硬 sign、`Wc=800`，PI/PLL 增益未重调；h 的参考速度调度、电压余量及角度补偿按最新速度包络配置。
 NLFO 的原版分支已恢复；本板运行仍限定 SMO 模式 8，未验证其他模式实板表现。
 
 当前控制包络集中定义在 `foc_limits.h`：启动 ±350～800 rpm，闭环同向改速到
 ±2500 rpm；运行中相电流 3.0 A、母线 22～27 V、估算超速 2750 rpm 会触发关断。
-2500 rpm 新范围只做主机回归，未做全范围实板验收。控制权默认在 CANopen；
+24 V、直流电源限流 2.5 A、空载条件下，正向 2500 rpm 已通过短时实板测试；不代表额定转矩或长期可靠性。控制权默认在 CANopen；
 `motor owner uart` / `motor owner can` 用于交接，交接先 STOP 并等待 `stop_seq`，
 切换期间两个来源都不能提交新命令。
+
+```text
+motor owner uart
+motor owner               # 确认为 uart；switching 时继续查询
+motor closed 500 0.8
+motor status              # 等待 closed，速度单位为 mrad/s
+motor speed 2500
+motor stop
+motor owner can
+```
+
+300/250 rpm 的低速候选未通过原速度误差判据，已撤销试验性低速接管改动，下限仍为 350 rpm。
+3000 rpm 尝试在估速约 2820 rpm 时捕获 21.63 V 母线读数并停机，未算通过。
+完整通过/失败日志、owner 验证及 SMP 时序修复见
+[速度包络与控制权证据](../../docs/bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
+
+CPU0 的 ADC ISR 不调用 RTOS。它以优先级 0 登记后，只允许在 BSP 的无持锁等待区抢占；
+CPU1 和其他中断的屏蔽规则不变。不要在该 ISR 加入 RTOS/日志调用，或给其他启用的外设分配优先级 0。
 
 ## 构建和检查
 
@@ -80,6 +99,8 @@ git submodule update --init --recursive
 python3 tests/sguan_integration_regression.py
 python3 tests/sguan_change_review.py
 python3 tests/sguan_smo_feedback_regression.py
+python3 tests/foc_speed_envelope_regression.py
+python3 tests/foc_irq_window_regression.py
 python3 tests/sguan_arm_compile.py
 git -C libraries/SguanFOC_Library diff --stat
 ```

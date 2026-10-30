@@ -1,0 +1,42 @@
+irq-probe t=0.38 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23605 clip=0 sat=0
+irq-probe t=1.46 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23525 clip=0 sat=0
+irq-probe t=1.81 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23525 clip=0 sat=0
+irq-probe t=2.04 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23525 clip=0 sat=0
+irq-probe t=2.49 state=3 err=00000000 reason=0 target=500 est=97 peak=1187 bus=23565 clip=0 sat=0
+irq-probe t=2.82 state=3 err=00000000 reason=0 target=500 est=210 peak=1229 bus=23565 clip=0 sat=0
+irq-probe t=3.15 state=3 err=00000000 reason=0 target=500 est=291 peak=1229 bus=23605 clip=0 sat=0
+irq-probe t=3.48 state=3 err=00000000 reason=0 target=500 est=280 peak=1368 bus=23605 clip=0 sat=0
+irq-probe t=3.81 state=4 err=00000000 reason=0 target=500 est=388 peak=1368 bus=23585 clip=0 sat=0
+irq-probe t=4.14 state=4 err=00000000 reason=0 target=500 est=417 peak=1368 bus=23585 clip=0 sat=0
+irq-probe t=4.47 state=4 err=00000000 reason=0 target=500 est=479 peak=1368 bus=23545 clip=0 sat=0
+irq-probe t=4.80 state=4 err=00000000 reason=0 target=500 est=477 peak=1368 bus=23626 clip=0 sat=0
+irq-probe t=5.13 state=4 err=00000000 reason=0 target=500 est=488 peak=1368 bus=23585 clip=0 sat=0
+irq-probe t=5.46 state=4 err=00000000 reason=0 target=500 est=477 peak=1368 bus=23605 clip=0 sat=0
+irq-probe t=5.79 state=4 err=00000000 reason=0 target=500 est=468 peak=1368 bus=23948 clip=0 sat=0
+irq-probe t=6.12 state=4 err=00000000 reason=0 target=500 est=499 peak=1368 bus=23585 clip=0 sat=0
+irq-probe t=6.45 state=4 err=00000000 reason=0 target=500 est=481 peak=1368 bus=23565 clip=0 sat=0
+irq-probe t=6.78 state=4 err=00000000 reason=0 target=500 est=490 peak=1368 bus=23626 clip=0 sat=0
+irq-probe t=7.12 state=4 err=00000000 reason=0 target=500 est=485 peak=1368 bus=23545 clip=0 sat=0
+irq-probe t=7.45 state=4 err=00000000 reason=0 target=500 est=493 peak=1368 bus=23545 clip=0 sat=0
+irq-probe t=7.78 state=4 err=00000000 reason=0 target=500 est=494 peak=1368 bus=23545 clip=0 sat=0
+irq-probe t=8.11 state=4 err=00000000 reason=0 target=500 est=492 peak=1368 bus=23565 clip=0 sat=0
+irq-probe t=8.44 state=4 err=00000000 reason=0 target=500 est=487 peak=1368 bus=23565 clip=0 sat=0
+irq-probe t=8.77 state=4 err=00000000 reason=0 target=500 est=498 peak=1368 bus=23666 clip=0 sat=0
+irq-probe t=9.10 state=4 err=00000000 reason=0 target=500 est=497 peak=1368 bus=23525 clip=0 sat=0
+irq-probe t=9.44 state=4 err=00000000 reason=0 target=500 est=500 peak=1368 bus=23565 clip=0 sat=0
+irq-probe t=9.77 state=4 err=00000000 reason=0 target=500 est=482 peak=1368 bus=23686 clip=0 sat=0
+irq-probe t=10.10 state=5 err=00010000 reason=2 target=500 est=494 peak=1368 bus=23485 clip=0 sat=0
+irq-probe t=10.33 state=5 err=00010000 reason=2 target=500 est=494 peak=1368 bus=23545 clip=0 sat=0
+irq-probe t=10.62 state=5 err=00010000 reason=2 target=500 est=494 peak=1368 bus=23505 clip=0 sat=0
+irq-probe t=10.95 state=5 err=00010000 reason=2 target=500 est=494 peak=1368 bus=23525 clip=0 sat=0
+Traceback (most recent call last):
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 114, in <module>
+    if failure:raise failure
+               ^^^^^^^^^^^^^
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 70, in <module>
+    time.sleep(.25);s=snapshot();healthy(s,baseline)
+                                 ~~~~~~~^^^^^^^^^^^^
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 45, in healthy
+    assert s['state'] in ('3','4','6') and s['error']=='00000000' and s['reason']=='0',s
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'adc': '199720', 'overflow': '1', 'isr': '278/12128', 'control': '8067/11058', 'peak_mA': '1368', 'bus_mV': '23485', 'I_mA': '11,12,7', 'state': '5', 'error': '00010000', 'ticks': '156446', 'reason': '2', 'target_rpm': '500', 'est_rpm': '494', 'cpu_hz': '400000000', 'offsets': '256', 'bus_min_mV': '22679', 'bus_max_mV': '24814', 'clips': '0', 'saturated': '0', 'Udq_mV': '-72,1995', 'Idq_mA': '18,142', 'iqref_mA': '262', 'emf_mV': '1797', 'estimated_dc_mA': '16', 'command_seq': '1', 'stop_seq': '3', 'irqoff_max_cycles': '22811', 'irqoff_caller': '08021061', 'entry_max_cycles': '38805'}

@@ -1,0 +1,80 @@
+owner-envelope-repeat t=0.37 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=1.43 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=1.77 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23505 clip=0 sat=0
+owner-envelope-repeat t=2.00 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23505 clip=0 sat=0
+owner-envelope-repeat t=2.42 state=3 err=00000000 reason=0 target=500 est=98 peak=1133 bus=23565 clip=0 sat=0
+owner-envelope-repeat t=2.74 state=3 err=00000000 reason=0 target=500 est=206 peak=1133 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=3.06 state=3 err=00000000 reason=0 target=500 est=286 peak=1182 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=3.37 state=3 err=00000000 reason=0 target=500 est=318 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=3.69 state=4 err=00000000 reason=0 target=500 est=333 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=4.01 state=4 err=00000000 reason=0 target=500 est=400 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=4.32 state=4 err=00000000 reason=0 target=500 est=456 peak=1266 bus=23565 clip=0 sat=0
+owner-envelope-repeat t=4.64 state=4 err=00000000 reason=0 target=500 est=435 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=4.95 state=4 err=00000000 reason=0 target=500 est=461 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=5.27 state=4 err=00000000 reason=0 target=500 est=468 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=5.59 state=4 err=00000000 reason=0 target=500 est=477 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=5.90 state=4 err=00000000 reason=0 target=500 est=462 peak=1266 bus=23626 clip=0 sat=0
+owner-envelope-repeat t=6.22 state=4 err=00000000 reason=0 target=500 est=486 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=6.53 state=4 err=00000000 reason=0 target=500 est=508 peak=1266 bus=23283 clip=0 sat=0
+owner-envelope-repeat t=6.85 state=4 err=00000000 reason=0 target=500 est=515 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=7.16 state=4 err=00000000 reason=0 target=500 est=488 peak=1266 bus=23464 clip=0 sat=0
+owner-envelope-repeat t=7.48 state=4 err=00000000 reason=0 target=500 est=484 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=7.80 state=4 err=00000000 reason=0 target=500 est=496 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=8.11 state=4 err=00000000 reason=0 target=500 est=523 peak=1266 bus=23626 clip=0 sat=0
+owner-envelope-repeat t=8.43 state=4 err=00000000 reason=0 target=500 est=478 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=8.75 state=4 err=00000000 reason=0 target=500 est=480 peak=1266 bus=23485 clip=0 sat=0
+owner-envelope-repeat t=9.06 state=4 err=00000000 reason=0 target=500 est=498 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=9.38 state=4 err=00000000 reason=0 target=500 est=516 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=9.70 state=4 err=00000000 reason=0 target=500 est=497 peak=1266 bus=23162 clip=0 sat=0
+owner-envelope-repeat t=10.01 state=4 err=00000000 reason=0 target=500 est=498 peak=1266 bus=23565 clip=0 sat=0
+owner-envelope-repeat t=10.33 state=4 err=00000000 reason=0 target=500 est=525 peak=1266 bus=23585 clip=0 sat=0
+STAGE {"target_rpm": 500, "max_error_rpm": 25, "mean_error_rpm": 13.181818181818182, "peak_mA": 1266, "max_isr_us": 29.7525, "bus_min_mV": 22639, "bus_max_mV": 24733, "steady_clips": 0, "steady_saturated_ticks": 0, "last": {"adc": "205562", "overflow": "0", "isr": "8176/11901", "control": "7220/10901", "peak_mA": "1266", "bus_mV": "23585", "I_mA": "-38,-146,63", "state": "4", "error": "00000000", "ticks": "162743", "reason": "0", "target_rpm": "500", "est_rpm": "525", "cpu_hz": "400000000", "offsets": "256", "bus_min_mV": "22639", "bus_max_mV": "24733", "clips": "0", "saturated": "0", "Udq_mV": "-54,1999", "Idq_mA": "-42,154", "iqref_mA": "215", "emf_mV": "1569", "estimated_dc_mA": "17", "command_seq": "1", "stop_seq": "3"}}
+owner-envelope-repeat t=10.73 state=4 err=00000000 reason=0 target=800 est=575 peak=1266 bus=23464 clip=0 sat=0
+owner-envelope-repeat t=11.05 state=4 err=00000000 reason=0 target=800 est=624 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=11.37 state=4 err=00000000 reason=0 target=800 est=674 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=11.68 state=4 err=00000000 reason=0 target=800 est=702 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=12.00 state=4 err=00000000 reason=0 target=800 est=734 peak=1266 bus=23444 clip=0 sat=0
+owner-envelope-repeat t=12.31 state=4 err=00000000 reason=0 target=800 est=758 peak=1266 bus=23505 clip=0 sat=0
+owner-envelope-repeat t=12.63 state=4 err=00000000 reason=0 target=800 est=774 peak=1266 bus=23464 clip=0 sat=0
+owner-envelope-repeat t=12.95 state=4 err=00000000 reason=0 target=800 est=773 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=13.26 state=4 err=00000000 reason=0 target=800 est=782 peak=1266 bus=23485 clip=0 sat=0
+owner-envelope-repeat t=13.58 state=4 err=00000000 reason=0 target=800 est=780 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=13.90 state=4 err=00000000 reason=0 target=800 est=798 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=14.21 state=4 err=00000000 reason=0 target=800 est=790 peak=1266 bus=23485 clip=0 sat=0
+owner-envelope-repeat t=14.53 state=4 err=00000000 reason=0 target=800 est=790 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=14.84 state=4 err=00000000 reason=0 target=800 est=799 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=15.16 state=4 err=00000000 reason=0 target=800 est=797 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=15.48 state=4 err=00000000 reason=0 target=800 est=802 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=15.79 state=4 err=00000000 reason=0 target=800 est=795 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=16.11 state=4 err=00000000 reason=0 target=800 est=791 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=16.42 state=4 err=00000000 reason=0 target=800 est=799 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=16.74 state=4 err=00000000 reason=0 target=800 est=795 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=17.06 state=4 err=00000000 reason=0 target=800 est=804 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=17.37 state=4 err=00000000 reason=0 target=800 est=799 peak=1266 bus=23605 clip=0 sat=0
+owner-envelope-repeat t=17.69 state=4 err=00000000 reason=0 target=800 est=798 peak=1266 bus=23686 clip=0 sat=0
+owner-envelope-repeat t=18.00 state=4 err=00000000 reason=0 target=800 est=797 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=18.32 state=4 err=00000000 reason=0 target=800 est=793 peak=1266 bus=23626 clip=0 sat=0
+owner-envelope-repeat t=18.64 state=4 err=00000000 reason=0 target=800 est=805 peak=1266 bus=23444 clip=0 sat=0
+STAGE {"target_rpm": 800, "max_error_rpm": 9, "mean_error_rpm": 4.0, "peak_mA": 1266, "max_isr_us": 29.7525, "bus_min_mV": 22296, "bus_max_mV": 24814, "steady_clips": 0, "steady_saturated_ticks": 0, "last": {"adc": "371744", "overflow": "0", "isr": "7946/11901", "control": "6988/10901", "peak_mA": "1266", "bus_mV": "23444", "I_mA": "229,-139,103", "state": "4", "error": "00000000", "ticks": "328924", "reason": "0", "target_rpm": "800", "est_rpm": "805", "cpu_hz": "400000000", "offsets": "256", "bus_min_mV": "22296", "bus_max_mV": "24814", "clips": "0", "saturated": "0", "Udq_mV": "30,2797", "Idq_mA": "-45,272", "iqref_mA": "266", "emf_mV": "2725", "estimated_dc_mA": "32", "command_seq": "2", "stop_seq": "3"}}
+owner-envelope-repeat t=19.05 state=4 err=00000000 reason=0 target=1500 est=954 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=19.36 state=4 err=00000000 reason=0 target=1500 est=1107 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=19.68 state=4 err=00000000 reason=0 target=1500 est=1216 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=20.00 state=4 err=00000000 reason=0 target=1500 est=1292 peak=1266 bus=23646 clip=0 sat=0
+owner-envelope-repeat t=20.31 state=4 err=00000000 reason=0 target=1500 est=1348 peak=1266 bus=23525 clip=0 sat=0
+owner-envelope-repeat t=20.63 state=4 err=00000000 reason=0 target=1500 est=1389 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=20.94 state=4 err=00000000 reason=0 target=1500 est=1421 peak=1266 bus=23626 clip=0 sat=0
+owner-envelope-repeat t=21.26 state=5 err=00010000 reason=2 target=1500 est=1430 peak=1266 bus=23545 clip=0 sat=0
+owner-envelope-repeat t=21.48 state=5 err=00010000 reason=2 target=1500 est=1430 peak=1266 bus=23585 clip=0 sat=0
+owner-envelope-repeat t=21.76 state=5 err=00010000 reason=2 target=1500 est=1430 peak=1266 bus=23464 clip=0 sat=0
+owner-envelope-repeat t=22.07 state=5 err=00010000 reason=2 target=1500 est=1430 peak=1266 bus=23525 clip=0 sat=0
+Traceback (most recent call last):
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 114, in <module>
+    if failure:raise failure
+               ^^^^^^^^^^^^^
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 70, in <module>
+    time.sleep(.25);s=snapshot();healthy(s,baseline)
+                                 ~~~~~~~^^^^^^^^^^^^
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 45, in healthy
+    assert s['state'] in ('3','4','6') and s['error']=='00000000' and s['reason']=='0',s
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'adc': '424200', 'overflow': '1', 'isr': '246/11901', 'control': '6884/10901', 'peak_mA': '1266', 'bus_mV': '23545', 'I_mA': '21,-5,23', 'state': '5', 'error': '00010000', 'ticks': '377587', 'reason': '2', 'target_rpm': '1500', 'est_rpm': '1430', 'cpu_hz': '400000000', 'offsets': '256', 'bus_min_mV': '22296', 'bus_max_mV': '24814', 'clips': '0', 'saturated': '0', 'Udq_mV': '-248,4947', 'Idq_mA': '27,158', 'iqref_mA': '325', 'emf_mV': '4608', 'estimated_dc_mA': '47', 'command_seq': '3', 'stop_seq': '3'}

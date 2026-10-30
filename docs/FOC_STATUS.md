@@ -65,6 +65,7 @@
 | `command_mailbox` | 跨核异步请求、普通命令槽位复用及独立停止请求的交接 |
 | `command_result` | 保存最近普通命令的执行结果，直到后续状态发布/下一命令执行 |
 | `status_channel` | 保存通信核可读取的一致快照，避免它直接读取被 ADC ISR 修改的数据 |
+| `control_owner/owner_pending/owner_stop_seq` | 仅通信核使用的三个字：当前控制入口、待授予入口、必须先确认的 STOP 序号；不新增到六字段状态中 |
 
 邮箱中的 `offered/completed` 用来发布请求并决定槽位能否复用，`stop/stopped` 用来
 发布和确认独立停止请求，`request` 保存操作类型、目标速度和启动电流。
@@ -73,7 +74,8 @@ completed 后就假定快照已经更新。共享通道的 `sequence` 用于检�
 更新，`words[6]` 是必要的 24 字节数据存储。
 
 `ns800_foc_submit(..., &sequence)` 在发布命令的同一短临界区回传实际序号，不能拿
-可能滞后的快照序号加一猜测。旧 `ns800_foc_request()` 保留为不需要序号的调用包装。
+可能滞后的快照序号加一猜测。`ns800_foc_request()` 是 UART 来源，`ns800_foc_submit()` 是 CAN 来源；
+两者检查当前 owner，但紧急 STOP 始终允许。owner 交接须等停机快照与 STOP 确认，不等同于收到命令。
 桥接仍使用同样的六字段快照，没有增加时间、遥测或诊断字段。
 
 原来的 `ready` 无需单独保存：命令消费循环是在同步初始化返回后才进入的；初始化
@@ -92,7 +94,8 @@ completed 后就假定快照已经更新。共享通道的 `sequence` 用于检�
 
 `foc_status_publish()` 的关中断区只读取/归并状态、错误和速度；命令确认数据及六字
 发布在恢复本地中断之后完成。打印换算仅在通信核执行，不再每毫秒计算诊断量。
-本轮未测量新的实板延迟，不宣称获得严格 WCET 或完全消除内核关中断延迟。
+后续通过隔离诊断测量了运行时间并修正 BSP 等锁区对 FOC ISR 的屏蔽，见速度包络证据；
+正常状态中仍不保留计时字段，也不宣称获得严格 WCET 或完全消除中断延迟。
 
 ## 输出与验证边界
 
@@ -112,5 +115,6 @@ python3 tests/sguan_integration_regression.py
 ./scripts/build.sh
 ```
 
-这些验证不访问实板、不发送电机命令。真实 CANopen 桥接已使用此接口，但本轮未烧录、
-未启动电机；协议控制和故障复位语义见 [CANopen 桥接说明](CANOPEN.md)。
+这些脚本不访问实板、不发送电机命令。后续已烧录并完成 CAN 常驻时的 UART owner 电机运行、
+交接实测，尚未完成经 CAN 命令的实板启停验收。见 [CANopen 桥接说明](CANOPEN.md) 及
+[速度包络实板记录](bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。

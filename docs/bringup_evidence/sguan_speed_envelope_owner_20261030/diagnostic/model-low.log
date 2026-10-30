@@ -1,0 +1,18 @@
+0.0152 150 1 ['t=8.0 actual=148.1 est=120.5 high=299.5 I=0.08 phase=-0.12 observer=1 closed=0 status=9', 't=9.0 actual=148.9 est=121.9 high=260.6 I=0.07 phase=-0.12 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.0152 200 1 ['t=8.0 actual=201.1 est=187.6 high=457.2 I=0.06 phase=-0.09 observer=1 closed=0 status=9', 't=9.0 actual=197.1 est=205.9 high=214.3 I=0.04 phase=-0.07 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.0152 250 0 ['steady errors: estimate max=13.24 mean=5.12 plant max=2.41 rpm', 'independent plant closed-loop pass'] 
+0.0152 350 0 ['steady errors: estimate max=6.19 mean=2.27 plant max=1.90 rpm', 'independent plant closed-loop pass'] 
+0.0152 500 1 ['t=8.0 actual=-51.8 est=1902.3 high=2208.0 I=0.86 phase=0.75 observer=1 closed=0 status=9', 't=9.0 actual=29.2 est=1902.4 high=1581.2 I=0.78 phase=-3.16 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.0152 800 1 ['t=8.0 actual=-3190.0 est=-3193.1 high=-3333.8 I=0.87 phase=3.90 observer=1 closed=0 status=8', 't=9.0 actual=-3192.2 est=-3195.5 high=-3283.7 I=0.86 phase=-2.38 observer=1 closed=0 status=8'] board supervisor fault at 10.000s
+
+0.021 150 1 ['t=8.0 actual=141.8 est=164.4 high=275.9 I=0.05 phase=-0.06 observer=1 closed=0 status=9', 't=9.0 actual=141.9 est=164.5 high=177.7 I=0.05 phase=-0.05 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.021 200 0 ['steady errors: estimate max=19.72 mean=5.59 plant max=4.61 rpm', 'independent plant closed-loop pass'] 
+0.021 250 0 ['steady errors: estimate max=21.27 mean=4.61 plant max=5.86 rpm', 'independent plant closed-loop pass'] 
+0.021 350 0 ['steady errors: estimate max=5.08 mean=1.39 plant max=2.31 rpm', 'independent plant closed-loop pass'] 
+0.021 500 0 ['steady errors: estimate max=3.91 mean=1.21 plant max=2.31 rpm', 'independent plant closed-loop pass'] 
+0.021 800 1 ['t=8.0 actual=44.7 est=2918.6 high=2839.9 I=0.75 phase=-2.92 observer=1 closed=0 status=9', 't=9.0 actual=23.8 est=2917.3 high=3243.1 I=1.04 phase=-1.34 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+

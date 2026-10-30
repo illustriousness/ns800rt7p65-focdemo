@@ -1,0 +1,361 @@
+{
+  "fast-owner-envelope": {
+    "sequence_passed": true,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 21,
+        "mean_error_rpm": 10.1,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 800,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 2.7,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1500,
+        "max_error_rpm": 7,
+        "mean_error_rpm": 2.6,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2000,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 2.9,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2500,
+        "max_error_rpm": 5,
+        "mean_error_rpm": 3.1,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1527,
+    "isr_max_us": 32.385,
+    "overflow_max": 0,
+    "bus_min_mV": 22337,
+    "entry_max_us": 73.805,
+    "commands": [
+      "motor owner",
+      "motor owner uart",
+      "motor owner",
+      "motor owner can",
+      "motor owner"
+    ]
+  },
+  "fast-owner-repeat": {
+    "sequence_passed": true,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 29,
+        "mean_error_rpm": 17.3,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 800,
+        "max_error_rpm": 7,
+        "mean_error_rpm": 4.0,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1500,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 2.4,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2000,
+        "max_error_rpm": 5,
+        "mean_error_rpm": 3.3,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2500,
+        "max_error_rpm": 5,
+        "mean_error_rpm": 3.6,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1300,
+    "isr_max_us": 32.25,
+    "overflow_max": 0,
+    "bus_min_mV": 22437,
+    "entry_max_us": 74.24,
+    "commands": [
+      "motor owner",
+      "motor owner uart",
+      "motor owner",
+      "motor owner can",
+      "motor owner"
+    ]
+  },
+  "final-envelope": {
+    "sequence_passed": true,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 21,
+        "mean_error_rpm": 14.181818181818182,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 350,
+        "max_error_rpm": 48,
+        "mean_error_rpm": 23.90909090909091,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 800,
+        "max_error_rpm": 8,
+        "mean_error_rpm": 4.2727272727272725,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1500,
+        "max_error_rpm": 5,
+        "mean_error_rpm": 2.090909090909091,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2000,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 3.727272727272727,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2500,
+        "max_error_rpm": 5,
+        "mean_error_rpm": 3.909090909090909,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1326,
+    "isr_max_us": 28.81,
+    "overflow_max": 0,
+    "bus_min_mV": 22437,
+    "entry_max_us": 0.0,
+    "commands": []
+  },
+  "high-1000": {
+    "sequence_passed": false,
+    "stages": [],
+    "peak_mA": 0,
+    "isr_max_us": 0.9225,
+    "overflow_max": 0,
+    "bus_min_mV": null,
+    "entry_max_us": 0.0,
+    "commands": []
+  },
+  "high-1000-valid": {
+    "sequence_passed": true,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 26,
+        "mean_error_rpm": 11.363636363636363,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 800,
+        "max_error_rpm": 7,
+        "mean_error_rpm": 4.090909090909091,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1000,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 2.8181818181818183,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1301,
+    "isr_max_us": 30.13,
+    "overflow_max": 0,
+    "bus_min_mV": 22598,
+    "entry_max_us": 0.0,
+    "commands": []
+  },
+  "high-3000": {
+    "sequence_passed": false,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 29,
+        "mean_error_rpm": 13.545454545454545,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1000,
+        "max_error_rpm": 5,
+        "mean_error_rpm": 2.727272727272727,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1500,
+        "max_error_rpm": 4,
+        "mean_error_rpm": 1.4545454545454546,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2000,
+        "max_error_rpm": 7,
+        "mean_error_rpm": 3.727272727272727,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 2500,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 3.4545454545454546,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1472,
+    "isr_max_us": 30.985,
+    "overflow_max": 0,
+    "bus_min_mV": 21632,
+    "entry_max_us": 0.0,
+    "commands": []
+  },
+  "irq-probe": {
+    "sequence_passed": false,
+    "stages": [],
+    "peak_mA": 1368,
+    "isr_max_us": 30.32,
+    "overflow_max": 1,
+    "bus_min_mV": 22679,
+    "entry_max_us": 97.0125,
+    "commands": [
+      "motor owner",
+      "motor owner uart",
+      "motor owner",
+      "motor owner can",
+      "motor owner"
+    ]
+  },
+  "low-150": {
+    "sequence_passed": false,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 27,
+        "mean_error_rpm": 11.0,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 350,
+        "max_error_rpm": 48,
+        "mean_error_rpm": 23.363636363636363,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 250,
+        "max_error_rpm": 68,
+        "mean_error_rpm": 35.27272727272727,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1164,
+    "isr_max_us": 30.3,
+    "overflow_max": 0,
+    "bus_min_mV": 22598,
+    "entry_max_us": 0.0,
+    "commands": []
+  },
+  "low-300": {
+    "sequence_passed": false,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 27,
+        "mean_error_rpm": 10.272727272727273,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 350,
+        "max_error_rpm": 48,
+        "mean_error_rpm": 24.09090909090909,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 300,
+        "max_error_rpm": 77,
+        "mean_error_rpm": 35.36363636363637,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1290,
+    "isr_max_us": 29.16,
+    "overflow_max": 0,
+    "bus_min_mV": 22578,
+    "entry_max_us": 0.0,
+    "commands": []
+  },
+  "owner-envelope": {
+    "sequence_passed": false,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 12,
+        "mean_error_rpm": 6.7272727272727275,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 800,
+        "max_error_rpm": 7,
+        "mean_error_rpm": 3.090909090909091,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 1500,
+        "max_error_rpm": 6,
+        "mean_error_rpm": 2.4545454545454546,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1213,
+    "isr_max_us": 29.8675,
+    "overflow_max": 1,
+    "bus_min_mV": 22457,
+    "entry_max_us": 0.0,
+    "commands": [
+      "motor owner",
+      "motor owner uart",
+      "motor owner",
+      "motor owner can",
+      "motor owner"
+    ]
+  },
+  "owner-envelope-repeat": {
+    "sequence_passed": false,
+    "stages": [
+      {
+        "target_rpm": 500,
+        "max_error_rpm": 25,
+        "mean_error_rpm": 13.181818181818182,
+        "steady_clips": 0
+      },
+      {
+        "target_rpm": 800,
+        "max_error_rpm": 9,
+        "mean_error_rpm": 4.0,
+        "steady_clips": 0
+      }
+    ],
+    "peak_mA": 1266,
+    "isr_max_us": 29.7525,
+    "overflow_max": 1,
+    "bus_min_mV": 22296,
+    "entry_max_us": 0.0,
+    "commands": [
+      "motor owner",
+      "motor owner uart",
+      "motor owner",
+      "motor owner can",
+      "motor owner"
+    ]
+  }
+}

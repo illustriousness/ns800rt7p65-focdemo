@@ -1,0 +1,2 @@
+CAN owner: read-only under UART/switching, NMT isolation, fresh enable after return and 2500 rpm SPEED passed
+CANopen/FOC bridge: real command submission, delayed ACK/arming, published feedback, fault reset, lease/bus-off/NMT stops and no automatic restart passed (fake CPU0; no hardware)

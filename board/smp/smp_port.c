@@ -2,6 +2,7 @@
 #include <rtthread.h>
 
 #include "board.h"
+#include "foc_irq_window.h"
 
 #if defined(RT_USING_FINSH) && defined(RT_USING_HOOK)
 #include <shell.h>
@@ -51,6 +52,24 @@ volatile rt_uint32_t g_ns800_smp_ipi_count[NS800_CPU_COUNT];
 extern volatile uint32_t SystemCoreClock;
 void MU_IRQHandler(void);
 
+static volatile uint32_t ns800_kernel_free_irq_ready;
+
+int ns800_smp_register_kernel_free_irq(IRQn_Type irq)
+{
+    if (rt_hw_cpu_id() != NS800_CONTROL_CPU) return -RT_EINVAL;
+    ns800_kernel_free_irq_ready = 0U;
+    if (irq != ADCA_CONV_IRQn || NVIC_GetPriorityGrouping() > 7U-__NVIC_PRIO_BITS ||
+        !NVIC_GetEnableIRQ(irq) || NVIC_GetPriority(irq) != 0U)
+        return -RT_EINVAL;
+    for (int n = WWDG_IRQn; n <= EXTI_TXEV_IRQn; ++n)
+        if (n != (int)irq && NVIC_GetEnableIRQ((IRQn_Type)n) &&
+            NVIC_GetPriority((IRQn_Type)n) == 0U)
+            return -RT_EINVAL;
+    __DMB();
+    ns800_kernel_free_irq_ready = 1U;
+    return RT_EOK;
+}
+
 static rt_base_t ns800_atomic_guard_lock(void)
 {
     while (1)
@@ -68,11 +87,14 @@ static rt_base_t ns800_atomic_guard_lock(void)
         }
 
         rt_hw_local_irq_enable(level);
+        uint32_t fast_mask = ns800_foc_irq_window_open(
+            ns800_kernel_free_irq_ready && rt_hw_cpu_id() == NS800_CONTROL_CPU);
         backoff = rt_hw_cpu_id() == 0 ? 8U : 16U;
         while (backoff-- != 0U)
         {
             __NOP();
         }
+        ns800_foc_irq_window_close(fast_mask);
     }
 }
 
@@ -162,10 +184,13 @@ void rt_hw_spin_lock(rt_hw_spinlock_t *lock)
         }
 
         ns800_atomic_guard_unlock(level);
+        uint32_t fast_mask = ns800_foc_irq_window_open(
+            ns800_kernel_free_irq_ready && rt_hw_cpu_id() == NS800_CONTROL_CPU);
         while (*(volatile unsigned long *)&lock->slock != 0UL)
         {
             __NOP();
         }
+        ns800_foc_irq_window_close(fast_mask);
         __DMB();
     }
 }

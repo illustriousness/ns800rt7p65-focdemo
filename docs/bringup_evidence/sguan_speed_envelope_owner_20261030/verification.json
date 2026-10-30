@@ -1,0 +1,67 @@
+{
+  "foc_speed_envelope_regression.py": {
+    "returncode": 0,
+    "stdout": "350 rpm: nominal independent plant, four initial angles passed\n500 rpm: nominal independent plant, four initial angles passed\n800 rpm: nominal independent plant, four initial angles passed\n1000 rpm: nominal independent plant, four initial angles passed\n1500 rpm: nominal independent plant, four initial angles passed\n2000 rpm: nominal independent plant, four initial angles passed\n2500 rpm: nominal independent plant, four initial angles passed\n-500 rpm: nominal independent plant, four initial angles passed\n-800 rpm: nominal independent plant, four initial angles passed\n-1500 rpm: nominal independent plant, four initial angles passed\n-2500 rpm: nominal independent plant, four initial angles passed\nExtended envelope: original current/error criteria retained; model only, no hardware\n",
+    "stderr": ""
+  },
+  "foc_irq_window_regression.py": {
+    "returncode": 0,
+    "stdout": "BSP: priority-zero registration, exact mask restoration, kernel-free ADC in software/SEMA waits, CPU1 unchanged passed\n",
+    "stderr": ""
+  },
+  "foc_ipc_regression.py": {
+    "returncode": 0,
+    "stdout": "IPC: bounded snapshots, concurrent publication, mailbox ordering and wrap passed\nOwner: CAN boot default, STOP-before-grant, stale/busy rejection, cancellation, wrap and fault preservation passed\nControl loop: async requests, state checks, STOP priority and initialization cancellation passed\nStatus: six fields/24 bytes, all states, lossless error source/detail and command acknowledgements passed\n",
+    "stderr": ""
+  },
+  "foc_adc_regression.py": {
+    "returncode": 0,
+    "stdout": "ADC ISR: 256-sample calibration, phase/bus conversion, loop division, gate sequence and existing fault paths passed\n",
+    "stderr": ""
+  },
+  "canopen_protocol_regression.py": {
+    "returncode": 0,
+    "stdout": "CAN owner: read-only under UART/switching, NMT isolation, fresh enable after return and 2500 rpm SPEED passed\nCANopen/FOC bridge: real command submission, delayed ACK/arming, published feedback, fault reset, lease/bus-off/NMT stops and no automatic restart passed (fake CPU0; no hardware)\n",
+    "stderr": ""
+  },
+  "sguan_smo_feedback_regression.py": {
+    "returncode": 0,
+    "stdout": "SMO direct feedback: discrete timing, both axes, filtered-output isolation; zero-input peak 0.122351 V\n",
+    "stderr": ""
+  },
+  "sguan_integration_regression.py": {
+    "returncode": 0,
+    "stdout": "SVPWM physical-voltage normalization passed in all sectors\n500 rpm: independent PMSM plant passed at four initial angles\n800 rpm: independent PMSM plant passed at four initial angles\n-500 rpm: independent PMSM plant passed at four initial angles\n-800 rpm: independent PMSM plant passed at four initial angles\n500 rpm: blocked rotor rejected within startup deadline\n-500 rpm: blocked rotor rejected within startup deadline\nDirect submodule compilation and single-source board settings passed\n",
+    "stderr": ""
+  },
+  "sguan_change_review.py": {
+    "returncode": 0,
+    "stdout": "Original IF/current/position/PID, math and public state preserved; exact SMO feedback and gain schedule allowed\nSupervisor: read-only observation, bounded confirmation/loss/startup and invalid data passed\nLibrary SMO and NLFO configurations both compile; no production sources changed\n",
+    "stderr": ""
+  },
+  "sensorless_status_schema_regression.py": {
+    "returncode": 0,
+    "stdout": "Legacy real-board test rejects compact status before START; no hardware accessed\n",
+    "stderr": ""
+  },
+  "startup_regression.py": {
+    "returncode": 0,
+    "stdout": "BSP startup selection, IRQ vector order and CPU1/CPU2 ITCM copy layouts passed\n",
+    "stderr": ""
+  },
+  "sguan_arm_compile.py": {
+    "returncode": 0,
+    "stdout": "scons: Reading SConscript files ...\nNewlib version: 4.6.0\nscons: done reading SConscript files.\nscons: Building targets ...\nBuilding compilation database build/compile_commands.json\nscons: done building targets.\nARM motor component compile + relocatable link passed (not a flashable firmware image)\n",
+    "stderr": ""
+  },
+  "core_role_regression.py": {
+    "returncode": 0,
+    "stdout": "scons: Reading SConscript files ...\nNewlib version: 4.6.0\nscons: done reading SConscript files.\nscons: Building targets ...\nBuilding compilation database build/compile_commands.json\nscons: done building targets.\nCAN driver ARM cross-compile passed: can1\nCAN driver ARM cross-compile passed: canfd1\nCAN driver ARM cross-compile passed: all\nPer-core writable vectors, communication affinity and control-state separation passed\n",
+    "stderr": "In file included from rt-thread/include/rtthread.h:31,\n                 from board/board.h:13,\n                 from /home/ari/code/ns800rt7p65-focdemo/libraries/HAL_Drivers/drivers/drv_can.h:22,\n                 from /home/ari/code/ns800rt7p65-focdemo/libraries/HAL_Drivers/drivers/drv_can.c:12:\n./rtconfig.h:439:9: warning: \"BSP_USING_CAN\" redefined\n  439 | #define BSP_USING_CAN\n      |         ^~~~~~~~~~~~~\n<command-line>: note: this is the location of the previous definition\nIn file included from rt-thread/include/rtthread.h:31,\n                 from board/board.h:13,\n                 from /home/ari/code/ns800rt7p65-focdemo/libraries/HAL_Drivers/drivers/drv_can.h:22,\n                 from /home/ari/code/ns800rt7p65-focdemo/libraries/HAL_Drivers/drivers/drv_can.c:12:\n./rtconfig.h:439:9: warning: \"BSP_USING_CAN\" redefined\n  439 | #define BSP_USING_CAN\n      |         ^~~~~~~~~~~~~\n<command-line>: note: this is the location of the previous definition\n./rtconfig.h:440:9: warning: \"BSP_USING_CANFD1\" redefined\n  440 | #define BSP_USING_CANFD1\n      |         ^~~~~~~~~~~~~~~~\n<command-line>: note: this is the location of the previous definition\nIn file included from rt-thread/include/rtthread.h:31,\n                 from board/board.h:13,\n                 from /home/ari/code/ns800rt7p65-focdemo/libraries/HAL_Drivers/drivers/drv_can.h:22,\n                 from /home/ari/code/ns800rt7p65-focdemo/libraries/HAL_Drivers/drivers/drv_can.c:12:\n./rtconfig.h:439:9: warning: \"BSP_USING_CAN\" redefined\n  439 | #define BSP_USING_CAN\n      |         ^~~~~~~~~~~~~\n<command-line>: note: this is the location of the previous definition\n./rtconfig.h:440:9: warning: \"BSP_USING_CANFD1\" redefined\n  440 | #define BSP_USING_CANFD1\n      |         ^~~~~~~~~~~~~~~~\n<command-line>: note: this is the location of the previous definition\n"
+  },
+  "uart_irq_regression.py": {
+    "returncode": 0,
+    "stdout": "UART idle/error/RX/TX dispatch and independent interrupt controls passed\n",
+    "stderr": ""
+  }
+}

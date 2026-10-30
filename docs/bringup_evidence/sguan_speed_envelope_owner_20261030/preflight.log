@@ -1,0 +1,3 @@
+motor status
+motor status_schema=2 state=idle error=00000000 speed_mrad_s=54973 command_seq=2 result=0 stop_seq=2
+msh >

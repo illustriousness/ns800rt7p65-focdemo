@@ -1,0 +1,12 @@
+350 rpm: nominal independent plant, four initial angles passed
+500 rpm: nominal independent plant, four initial angles passed
+800 rpm: nominal independent plant, four initial angles passed
+1000 rpm: nominal independent plant, four initial angles passed
+1500 rpm: nominal independent plant, four initial angles passed
+2000 rpm: nominal independent plant, four initial angles passed
+2500 rpm: nominal independent plant, four initial angles passed
+-500 rpm: nominal independent plant, four initial angles passed
+-800 rpm: nominal independent plant, four initial angles passed
+-1500 rpm: nominal independent plant, four initial angles passed
+-2500 rpm: nominal independent plant, four initial angles passed
+Extended envelope: original current/error criteria retained; model only, no hardware

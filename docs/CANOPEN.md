@@ -3,7 +3,7 @@
 ## 当前范围
 
 当前代码把 CANopen 控制字接到 **CPU0 的真实异步 FOC 请求接口**，不再仅改变协议模型。
-新桥接完成主机模型回归和编译，**尚未烧录、未做经 CAN 的电机运行验证**。
+新桥接已烧录，完成 CAN 常驻时的 UART owner 运行与安全交接实测；**尚未完成经 CAN 命令启停电机的实板验收**。
 
 - 上电先保持 GPIO23 低、三相 PWM Trip 关断，FOC 初始化/校准不等于使能输出。
 - 只有 Operational 中的合法周期 RPDO 建立控制授权，且经过显式 shutdown/switch-on/enable 才提交 START。
@@ -14,7 +14,7 @@
 - `0x2000=1` 表示软件电机后端已连接，**不表示已经接好电机/已检测到物理电压**；
   `0x2003=0` 表示不是旧协议台架。
 - 启动目标限 ±350～800 rpm；进入闭环后同向改速可到 ±2500 rpm。2500 rpm 新范围只做过
-  主机回归，未做全范围实板验收。0、HALT 或运行中反向请求先关输出，并回到 Disabled，
+  正向空载实板测试（通过 UART owner），不代表反转/带载/CAN 命令验收。0、HALT 或运行中反向请求先关输出，并回到 Disabled，
   不自动反向重启。无 Hall/编码器时，重新反向使能前需人工确认机械已停稳。
 - `0x605A=0` 的 Quick stop 使用立即失能，不是受控减速。没有零速保持、位置模式或
   加减速轨迹；删除此前“只存数值不执行”的 `0x6083/6084`，访问会明确 abort。
@@ -65,7 +65,8 @@
 
 `generate_od.py` 是 OD 与 EDS 的唯一数据定义，生成 `OD.c`、`OD.h` 和
 `NS800_FOC_BRIDGE.eds`。PDO 映射只读，不支持动态映射、SYNC、LSS、掉电保存或固件升级。
-NMT reset 先发布 STOP，再重置协议/OD；不复位整片 MCU，也不清除驱动故障锁存。
+CAN owner 下 NMT reset 先发布 STOP，再重置协议/OD；UART owner 下只重置协议，不抢停本地运行。
+不复位整片 MCU，也不清除驱动故障锁存。
 
 ## 控制流程与参数
 
@@ -121,7 +122,7 @@ NMT reset 先发布 STOP，再重置协议/OD；不复位整片 MCU，也不清�
 - 默认控制权是 `motor owner=can`。可用 `motor owner uart` 交给 FinSH，切换会先提交 STOP，
   等 CPU0 确认 `stop_seq` 后才授予；切换期间两个来源都不能提交新的 START/SPEED/RESET。
   UART 拥有时 CANopen 只读并报告 Disabled，不能抢回执行；`motor owner can` 同样先 STOP，
-  不自动恢复旧使能。
+   不自动恢复旧使能；返回 CAN 后须重新走 shutdown/enable 流程。
 - 同一时刻只有一个 START/SPEED/RESET 来源，不并行竞争。FinSH 的 `motor status` 和
   紧急 `motor stop` 始终可用；本地 STOP 后远程不会自动重新启动。CPU0 合并确认了更新的
   本地 STOP 时，桥接也会结束原 STOP 的等待并锁存本地停止故障，不会卡在旧序号，
@@ -165,7 +166,8 @@ JLINK_SN=4294967295 ./scripts/jlink_flash.sh
 
 **旧 `scripts/zlg_canopen_test.py` 是无电机台架工具，不用于新固件运行验证。** 它在发送
 NMT/reset/enable 前检查 `0x2000/2003`，遇到真实桥接标记会拒绝执行。不能直接把旧台架
-“使能/故障注入”测试当作新固件的安全电机测试。新桥接本轮仅运行假 CPU0 的主机回归。
+“使能/故障注入”测试当作新固件的安全电机测试。主机回归使用假 CPU0；最新实板验证走 UART owner，
+不能混写为 CAN 命令运行或总线压力验收。见[速度包络与 owner 实板记录](bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
 
 输出文件必须不存在。ZLG 设备不能被其他抓包/控制进程同时占用。FinSH 使用
 UART1/115200，`co` 查看协议/总线状态，`co tx` 独立发一帧，`ps/smp` 核对绑核。

@@ -228,7 +228,7 @@ int main(void) {
     assert(!running && stops == 1 && !foc_mailbox_stop_pending(&command_mailbox));
     reset();
     Sguan.encoder.Real_Speed=-42.5f;
-    for (unsigned source=FOC_ERROR_NONE; source<=FOC_ERROR_OBSERVER; ++source) {
+    for (unsigned source=FOC_ERROR_NONE; source<=FOC_ERROR_BUS; ++source) {
         fault=(source<<16) | (source==FOC_ERROR_LIBRARY ? 0x1234 : 0); Sguan.status=0;
         command_result=-RT_EBUSY;
         foc_status_publish();

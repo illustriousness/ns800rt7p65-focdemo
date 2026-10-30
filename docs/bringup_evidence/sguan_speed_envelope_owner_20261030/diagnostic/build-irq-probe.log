@@ -1,0 +1,23 @@
+scons: Reading SConscript files ...
+Newlib version: 4.6.0
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: `rtthread_cpu2.elf' is up to date.
+CC build/applications/sguan/ns800_foc_port.o
+CC build/board/smp/smp_port.o
+LINK rtthread.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:      172924 B       512 KB     32.98%
+         VT_DTCM:         972 B         1 KB     94.92%
+            DTCM:          4 KB        71 KB      5.63%
+        DTCM_EXT:           0 B        40 KB      0.00%
+          SHARED:       23724 B       112 KB     20.69%
+         RT_HEAP:         16 KB        16 KB    100.00%
+           SRAM2:           0 B     130816 B      0.00%
+         BKPSRAM:           0 B         4 KB      0.00%
+            ITCM:        5616 B        64 KB      8.57%
+arm-none-eabi-objcopy -O binary rtthread.elf rtthread.bin
+arm-none-eabi-size rtthread.elf
+   text	   data	    bss	    dec	    hex	filename
+ 178540	   5616	  39544	 223700	  369d4	rtthread.elf
+scons: done building targets.

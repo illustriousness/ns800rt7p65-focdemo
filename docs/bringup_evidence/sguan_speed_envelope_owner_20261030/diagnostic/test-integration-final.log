@@ -1,0 +1,8 @@
+SVPWM physical-voltage normalization passed in all sectors
+500 rpm: independent PMSM plant passed at four initial angles
+800 rpm: independent PMSM plant passed at four initial angles
+-500 rpm: independent PMSM plant passed at four initial angles
+-800 rpm: independent PMSM plant passed at four initial angles
+500 rpm: blocked rotor rejected within startup deadline
+-500 rpm: blocked rotor rejected within startup deadline
+Direct submodule compilation and single-source board settings passed

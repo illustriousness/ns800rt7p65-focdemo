@@ -1,0 +1,86 @@
+[
+  {
+    "flux": 0.0152,
+    "rpm": 150,
+    "returncode": 1,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=83.0 est=94.0 high=0.0 I=0.79 phase=4.73 observer=0 closed=0 status=9\nt=2.0 actual=139.0 est=129.4 high=458.8 I=0.80 phase=-1.56 observer=0 closed=0 status=9\nt=3.0 actual=156.0 est=142.6 high=395.0 I=0.81 phase=-1.54 observer=0 closed=0 status=9\nt=4.0 actual=152.9 est=122.4 high=110.8 I=0.07 phase=-0.11 observer=1 closed=0 status=9\nt=5.0 actual=151.0 est=119.9 high=-268.7 I=0.07 phase=-0.12 observer=1 closed=0 status=9\nt=6.0 actual=148.8 est=120.8 high=537.7 I=0.07 phase=-0.10 observer=1 closed=0 status=9\nt=7.0 actual=148.3 est=121.8 high=63.9 I=0.07 phase=-0.13 observer=1 closed=0 status=9\nt=8.0 actual=148.1 est=120.5 high=299.5 I=0.08 phase=-0.12 observer=1 closed=0 status=9\nt=9.0 actual=148.9 est=121.9 high=260.6 I=0.07 phase=-0.12 observer=1 closed=0 status=9\n",
+    "stderr": "board supervisor fault at 10.000s\n"
+  },
+  {
+    "flux": 0.0152,
+    "rpm": 200,
+    "returncode": 1,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=110.0 est=125.3 high=465.0 I=0.79 phase=-1.54 observer=0 closed=0 status=9\nt=2.0 actual=185.1 est=177.7 high=454.5 I=0.04 phase=-0.06 observer=1 closed=0 status=9\nt=3.0 actual=194.0 est=180.8 high=-155.0 I=0.06 phase=-0.07 observer=1 closed=0 status=9\nt=4.0 actual=196.1 est=183.6 high=182.4 I=0.07 phase=-0.09 observer=1 closed=0 status=9\nt=5.0 actual=201.9 est=195.6 high=273.7 I=0.05 phase=-0.06 observer=1 closed=0 status=9\nt=6.0 actual=196.6 est=195.9 high=361.5 I=0.05 phase=-0.07 observer=1 closed=0 status=9\nt=7.0 actual=201.2 est=211.4 high=434.7 I=0.05 phase=0.04 observer=1 closed=0 status=9\nt=8.0 actual=201.1 est=187.6 high=457.2 I=0.06 phase=-0.09 observer=1 closed=0 status=9\nt=9.0 actual=197.1 est=205.9 high=214.3 I=0.04 phase=-0.07 observer=1 closed=0 status=9\n",
+    "stderr": "board supervisor fault at 10.000s\n"
+  },
+  {
+    "flux": 0.0152,
+    "rpm": 250,
+    "returncode": 0,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=137.9 est=146.3 high=175.2 I=0.06 phase=-0.10 observer=1 closed=0 status=9\nt=2.0 actual=210.4 est=212.0 high=-270.5 I=0.05 phase=-0.06 observer=1 closed=0 status=9\nt=3.0 actual=235.9 est=232.4 high=443.5 I=0.06 phase=-0.06 observer=1 closed=1 status=9\nt=4.0 actual=244.6 est=245.4 high=518.2 I=0.06 phase=-0.05 observer=1 closed=1 status=9\nt=5.0 actual=250.1 est=245.7 high=212.6 I=0.06 phase=-0.04 observer=1 closed=1 status=9\nt=6.0 actual=249.0 est=251.0 high=497.1 I=0.08 phase=-0.00 observer=1 closed=1 status=9\nt=7.0 actual=248.8 est=257.0 high=-46.8 I=0.06 phase=-0.07 observer=1 closed=1 status=9\nt=8.0 actual=249.7 est=242.2 high=330.8 I=0.07 phase=-0.08 observer=1 closed=1 status=9\nt=9.0 actual=249.4 est=246.8 high=-345.0 I=0.07 phase=-0.05 observer=1 closed=1 status=9\nt=10.0 actual=250.2 est=262.8 high=-54.6 I=0.03 phase=-0.03 observer=1 closed=1 status=9\nt=11.0 actual=249.2 est=244.9 high=562.7 I=0.06 phase=-0.09 observer=1 closed=1 status=9\nt=12.0 actual=249.1 est=244.7 high=150.3 I=0.06 phase=-0.08 observer=1 closed=1 status=9\nsteady errors: estimate max=13.24 mean=5.12 plant max=2.41 rpm\nindependent plant closed-loop pass\n",
+    "stderr": ""
+  },
+  {
+    "flux": 0.0152,
+    "rpm": 350,
+    "returncode": 0,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=49.4 est=148.0 high=431.2 I=0.04 phase=0.35 observer=1 closed=0 status=9\nt=2.0 actual=294.6 est=292.2 high=603.6 I=0.08 phase=-0.10 observer=1 closed=1 status=9\nt=3.0 actual=330.5 est=331.9 high=25.6 I=0.07 phase=-0.09 observer=1 closed=1 status=9\nt=4.0 actual=343.7 est=342.4 high=653.2 I=0.08 phase=-0.07 observer=1 closed=1 status=9\nt=5.0 actual=348.3 est=347.9 high=193.9 I=0.10 phase=-0.05 observer=1 closed=1 status=9\nt=6.0 actual=347.9 est=350.7 high=94.3 I=0.08 phase=-0.10 observer=1 closed=1 status=9\nt=7.0 actual=348.9 est=348.6 high=159.6 I=0.09 phase=-0.06 observer=1 closed=1 status=9\nt=8.0 actual=349.6 est=345.6 high=279.4 I=0.10 phase=-0.11 observer=1 closed=1 status=9\nt=9.0 actual=349.4 est=353.7 high=513.9 I=0.09 phase=-0.07 observer=1 closed=1 status=9\nt=10.0 actual=348.9 est=350.1 high=175.4 I=0.07 phase=-0.09 observer=1 closed=1 status=9\nt=11.0 actual=349.6 est=350.0 high=365.2 I=0.09 phase=-0.11 observer=1 closed=1 status=9\nt=12.0 actual=350.1 est=346.5 high=449.0 I=0.09 phase=-0.10 observer=1 closed=1 status=9\nsteady errors: estimate max=6.19 mean=2.27 plant max=1.90 rpm\nindependent plant closed-loop pass\n",
+    "stderr": ""
+  },
+  {
+    "flux": 0.0152,
+    "rpm": 500,
+    "returncode": 1,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=53.3 est=1805.7 high=2107.9 I=0.81 phase=-2.66 observer=1 closed=0 status=9\nt=2.0 actual=9.6 est=1902.6 high=1607.7 I=0.93 phase=-0.75 observer=1 closed=0 status=9\nt=3.0 actual=-42.7 est=1902.4 high=2226.9 I=1.01 phase=1.64 observer=1 closed=0 status=9\nt=4.0 actual=54.1 est=1902.6 high=1638.2 I=0.88 phase=-2.33 observer=1 closed=0 status=9\nt=5.0 actual=-29.2 est=1902.4 high=2030.9 I=0.79 phase=-0.00 observer=1 closed=0 status=9\nt=6.0 actual=-10.2 est=1902.3 high=1946.3 I=0.94 phase=-3.91 observer=1 closed=0 status=9\nt=7.0 actual=47.4 est=1902.4 high=1698.7 I=1.02 phase=-1.60 observer=1 closed=0 status=9\nt=8.0 actual=-51.8 est=1902.3 high=2208.0 I=0.86 phase=0.75 observer=1 closed=0 status=9\nt=9.0 actual=29.2 est=1902.4 high=1581.2 I=0.78 phase=-3.16 observer=1 closed=0 status=9\n",
+    "stderr": "board supervisor fault at 10.000s\n"
+  },
+  {
+    "flux": 0.0152,
+    "rpm": 800,
+    "returncode": 1,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=-3196.1 est=-3194.8 high=-3531.4 I=0.87 phase=-2.38 observer=1 closed=0 status=8\nt=2.0 actual=-3193.8 est=-3193.2 high=-3124.0 I=0.88 phase=3.90 observer=1 closed=0 status=8\nt=3.0 actual=-3193.2 est=-3195.3 high=-3065.5 I=0.87 phase=-2.38 observer=1 closed=0 status=8\nt=4.0 actual=-3195.5 est=-3194.2 high=-3573.0 I=0.86 phase=3.91 observer=1 closed=0 status=8\nt=5.0 actual=-3193.4 est=-3195.4 high=-3488.6 I=0.89 phase=-2.38 observer=1 closed=0 status=8\nt=6.0 actual=-3194.5 est=-3193.8 high=-3181.3 I=0.83 phase=3.89 observer=1 closed=0 status=8\nt=7.0 actual=-3194.0 est=-3193.9 high=-3425.6 I=0.90 phase=-2.38 observer=1 closed=0 status=8\nt=8.0 actual=-3190.0 est=-3193.1 high=-3333.8 I=0.87 phase=3.90 observer=1 closed=0 status=8\nt=9.0 actual=-3192.2 est=-3195.5 high=-3283.7 I=0.86 phase=-2.38 observer=1 closed=0 status=8\n",
+    "stderr": "board supervisor fault at 10.000s\n"
+  },
+  {
+    "flux": 0.021,
+    "rpm": 150,
+    "returncode": 1,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=96.7 est=94.0 high=0.0 I=0.80 phase=4.69 observer=0 closed=0 status=9\nt=2.0 actual=137.0 est=129.4 high=45.9 I=0.80 phase=-1.58 observer=0 closed=0 status=9\nt=3.0 actual=157.1 est=142.6 high=332.0 I=0.81 phase=-1.59 observer=0 closed=0 status=9\nt=4.0 actual=143.8 est=126.7 high=130.9 I=0.04 phase=-0.09 observer=1 closed=0 status=9\nt=5.0 actual=139.6 est=141.5 high=746.3 I=0.04 phase=-0.09 observer=1 closed=0 status=9\nt=6.0 actual=140.5 est=156.6 high=-262.3 I=0.05 phase=-0.09 observer=1 closed=0 status=9\nt=7.0 actual=142.1 est=164.1 high=-241.1 I=0.05 phase=-0.06 observer=1 closed=0 status=9\nt=8.0 actual=141.8 est=164.4 high=275.9 I=0.05 phase=-0.06 observer=1 closed=0 status=9\nt=9.0 actual=141.9 est=164.5 high=177.7 I=0.05 phase=-0.05 observer=1 closed=0 status=9\n",
+    "stderr": "board supervisor fault at 10.000s\n"
+  },
+  {
+    "flux": 0.021,
+    "rpm": 200,
+    "returncode": 0,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=124.7 est=125.3 high=-28.4 I=0.79 phase=-1.58 observer=0 closed=0 status=9\nt=2.0 actual=177.0 est=178.7 high=212.8 I=0.03 phase=-0.08 observer=1 closed=1 status=9\nt=3.0 actual=195.4 est=194.2 high=139.1 I=0.04 phase=-0.02 observer=1 closed=1 status=9\nt=4.0 actual=198.2 est=192.6 high=420.1 I=0.05 phase=-0.06 observer=1 closed=1 status=9\nt=5.0 actual=198.4 est=211.7 high=-104.7 I=0.02 phase=-0.01 observer=1 closed=1 status=9\nt=6.0 actual=198.5 est=193.6 high=368.8 I=0.04 phase=-0.06 observer=1 closed=1 status=9\nt=7.0 actual=199.1 est=198.3 high=391.2 I=0.05 phase=-0.08 observer=1 closed=1 status=9\nt=8.0 actual=203.3 est=205.2 high=213.5 I=0.04 phase=-0.04 observer=1 closed=1 status=9\nt=9.0 actual=198.4 est=194.7 high=204.3 I=0.04 phase=-0.07 observer=1 closed=1 status=9\nt=10.0 actual=199.4 est=204.7 high=-123.0 I=0.05 phase=-0.07 observer=1 closed=1 status=9\nt=11.0 actual=203.3 est=200.1 high=-253.2 I=0.04 phase=-0.05 observer=1 closed=1 status=9\nt=12.0 actual=197.3 est=196.1 high=585.3 I=0.05 phase=-0.06 observer=1 closed=1 status=9\nsteady errors: estimate max=19.72 mean=5.59 plant max=4.61 rpm\nindependent plant closed-loop pass\n",
+    "stderr": ""
+  },
+  {
+    "flux": 0.021,
+    "rpm": 250,
+    "returncode": 0,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=187.5 est=188.9 high=99.9 I=0.04 phase=-0.04 observer=1 closed=0 status=9\nt=2.0 actual=215.3 est=210.1 high=493.5 I=0.05 phase=-0.07 observer=1 closed=1 status=9\nt=3.0 actual=236.7 est=238.1 high=412.4 I=0.04 phase=-0.05 observer=1 closed=1 status=9\nt=4.0 actual=245.2 est=241.6 high=384.7 I=0.05 phase=-0.08 observer=1 closed=1 status=9\nt=5.0 actual=246.5 est=256.4 high=296.0 I=0.06 phase=-0.07 observer=1 closed=1 status=9\nt=6.0 actual=247.3 est=248.1 high=271.3 I=0.04 phase=-0.08 observer=1 closed=1 status=9\nt=7.0 actual=249.1 est=244.1 high=35.2 I=0.04 phase=-0.06 observer=1 closed=1 status=9\nt=8.0 actual=253.4 est=258.2 high=531.9 I=0.08 phase=-0.00 observer=1 closed=1 status=9\nt=9.0 actual=246.4 est=247.0 high=543.5 I=0.07 phase=-0.08 observer=1 closed=1 status=9\nt=10.0 actual=248.9 est=248.4 high=-144.6 I=0.05 phase=-0.07 observer=1 closed=1 status=9\nt=11.0 actual=252.1 est=247.5 high=512.5 I=0.04 phase=-0.06 observer=1 closed=1 status=9\nt=12.0 actual=249.7 est=255.5 high=-82.3 I=0.06 phase=-0.07 observer=1 closed=1 status=9\nsteady errors: estimate max=21.27 mean=4.61 plant max=5.86 rpm\nindependent plant closed-loop pass\n",
+    "stderr": ""
+  },
+  {
+    "flux": 0.021,
+    "rpm": 350,
+    "returncode": 0,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=243.7 est=242.9 high=187.8 I=0.05 phase=-0.05 observer=1 closed=1 status=9\nt=2.0 actual=304.5 est=297.0 high=369.0 I=0.05 phase=-0.09 observer=1 closed=1 status=9\nt=3.0 actual=331.3 est=332.1 high=236.2 I=0.05 phase=-0.10 observer=1 closed=1 status=9\nt=4.0 actual=343.5 est=338.8 high=-146.8 I=0.06 phase=-0.10 observer=1 closed=1 status=9\nt=5.0 actual=348.0 est=342.9 high=840.3 I=0.06 phase=-0.11 observer=1 closed=1 status=9\nt=6.0 actual=349.9 est=350.6 high=53.5 I=0.06 phase=-0.10 observer=1 closed=1 status=9\nt=7.0 actual=348.8 est=350.4 high=900.4 I=0.06 phase=-0.10 observer=1 closed=1 status=9\nt=8.0 actual=349.2 est=350.7 high=91.6 I=0.07 phase=-0.09 observer=1 closed=1 status=9\nt=9.0 actual=350.2 est=346.3 high=551.2 I=0.06 phase=-0.09 observer=1 closed=1 status=9\nt=10.0 actual=348.8 est=351.3 high=-67.1 I=0.07 phase=-0.11 observer=1 closed=1 status=9\nt=11.0 actual=348.5 est=350.5 high=729.4 I=0.06 phase=-0.09 observer=1 closed=1 status=9\nt=12.0 actual=349.7 est=348.4 high=735.6 I=0.06 phase=-0.10 observer=1 closed=1 status=9\nsteady errors: estimate max=5.08 mean=1.39 plant max=2.31 rpm\nindependent plant closed-loop pass\n",
+    "stderr": ""
+  },
+  {
+    "flux": 0.021,
+    "rpm": 500,
+    "returncode": 0,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=351.5 est=346.0 high=770.8 I=0.07 phase=-0.09 observer=1 closed=1 status=9\nt=2.0 actual=432.6 est=434.5 high=312.6 I=0.08 phase=-0.12 observer=1 closed=1 status=9\nt=3.0 actual=474.3 est=474.0 high=558.1 I=0.09 phase=-0.15 observer=1 closed=1 status=9\nt=4.0 actual=491.6 est=487.6 high=411.9 I=0.09 phase=-0.14 observer=1 closed=1 status=9\nt=5.0 actual=497.0 est=493.7 high=719.5 I=0.09 phase=-0.14 observer=1 closed=1 status=9\nt=6.0 actual=499.8 est=497.7 high=694.1 I=0.09 phase=-0.13 observer=1 closed=1 status=9\nt=7.0 actual=498.4 est=500.5 high=503.0 I=0.08 phase=-0.14 observer=1 closed=1 status=9\nt=8.0 actual=498.7 est=501.3 high=44.5 I=0.09 phase=-0.13 observer=1 closed=1 status=9\nt=9.0 actual=500.0 est=497.2 high=427.1 I=0.09 phase=-0.15 observer=1 closed=1 status=9\nt=10.0 actual=499.7 est=501.2 high=222.4 I=0.07 phase=-0.13 observer=1 closed=1 status=9\nt=11.0 actual=498.0 est=500.1 high=519.6 I=0.09 phase=-0.14 observer=1 closed=1 status=9\nt=12.0 actual=499.5 est=499.3 high=92.1 I=0.10 phase=-0.15 observer=1 closed=1 status=9\nsteady errors: estimate max=3.91 mean=1.21 plant max=2.31 rpm\nindependent plant closed-loop pass\n",
+    "stderr": ""
+  },
+  {
+    "flux": 0.021,
+    "rpm": 800,
+    "returncode": 1,
+    "stdout": "t=0.0 actual=0.0 est=0.0 high=0.0 I=0.05 phase=0.00 observer=0 closed=0 status=4\nt=1.0 actual=-47.4 est=2373.3 high=2688.5 I=1.08 phase=1.46 observer=1 closed=0 status=9\nt=2.0 actual=-52.2 est=2721.0 high=2955.3 I=0.83 phase=0.57 observer=1 closed=0 status=9\nt=3.0 actual=-31.5 est=2790.2 high=2629.4 I=1.07 phase=1.67 observer=1 closed=0 status=9\nt=4.0 actual=28.4 est=2856.4 high=2766.9 I=0.76 phase=2.88 observer=1 closed=0 status=9\nt=5.0 actual=50.9 est=2919.0 high=2888.2 I=0.91 phase=-2.38 observer=1 closed=0 status=9\nt=6.0 actual=-20.9 est=2918.6 high=3214.8 I=0.80 phase=-0.42 observer=1 closed=0 status=9\nt=7.0 actual=-34.3 est=2918.8 high=2657.7 I=1.06 phase=1.54 observer=1 closed=0 status=9\nt=8.0 actual=44.7 est=2918.6 high=2839.9 I=0.75 phase=-2.92 observer=1 closed=0 status=9\nt=9.0 actual=23.8 est=2917.3 high=3243.1 I=1.04 phase=-1.34 observer=1 closed=0 status=9\n",
+    "stderr": "board supervisor fault at 10.000s\n"
+  }
+]

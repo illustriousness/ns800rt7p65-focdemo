@@ -1,0 +1,54 @@
+[
+  {
+    "command": "motor owner",
+    "output": "motor owner\r\nmotor owner=can (handover waits for STOP acknowledgement)\r\nmsh >\r\nmsh >"
+  },
+  {
+    "command": "motor status",
+    "output": "motor status\r\nmotor status_schema=2 state=idle error=00000000 speed_mrad_s=0 command_seq=0 result=0 stop_seq=1\r\nmsh >"
+  },
+  {
+    "command": "motor closed 500 0.8",
+    "output": "\nmsh >motor closed 500 0.8\r\nmotor: command failed -16.\r\nmsh >\r\nmsh >"
+  },
+  {
+    "command": "motor status",
+    "output": "motor status\r\nmotor status_schema=2 state=idle error=00000000 speed_mrad_s=0 command_seq=0 result=0 stop_seq=1\r\nmsh >\r\nmsh "
+  },
+  {
+    "command": "motor owner uart",
+    "output": ">motor owner uart\r\nmotor owner=switching (handover waits for STOP acknowledgement)\r\nmsh >\r\nmsh "
+  },
+  {
+    "command": "motor owner",
+    "output": ">motor owner\r\nmotor owner=uart (handover waits for STOP acknowledgement)\r\nmsh >\r\nmsh >"
+  },
+  {
+    "command": "motor closed 2500 0.8",
+    "output": "motor closed 2500 0.8\r\nmotor: start 350..800 rpm; speed 350..2500 rpm\r\nmotor: command failed -22.\r\nmsh >\r\nms"
+  },
+  {
+    "command": "motor status",
+    "output": " >motor status\r\nmotor status_schema=2 state=idle error=00000000 speed_mrad_s=0 command_seq=0 result=0 stop_seq=2\r\nmsh >\r\nm"
+  },
+  {
+    "command": "motor owner can",
+    "output": "sh >motor owner can\r\nmotor owner=switching (handover waits for STOP acknowledgement)\r\nmsh >\r\nmsh >"
+  },
+  {
+    "command": "motor owner",
+    "output": "motor owner\r\nmotor owner=can (handover waits for STOP acknowledgement)\r\nmsh >\r\nmsh >"
+  },
+  {
+    "command": "motor stop",
+    "output": "motor stop\r\nmsh >\r\nmsh >"
+  },
+  {
+    "command": "motor status",
+    "output": "motor status\r\nmotor status_schema=2 state=idle error=00000000 speed_mrad_s=0 command_seq=0 result=0 stop_seq=4\r\nmsh >\r\nmsh "
+  },
+  {
+    "command": "co",
+    "output": ">co\r\nco cpu=1 node=1 classic=1 bitrate=1000000 nmt=127 rx=0 tx=4 RXE=0 TXE=128 busoff=0\r\ncontrols=FOC_BRIDGE motor_connected=1 cw=0000 sw=0040 mode=3 target=0 actual=0 error=0000\r\nmotor_owner=can\r\nmsh >"
+  }
+]

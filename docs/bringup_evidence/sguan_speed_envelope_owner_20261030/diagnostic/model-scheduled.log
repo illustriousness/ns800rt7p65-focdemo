@@ -1,0 +1,27 @@
+0.0152 150 1 ['t=8.0 actual=143.7 est=149.9 high=-31.7 I=0.80 phase=-1.58 observer=0 closed=0 status=9', 't=9.0 actual=143.9 est=149.9 high=-4.1 I=0.80 phase=-1.58 observer=0 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.0152 200 1 ['t=8.0 actual=197.5 est=200.4 high=153.9 I=0.80 phase=-1.56 observer=0 closed=0 status=9', 't=9.0 actual=201.3 est=200.4 high=65.0 I=0.80 phase=-1.56 observer=0 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.0152 250 0 ['steady errors: estimate max=8.61 mean=2.04 plant max=3.20 rpm', 'independent plant closed-loop pass'] 
+0.0152 350 0 ['steady errors: estimate max=6.79 mean=1.59 plant max=2.43 rpm', 'independent plant closed-loop pass'] 
+0.0152 500 0 ['steady errors: estimate max=3.97 mean=1.11 plant max=1.96 rpm', 'independent plant closed-loop pass'] 
+0.0152 800 0 ['steady errors: estimate max=2.92 mean=0.96 plant max=2.33 rpm', 'independent plant closed-loop pass'] 
+0.0152 1500 0 ['steady errors: estimate max=3.31 mean=0.93 plant max=3.33 rpm', 'independent plant closed-loop pass'] 
+0.0152 2000 0 ['steady errors: estimate max=5.42 mean=2.64 plant max=5.17 rpm', 'independent plant closed-loop pass'] 
+0.0152 2500 1 ['t=8.0 actual=-27.6 est=2371.5 high=2049.6 I=0.80 phase=3.15 observer=1 closed=0 status=9', 't=9.0 actual=-34.2 est=2371.5 high=2071.1 I=0.79 phase=3.36 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.0152 3000 0 ['steady errors: estimate max=4.14 mean=1.77 plant max=5.18 rpm', 'independent plant closed-loop pass'] 
+0.021 150 1 ['t=8.0 actual=136.0 est=149.9 high=222.4 I=0.79 phase=-1.59 observer=0 closed=0 status=9', 't=9.0 actual=136.0 est=149.9 high=216.7 I=0.79 phase=-1.59 observer=0 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.021 200 1 ['t=8.0 actual=196.7 est=200.4 high=472.8 I=0.80 phase=-1.57 observer=0 closed=0 status=9', 't=9.0 actual=202.7 est=200.4 high=197.4 I=0.80 phase=-1.57 observer=0 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.021 250 0 ['steady errors: estimate max=6.49 mean=2.53 plant max=2.74 rpm', 'independent plant closed-loop pass'] 
+0.021 350 0 ['steady errors: estimate max=5.94 mean=1.82 plant max=2.56 rpm', 'independent plant closed-loop pass'] 
+0.021 500 0 ['steady errors: estimate max=3.83 mean=1.27 plant max=2.26 rpm', 'independent plant closed-loop pass'] 
+0.021 800 0 ['steady errors: estimate max=3.42 mean=0.99 plant max=3.01 rpm', 'independent plant closed-loop pass'] 
+0.021 1500 0 ['steady errors: estimate max=3.14 mean=0.91 plant max=4.14 rpm', 'independent plant closed-loop pass'] 
+0.021 2000 1 ['t=8.0 actual=-15.3 est=3958.4 high=4208.8 I=1.01 phase=1.70 observer=1 closed=0 status=9', 't=9.0 actual=-24.0 est=3958.0 high=4250.5 I=1.02 phase=1.43 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.021 2500 1 ['t=8.0 actual=34.2 est=3376.3 high=3095.2 I=0.76 phase=-3.20 observer=1 closed=0 status=9', 't=9.0 actual=-32.8 est=3375.5 high=3645.2 I=0.76 phase=-0.09 observer=1 closed=0 status=9'] board supervisor fault at 10.000s
+
+0.021 3000 1 ['t=12.0 actual=2322.8 est=2328.1 high=1792.8 I=0.44 phase=-0.60 observer=1 closed=1 status=9', 'steady errors: estimate max=674.24 mean=672.16 plant max=682.45 rpm'] 

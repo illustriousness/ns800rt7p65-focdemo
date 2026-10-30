@@ -2,8 +2,12 @@
 
 > **当前代码已接入 CANopen → CPU0 FOC 的真实异步控制桥接，不再是无输出协议模型。**
 > CANFD1 使用经典 CAN 1 Mbit/s、Node-ID=1；上电不自动使能，需周期 RPDO 和显式控制字。
-> 新桥接仅完成主机回归与构建，未烧录/运行电机验证。范围及旧 ZLG 工具限制见
-> [CANopen 桥接说明](docs/CANOPEN.md)。下文归档结果不代表新桥接已通过实板验收。
+> 固件已烧录，CAN 常驻时 UART owner 运行及交接已实测；经 CAN 命令的启停验收尚未完成。
+> 最新正向空载范围为：350～800 rpm 启动，闭环后同向改速至 2500 rpm。
+> 用 `motor owner uart` / `motor owner can` 交接，默认 CAN；记录见
+> [速度包络与 owner 实板证据](docs/bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
+> 演示视频：https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition
+> 范围及旧 ZLG 工具限制见 [CANopen 桥接说明](docs/CANOPEN.md)，下文为历史归档。
 
 当前 SguanFOC 库适配的 ADC/PWM、SMO/PLL 无感闭环、UART 修复，以及 SMP
 探索过程见 [Bring Up 记录](docs/BRINGUP.md)。该记录合并了指定历史会话和
@@ -167,7 +171,7 @@ shell_cpu=1
 
 `smp` 只读状态；停机后执行 `smp stress` 才运行约三秒的双核计数/自旋锁压测。
 压测线程平时阻塞，不再每 10 ms 唤醒控制核。`scripts/smp_test.py` 会主动发起该压测，
-不要在电机运行时执行。当前核分工修改仅完成构建和主机回归，尚未烧录实板验收。
+不要在电机运行时执行。核分工与 BSP 等锁窗口修复已烧录；CAN 常驻时 UART owner 运行/交接实测，经 CAN 命令启停尚未验收。
 
 归档前的实板结果包括：两核绑核线程在连续采样中同步增长、共享计数一致、MU
 IPI 计数增长；冷上电后两核约 1 秒内各增长约 100 个 10 ms 工作周期；FinSH 的
@@ -183,7 +187,7 @@ IPI 计数增长；冷上电后两核约 1 秒内各增长约 100 个 10 ms 工�
 
 ## 2026 RT-Thread 嵌入式大赛提交材料
 
-论坛帖子草稿、腾讯文档填写清单、演示视频脚本和两张架构图见
+论坛帖子草稿、腾讯文档填写清单、演示视频和实拍图/两张架构图见
 [`docs/competition/`](docs/competition/)。提交前必须替换其中的仓库、视频、
 许可证等占位符，并确认新 CANopen→FOC 桥接的实板验证边界没有被改写。
 

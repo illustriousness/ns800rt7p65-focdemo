@@ -230,6 +230,8 @@ void Device_enableAllPeripherals(void);
  */
 void Device_unlockPeriphReg (void);
 void Board_disablePowerStage(void);
+/* CPU0 ADC ISR must have priority zero and must never call RTOS services. */
+int ns800_smp_register_kernel_free_irq(IRQn_Type irq);
 
 /**
  * \brief  Disable clocks for all peripherals.

@@ -1,0 +1,4 @@
+IPC: bounded snapshots, concurrent publication, mailbox ordering and wrap passed
+Owner: CAN boot default, STOP-before-grant, stale/busy rejection, cancellation, wrap and fault preservation passed
+Control loop: async requests, state checks, STOP priority and initialization cancellation passed
+Status: six fields/24 bytes, all states, lossless error source/detail and command acknowledgements passed

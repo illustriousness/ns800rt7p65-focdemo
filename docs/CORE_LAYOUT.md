@@ -65,7 +65,7 @@ ns800_foc_owner_get();
   `motor owner` 和 `co` 都会显示当前 owner。该约定不增加逐次核检查。
 - 启动/改速/保护包络集中在 `applications/sguan/foc_limits.h`：启动 ±350～800 rpm，
   闭环同向改速到 ±2500 rpm，相电流 3.0 A、母线 22～27 V、估算超速 2750 rpm 关断。
-  2500 rpm 新范围只做主机回归，未做全范围实板验收。
+  正向空载已通过到 2500 rpm 的短时实板测试；不代表反转、带载或经 CAN 命令验收。
 - CPU1 的多个命令来源在短本地临界区中串行发布；约定这些调用来自 CPU1 线程，
   不在 CAN ISR 中直接调用，不从 CPU0 反向发布。
 - 只有 CPU0 读取实时 Sguan 状态，慢线程形成快照后发布；CPU1 只读快照。
@@ -76,8 +76,14 @@ ns800_foc_owner_get();
   状态读取最多尝试三次，冲突时返回忙。共享 SRAM 沿用当前关闭 D-Cache 的配置；
   以后启用 D-Cache 时必须先解决共享区一致性。
 
-没有拆开 Sguan 高低环，也没有改动 PI/PLL/PWM/采样参数或放宽原有电机保护。
+没有拆开 Sguan 高低环；PI/PLL 增益、PWM/ADC 频率和采样窗口保持不变。
+Q 轴电压限幅、SMO 注入幅值调度和上游角度补偿按新包络配置，电流门限未提高。
 算法低环仍由 ADC ISR 每 20 个周期执行；线程慢环仅处理命令与状态。
+
+CPU0 允许唯一的优先级 0、无 RTOS 调用的 ADC ISR 在 BSP 的软件锁等待/SEMA 失败退避中抢占。
+这些窗口不持有本地锁/SEMA，不写内核数据；`BASEPRI` 屏蔽优先级 1～15，重试取锁前恢复
+原 `PRIMASK/BASEPRI`。持锁段、普通关中断区和 CPU1 不变。登记时验证 IRQ、优先级分组及
+没有其他已启用的优先级 0 外设，后续不得破坏此约定；ADC ISR 中禁止新增 RTOS/打印调用。
 
 ## 诊断与验证
 
@@ -93,7 +99,6 @@ python3 tests/uart_irq_regression.py
 python3 tests/sguan_integration_regression.py
 ```
 
-新桥接只完成构建和主机测试，**未烧录、未启动电机**。基础 CAN 收发通过不等于
-经 CAN 的电机启停已通过；后续应先停机检查两核 IRQ 归属，再分阶段验证真实
-启动/改速/关断与通信断联。精简状态不再含电流峰值和时序诊断，实板周期裕量与
-电流边界需要独立采集，不以缺少字段或构建通过代替这些验证。
+新固件已烧录，并完成 CAN 常驻时的 UART owner 运行及交接实测；基础 CAN 收发和这些
+测试仍不等于经 CAN 命令的启停/断联验收。精简状态不再含电流峰值和时序诊断，
+本轮数据来自隔离诊断镜像，记录见[速度包络与 owner](bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。

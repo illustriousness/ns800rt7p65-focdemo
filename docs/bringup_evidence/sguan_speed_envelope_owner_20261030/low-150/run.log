@@ -1,0 +1,92 @@
+low-150 t=0.37 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23525 clip=0 sat=0
+low-150 t=1.43 state=2 err=00000000 reason=0 target=0 est=0 peak=0 bus=23565 clip=0 sat=0
+low-150 t=1.86 state=3 err=00000000 reason=0 target=500 est=97 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=2.18 state=3 err=00000000 reason=0 target=500 est=206 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=2.50 state=3 err=00000000 reason=0 target=500 est=286 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=2.81 state=3 err=00000000 reason=0 target=500 est=243 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=3.13 state=4 err=00000000 reason=0 target=500 est=398 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=3.45 state=4 err=00000000 reason=0 target=500 est=429 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=3.76 state=4 err=00000000 reason=0 target=500 est=415 peak=1164 bus=23545 clip=0 sat=0
+low-150 t=4.08 state=4 err=00000000 reason=0 target=500 est=484 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=4.39 state=4 err=00000000 reason=0 target=500 est=493 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=4.71 state=4 err=00000000 reason=0 target=500 est=468 peak=1164 bus=23525 clip=0 sat=0
+low-150 t=5.03 state=4 err=00000000 reason=0 target=500 est=501 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=5.34 state=4 err=00000000 reason=0 target=500 est=511 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=5.66 state=4 err=00000000 reason=0 target=500 est=495 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=5.97 state=4 err=00000000 reason=0 target=500 est=491 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=6.29 state=4 err=00000000 reason=0 target=500 est=478 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=6.61 state=4 err=00000000 reason=0 target=500 est=502 peak=1164 bus=23525 clip=0 sat=0
+low-150 t=6.92 state=4 err=00000000 reason=0 target=500 est=517 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=7.24 state=4 err=00000000 reason=0 target=500 est=491 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=7.56 state=4 err=00000000 reason=0 target=500 est=487 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=7.87 state=4 err=00000000 reason=0 target=500 est=508 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=8.19 state=4 err=00000000 reason=0 target=500 est=527 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=8.50 state=4 err=00000000 reason=0 target=500 est=492 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=8.82 state=4 err=00000000 reason=0 target=500 est=488 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=9.14 state=4 err=00000000 reason=0 target=500 est=504 peak=1164 bus=23666 clip=0 sat=0
+low-150 t=9.45 state=4 err=00000000 reason=0 target=500 est=515 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=9.77 state=4 err=00000000 reason=0 target=500 est=494 peak=1164 bus=23404 clip=0 sat=0
+STAGE {"target_rpm": 500, "max_error_rpm": 27, "mean_error_rpm": 11.0, "peak_mA": 1164, "max_isr_us": 30.3, "bus_min_mV": 22639, "bus_max_mV": 24754, "steady_clips": 0, "steady_saturated_ticks": 0, "last": {"adc": "193482", "overflow": "0", "isr": "8119/12120", "control": "6915/11332", "peak_mA": "1164", "bus_mV": "23404", "I_mA": "51,271,-344", "state": "4", "error": "00000000", "ticks": "162803", "reason": "0", "target_rpm": "500", "est_rpm": "494", "cpu_hz": "400000000", "offsets": "256", "bus_min_mV": "22639", "bus_max_mV": "24754", "clips": "0", "saturated": "0", "Udq_mV": "60,1895", "Idq_mA": "-203,137", "iqref_mA": "260", "emf_mV": "2104", "estimated_dc_mA": "0", "command_seq": "1", "stop_seq": "2"}}
+low-150 t=10.17 state=4 err=00000000 reason=0 target=350 est=478 peak=1164 bus=23646 clip=0 sat=0
+low-150 t=10.49 state=4 err=00000000 reason=0 target=350 est=417 peak=1164 bus=23505 clip=0 sat=0
+low-150 t=10.81 state=4 err=00000000 reason=0 target=350 est=435 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=11.12 state=4 err=00000000 reason=0 target=350 est=367 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=11.44 state=4 err=00000000 reason=0 target=350 est=337 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=11.76 state=4 err=00000000 reason=0 target=350 est=330 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=12.07 state=4 err=00000000 reason=0 target=350 est=322 peak=1164 bus=23545 clip=0 sat=0
+low-150 t=12.39 state=4 err=00000000 reason=0 target=350 est=364 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=12.71 state=4 err=00000000 reason=0 target=350 est=411 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=13.02 state=4 err=00000000 reason=0 target=350 est=359 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=13.34 state=4 err=00000000 reason=0 target=350 est=318 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=13.65 state=4 err=00000000 reason=0 target=350 est=345 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=13.97 state=4 err=00000000 reason=0 target=350 est=403 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=14.29 state=4 err=00000000 reason=0 target=350 est=322 peak=1164 bus=23545 clip=0 sat=0
+low-150 t=14.61 state=4 err=00000000 reason=0 target=350 est=329 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=14.92 state=4 err=00000000 reason=0 target=350 est=378 peak=1164 bus=23545 clip=0 sat=0
+low-150 t=15.24 state=4 err=00000000 reason=0 target=350 est=359 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=15.56 state=4 err=00000000 reason=0 target=350 est=326 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=15.87 state=4 err=00000000 reason=0 target=350 est=360 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=16.19 state=4 err=00000000 reason=0 target=350 est=393 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=16.51 state=4 err=00000000 reason=0 target=350 est=337 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=16.82 state=4 err=00000000 reason=0 target=350 est=340 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=17.14 state=4 err=00000000 reason=0 target=350 est=398 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=17.46 state=4 err=00000000 reason=0 target=350 est=324 peak=1164 bus=23646 clip=0 sat=0
+low-150 t=17.77 state=4 err=00000000 reason=0 target=350 est=333 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=18.09 state=4 err=00000000 reason=0 target=350 est=379 peak=1164 bus=23485 clip=0 sat=0
+STAGE {"target_rpm": 350, "max_error_rpm": 48, "mean_error_rpm": 23.363636363636363, "peak_mA": 1164, "max_isr_us": 30.3, "bus_min_mV": 22619, "bus_max_mV": 24754, "steady_clips": 0, "steady_saturated_ticks": 0, "last": {"adc": "359843", "overflow": "0", "isr": "7554/12120", "control": "6773/11332", "peak_mA": "1164", "bus_mV": "23485", "I_mA": "-55,-44,-22", "state": "4", "error": "00000000", "ticks": "329163", "reason": "0", "target_rpm": "350", "est_rpm": "379", "cpu_hz": "400000000", "offsets": "256", "bus_min_mV": "22619", "bus_max_mV": "24754", "clips": "0", "saturated": "0", "Udq_mV": "-61,1485", "Idq_mA": "32,55", "iqref_mA": "195", "emf_mV": "1482", "estimated_dc_mA": "4", "command_seq": "2", "stop_seq": "2"}}
+low-150 t=18.49 state=4 err=00000000 reason=0 target=250 est=322 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=18.81 state=4 err=00000000 reason=0 target=250 est=338 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=19.13 state=4 err=00000000 reason=0 target=250 est=343 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=19.44 state=4 err=00000000 reason=0 target=250 est=312 peak=1164 bus=23646 clip=0 sat=0
+low-150 t=19.76 state=4 err=00000000 reason=0 target=250 est=312 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=20.07 state=4 err=00000000 reason=0 target=250 est=287 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=20.39 state=4 err=00000000 reason=0 target=250 est=281 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=20.71 state=4 err=00000000 reason=0 target=250 est=181 peak=1164 bus=23545 clip=0 sat=0
+low-150 t=21.02 state=4 err=00000000 reason=0 target=250 est=291 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=21.34 state=4 err=00000000 reason=0 target=250 est=270 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=21.66 state=4 err=00000000 reason=0 target=250 est=147 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=21.97 state=4 err=00000000 reason=0 target=250 est=313 peak=1164 bus=23646 clip=0 sat=0
+low-150 t=22.29 state=4 err=00000000 reason=0 target=250 est=263 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=22.61 state=4 err=00000000 reason=0 target=250 est=175 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=22.92 state=4 err=00000000 reason=0 target=250 est=296 peak=1164 bus=23605 clip=0 sat=0
+low-150 t=23.24 state=4 err=00000000 reason=0 target=250 est=279 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=23.56 state=4 err=00000000 reason=0 target=250 est=182 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=23.87 state=4 err=00000000 reason=0 target=250 est=279 peak=1164 bus=23626 clip=0 sat=0
+low-150 t=24.19 state=4 err=00000000 reason=0 target=250 est=258 peak=1164 bus=23384 clip=0 sat=0
+low-150 t=24.51 state=4 err=00000000 reason=0 target=250 est=267 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=24.82 state=4 err=00000000 reason=0 target=250 est=273 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=25.14 state=4 err=00000000 reason=0 target=250 est=284 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=25.45 state=4 err=00000000 reason=0 target=250 est=270 peak=1164 bus=23565 clip=0 sat=0
+low-150 t=25.77 state=4 err=00000000 reason=0 target=250 est=306 peak=1164 bus=23585 clip=0 sat=0
+low-150 t=26.09 state=4 err=00000000 reason=0 target=250 est=193 peak=1164 bus=23525 clip=0 sat=0
+low-150 t=26.40 state=4 err=00000000 reason=0 target=250 est=297 peak=1164 bus=23605 clip=0 sat=0
+STAGE {"target_rpm": 250, "max_error_rpm": 68, "mean_error_rpm": 35.27272727272727, "peak_mA": 1164, "max_isr_us": 30.3, "bus_min_mV": 22598, "bus_max_mV": 24814, "steady_clips": 0, "steady_saturated_ticks": 0, "last": {"adc": "526144", "overflow": "0", "isr": "8015/12120", "control": "7181/11332", "peak_mA": "1164", "bus_mV": "23605", "I_mA": "-15,-272,185", "state": "4", "error": "00000000", "ticks": "495464", "reason": "0", "target_rpm": "250", "est_rpm": "297", "cpu_hz": "400000000", "offsets": "256", "bus_min_mV": "22598", "bus_max_mV": "24814", "clips": "0", "saturated": "0", "Udq_mV": "-91,986", "Idq_mA": "97,317", "iqref_mA": "166", "emf_mV": "1132", "estimated_dc_mA": "19", "command_seq": "3", "stop_seq": "2"}}
+low-150 t=26.68 state=2 err=00000000 reason=0 target=250 est=290 peak=1164 bus=23505 clip=0 sat=0
+Traceback (most recent call last):
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 95, in <module>
+    if failure:raise failure
+               ^^^^^^^^^^^^^
+  File "/tmp/opencode/sguan-speed-envelope-20261030/run_board.py", line 75, in <module>
+    assert max(errors)<=50 and sum(errors)/len(errors)<=25,stage
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'target_rpm': 250, 'max_error_rpm': 68, 'mean_error_rpm': 35.27272727272727, 'peak_mA': 1164, 'max_isr_us': 30.3, 'bus_min_mV': 22598, 'bus_max_mV': 24814, 'steady_clips': 0, 'steady_saturated_ticks': 0, 'last': {'adc': '526144', 'overflow': '0', 'isr': '8015/12120', 'control': '7181/11332', 'peak_mA': '1164', 'bus_mV': '23605', 'I_mA': '-15,-272,185', 'state': '4', 'error': '00000000', 'ticks': '495464', 'reason': '0', 'target_rpm': '250', 'est_rpm': '297', 'cpu_hz': '400000000', 'offsets': '256', 'bus_min_mV': '22598', 'bus_max_mV': '24814', 'clips': '0', 'saturated': '0', 'Udq_mV': '-91,986', 'Idq_mA': '97,317', 'iqref_mA': '166', 'emf_mV': '1132', 'estimated_dc_mA': '19', 'command_seq': '3', 'stop_seq': '2'}}

@@ -1,0 +1,8 @@
+scons: Reading SConscript files ...
+Newlib version: 4.6.0
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: `rtthread_cpu2.elf' is up to date.
+CC build/applications/canopen/canopen_app.o
+scons: `rtthread.elf' is up to date.
+scons: done building targets.

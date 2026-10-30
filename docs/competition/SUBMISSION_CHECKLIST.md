@@ -78,7 +78,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | 硬件框架说明 | 论坛帖第三节 + `hardware_setup.jpg`、`hardware_topology.png` | 图已生成，待上传 |
 | 软件框架说明 | 论坛帖第四节 + `software_flow.png` | 图已生成，待上传 |
 | 开源软件代码 | https://github.com/illustriousness/ns800rt7p65-focdemo | **已发布公开仓库，tag `v1.0-competition`** |
-| 演示视频 | B 站/腾讯视频公开链接 | **待录制/上传** |
+| 演示视频 | https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition | **已上传 GitHub Release** |
 | 论坛帖子 | `club.rt-thread.org` 帖子链接 | **待发布** |
 | 腾讯文档 | 项目信息、链接、附件 | **待填写** |
 | 其他附件 | EDS、实板证据、测试命令 | 已在仓库中 |
@@ -99,7 +99,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | 硬件平台 | NSSinePad NS800RT7P65D（双 Cortex-M7） |
 | 软件平台 | RT-Thread 5.3.1 SMP、SguanFOC v3.1.0、CANopenNode v4.1 |
 | 开源仓库 | https://github.com/illustriousness/ns800rt7p65-focdemo |
-| 演示视频 | {{公开视频链接}} |
+| 演示视频 | https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition |
 | 论坛帖子 | {{论坛帖子链接}} |
 | 许可证 | Apache-2.0（第三方组件保留各自许可证） |
 
@@ -139,11 +139,11 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 - 实板无感 FOC：500→600→500 rpm、800→700→800 rpm 通过；ISR 峰值 27.185/27.470 µs，相电流峰值 1.272/1.189 A，ADC overflow 0。
 - SMO A/B：500 rpm 原始 PLL 标准差 821.60→142.88、776.82→147.96 rpm；800 rpm 744.07→145.71 rpm。
 - CANopen 台架：经典 CAN 1 Mbit/s 100/100 回传，SDO/PDO/NMT/EMCY/402 通过，RXE=TXE=0。
-- 新桥接：主机 ASan/UBSan 回归通过；**尚未烧录、未做经 CAN 的电机实板运行**。
+- 新桥接：固件已烧录，CAN 常驻时 UART owner 运行/交接实测；**经 CAN 命令的电机启停尚未验收**。
 
 ### 2.8 已知限制（短版）
 
-仅模式 3；启动 ±350～800 rpm，闭环同向改速到 ±2500 rpm；无零速保持、直接跨零换向、完整加减速轨迹或位置模式；速度是观测器估算，非独立测速；500 ms 超时为任务级处理，不替代硬件安全链；新桥接未做实板电机验证；实板 FOC 为短时空载，未覆盖反转、堵转、带载、温升、长期和热重启；2500 rpm 新范围仅主机回归。
+仅模式 3；启动 ±350～800 rpm，闭环同向改速到 ±2500 rpm；无零速保持、直接跨零换向、完整加减速轨迹或位置模式；速度是观测器估算，非独立测速；500 ms 超时为任务级处理，不替代硬件安全链；2500 rpm 已通过 UART owner 正向空载短测，但经 CAN 命令的启停尚未验收；实板 FOC 未覆盖反转、堵转、带载、温升、长期和热重启。
 
 ### 2.9 附件建议
 
@@ -157,7 +157,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | CANopen 台架证据摘要 | 可把 `docs/canopen_evidence/manifest.json` 和抓包说明导出 PDF |
 | 构建/测试说明 | `docs/CANOPEN.md`、`docs/FOC_STATUS.md`、`docs/CORE_LAYOUT.md` |
 
-> 腾讯文档若限制附件大小，优先放“仓库链接 + 论坛帖子链接 + 两张图 + EDS”，证据放在仓库中。
+> 腾讯文档若限制附件大小，优先放“仓库链接 + 论坛帖子链接 + 三张图 + EDS”，证据放在仓库中。
 
 ---
 
@@ -181,7 +181,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
    - `docs/competition/software_flow.png`
 6. 替换所有 `{{...}}` 占位符：
    - 开源仓库、分支/tag、LICENSE 已填；
-   - 仍需填演示视频链接；
+   - 演示视频链接已填（GitHub Release）；
    - 论坛帖子链接（发布后回填腾讯文档）。
 7. 建议标签：`RT-Thread`、`NS800RT7P65D`、`FOC`、`CANopen`、`CiA402`、`双核`。
 8. 先点“预览”，检查表格、代码块、图片和中文标点；再发布。
@@ -189,37 +189,29 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 
 ---
 
-## 4. 演示视频脚本（3～5 分钟）
+## 4. 演示视频（已录制）
 
-> 只录实际跑过的内容。新桥接尚未做实板电机运行，就不要在视频里剪成“CANopen 已控制电机”；可以展示主机回归或协议台架，并用字幕标注边界。
-
-| 时间 | 画面 | 旁白/字幕 |
-| --- | --- | --- |
-| 0:00–0:20 | 主控板、功率板、电机、ZLG、J-Link | 作品名称、硬件平台、RT-Thread 5.3.1 |
-| 0:20–0:50 | 两张架构图 | CPU0 控制、CPU1 通信、邮箱/快照 |
-| 0:50–1:20 | 上电，串口 `motor status`、`ps`、`smp` | 默认停机、双核绑核、GPIO23 低 |
-| 1:20–2:20 | `motor closed 500 0.8` → `motor speed 600` → `motor stop` | 实板无感 FOC 启动/改速/停机；速度是估算值 |
-| 2:20–3:10 | CANopen 主站/协议台架或主机回归 | 若实板桥接未验证，字幕写“桥接仅主机回归” |
-| 3:10–3:40 | STOP 优先、故障复位、断联停止 | 停止优先、故障不丢、复位不自动启动 |
-| 3:40–4:00 | 仓库页面、构建命令、限制 | 开源地址、复现方式、已知限制 |
+- 文件：`ns800_uart_demo_20261030.mp4`
+- 规格：25 s，1920×1080，30 fps，约 9.2 MB
+- 公开链接：https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition
+- 内容：UART owner 下 500→1500→2500 rpm，CAN 线程/桥接保持运行，最后请求交回 CAN owner（先 STOP 再授予）
+- 字幕已注明：速度来自 SMO/PLL 估算；2500 rpm 为 24 V、直流限流 2.5 A、正向空载短测
+- **边界：** 这是 UART owner 演示，不是 CAN RPDO 直接启停；经 CAN 命令的电机运行尚未验收
 
 常用命令：
 
 ```text
-motor status
+motor owner uart
+motor owner
 motor closed 500 0.8
-motor speed 600
-motor stop
 motor status
-co
+motor speed 1500
+motor speed 2500
+motor stop
+motor owner can
 ```
 
-录制注意：
-
-- 接线变更先断电；不要用手强行转动电机；
-- 画面中保留串口原始输出，不要只剪“成功”片段；
-- 字幕注明“估算速度，非独立测速”“短时空载，非长期/带载验收”；
-- 视频上传 B 站或腾讯视频，设置为公开，复制链接。
+> 如果后续补录 CAN RPDO 启停视频，再替换链接；不要把 UART owner 视频剪成 CAN 命令运行。
 
 ---
 
@@ -280,8 +272,8 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 - [ ] 根目录有 LICENSE，第三方许可证保留；
 - [ ] 论坛帖子标题符合 `〖2026嵌入式大赛〗+ 标题`；
 - [ ] 帖子中所有 `{{...}}` 已替换；
-- [ ] 两张架构图已上传且显示正常；
-- [ ] 演示视频公开可播放，链接无权限限制；
+- [ ] 实拍图与两张架构图已上传且显示正常；
+- [x] 演示视频公开可播放，链接无权限限制；
 - [ ] 腾讯文档中项目概述、功能介绍、硬件/软件框架、代码、视频、论坛链接均已填写；
 - [ ] 腾讯文档附件/链接权限为“任何人可查看”；
 - [ ] 提交时间早于 **2026-11-01 24:00**；
@@ -317,11 +309,12 @@ sha256sum /tmp/opencode/ns800-submission-$(date +%Y%m%d).zip
 - 双核 RT-Thread SMP 实板启动、绑核、MU/SEMA；
 - 20 kHz 无感 FOC 实板 500/600/800 rpm 短时空载；
 - CANopen 协议台架实板 NMT/SDO/PDO/EMCY/402；
-- 新桥接主机 ASan/UBSan 回归和完整固件构建。
+- 新桥接主机 ASan/UBSan 回归、完整固件构建、CAN 常驻时 UART owner 运行/交接；
+- UART owner 正向空载 500→1500→2500 rpm 短测。
 
 **不要写“已完成”：**
 
-- “CANopen 已实板控制电机运行”——新桥接尚未烧录/实板电机验证；
+- “CANopen RPDO 已实板控制电机运行”——目前只验证了 UART owner；经 CAN 命令的启停尚未验收；
 - “完整 CiA 402 一致性”——只实现受限速度子集；
 - “独立测速/编码器闭环”——速度来自 SMO/PLL 估算；
 - “硬件安全认证/严格 WCET”——只有软件关断和短时观测；

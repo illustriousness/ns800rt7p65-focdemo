@@ -1,0 +1,349 @@
+diff --git a/README.md b/README.md
+index 04b23c6..80a6f5f 100644
+--- a/README.md
++++ b/README.md
+@@ -16,8 +16,8 @@ NSSinePad NS800RT7P65D（双 Cortex-M7）上的 RT-Thread 5.3.1 SMP 电机控制
+ | 双核 RT-Thread SMP、绑核、MU/SEMA、双 Bank 下载 | **实板通过** |
+ | 20 kHz 无感 FOC 500/600/800 rpm 启动、改速、停机 | **实板通过**（短时空载） |
+ | CANopen NMT/SDO/PDO/EMCY/402 协议台架 | **实板通过** |
+-| CANopen → CPU0 真实异步 FOC 桥接 | **主机 ASan/UBSan 回归 + 完整构建通过；未烧录、未做经 CAN 的电机实板运行** |
+-| 闭环同向改速到 2500 rpm | 主机回归通过；**未做全范围实板验收** |
++| CANopen → CPU0 真实异步 FOC 桥接 | 固件已烧录，owner 交接及 UART owner 运行已实测；**经 CAN 命令的电机启停尚未验收** |
++| 闭环同向改速到 2500 rpm | 24 V / 2.5 A 直流限流、正向空载短测通过；非带载/反转/长期保证 |
+ 
+ 速度反馈来自 SMO/PLL 估算，不是编码器或独立测速仪。项目不宣称完整 CiA 402
+ 一致性、零速保持、直接跨零换向或硬件安全认证。
+diff --git a/README_zh.md b/README_zh.md
+index 1a98190..1648bdf 100644
+--- a/README_zh.md
++++ b/README_zh.md
+@@ -2,8 +2,11 @@
+ 
+ > **当前代码已接入 CANopen → CPU0 FOC 的真实异步控制桥接，不再是无输出协议模型。**
+ > CANFD1 使用经典 CAN 1 Mbit/s、Node-ID=1；上电不自动使能，需周期 RPDO 和显式控制字。
+-> 新桥接仅完成主机回归与构建，未烧录/运行电机验证。范围及旧 ZLG 工具限制见
+-> [CANopen 桥接说明](docs/CANOPEN.md)。下文归档结果不代表新桥接已通过实板验收。
++> 固件已烧录，CAN 常驻时 UART owner 运行及交接已实测；经 CAN 命令的启停验收尚未完成。
++> 最新正向空载范围为：350～800 rpm 启动，闭环后同向改速至 2500 rpm。
++> 用 `motor owner uart` / `motor owner can` 交接，默认 CAN；记录见
++> [速度包络与 owner 实板证据](docs/bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
++> 范围及旧 ZLG 工具限制见 [CANopen 桥接说明](docs/CANOPEN.md)，下文为历史归档。
+ 
+ 当前 SguanFOC 库适配的 ADC/PWM、SMO/PLL 无感闭环、UART 修复，以及 SMP
+ 探索过程见 [Bring Up 记录](docs/BRINGUP.md)。该记录合并了指定历史会话和
+diff --git a/applications/sguan/README.md b/applications/sguan/README.md
+index be3fe01..f05c6d5 100644
+--- a/applications/sguan/README.md
++++ b/applications/sguan/README.md
+@@ -24,7 +24,7 @@
+ 
+ 当前 CPU0 控制、CPU1 通信的任务/IRQ 分配和异步命令接口见
+ [双核业务分工](../../docs/CORE_LAYOUT.md)。CANopen 已接入真实异步启停、改速和故障复位，
+-具体范围见 [CANopen 桥接说明](../../docs/CANOPEN.md)。新桥接仅完成主机回归和编译，未烧录或运行电机验证。
++具体范围见 [CANopen 桥接说明](../../docs/CANOPEN.md)。固件已烧录，CAN 常驻时的 UART owner 运行及交接已实测；经 CAN 命令启停的实板验收仍需单独进行。
+ 
+ 板级 `UserData_*.h` 已放回子模块的默认位置，主仓库适配目录不再保留第二份参数。
+ 这避免了源码同目录 `#include "UserData_*.h"` 优先选中上游示例的问题，也无需额外的
+@@ -42,9 +42,10 @@
+ | `VBUS_MIN` | 修正上游两处与最新头文件不一致的字段名 |
+ | 反转 | SMO 模式下仅翻转反向相位检测误差的符号，保留原版检测器和 20 kHz PLL |
+ | 无编码器启动 | 仅在本板 SMO 模式跳过绝对编码器校准，避免零回调错误交换相序 |
+-| 电压量纲及限幅 | 仅本板 SMO 模式保留 SVPWM `sqrt(3)` 缩放和 6 V/母线比例试验限幅 |
++| 电压量纲及限幅 | SMO 模式保留 SVPWM `sqrt(3)` 缩放；矢量限幅为 `min(11.5 V, .43×VBUS)`，Q 轴 PI 输出/积分上限为 ±11.5 V |
+ | GCC/ITCM | 固定模式表分派及范围检查，两个高/低环入口的 `.fast` 标记 |
+-| SMO 直接反馈 | 积分前计算硬 sign 注入，直接反馈电流预测器；同一注入的低通结果仅作为反电动势输出，保留原参数及结构体 |
++| SMO 直接反馈 | 积分前计算硬 sign 注入，直接反馈电流预测器；同一注入的低通结果仅作为反电动势输出，不增加公开状态字段 |
++| 转速包络 | 注入 h 在 800 rpm 以下为 6，800～2000 rpm 随平滑参考升至 12；复用上游角度补偿，Td=1.1 ms、固定偏置为 0 |
+ 
+ `Sguan_math.c/.h` 与基点逐字节一致，使用原版 512 点正弦表和软件平方根，不使用 eMATH。
+ 相位检测已回到上游的反电动势 sin/cos 检测，不再使用项目后来新增的 `atan2f()` 方案，
+@@ -63,15 +64,33 @@
+ `Sensorless_Flag` 不被适配层伪造。原库 `Low_angle` 接管后仍按原逻辑更新；
+ 历史日志中的 `forced_mrad` 仅为 IF 诊断快照，`pll_error_mV` 是电压量纲；
+ 当前精简接口不再发布这些诊断字段，不能用它们声称有独立角度测量。
+-SMO 原始 `h=6`、`Wc=800`、PI/PLL 等参数未重调，仅删除已不存在的 `Boundary` 配置。
++SMO 仍为硬 sign、`Wc=800`，PI/PLL 增益未重调；h 的参考速度调度、电压余量及角度补偿按最新速度包络配置。
+ NLFO 的原版分支已恢复；本板运行仍限定 SMO 模式 8，未验证其他模式实板表现。
+ 
+ 当前控制包络集中定义在 `foc_limits.h`：启动 ±350～800 rpm，闭环同向改速到
+ ±2500 rpm；运行中相电流 3.0 A、母线 22～27 V、估算超速 2750 rpm 会触发关断。
+-2500 rpm 新范围只做主机回归，未做全范围实板验收。控制权默认在 CANopen；
++24 V、直流电源限流 2.5 A、空载条件下，正向 2500 rpm 已通过短时实板测试；不代表额定转矩或长期可靠性。控制权默认在 CANopen；
+ `motor owner uart` / `motor owner can` 用于交接，交接先 STOP 并等待 `stop_seq`，
+ 切换期间两个来源都不能提交新命令。
+ 
++```text
++motor owner uart
++motor owner               # 确认为 uart；switching 时继续查询
++motor closed 500 0.8
++motor status              # 等待 closed，速度单位为 mrad/s
++motor speed 2500
++motor stop
++motor owner can
++```
++
++300/250 rpm 的低速候选未通过原速度误差判据，已撤销试验性低速接管改动，下限仍为 350 rpm。
++3000 rpm 尝试在估速约 2820 rpm 时捕获 21.63 V 母线读数并停机，未算通过。
++完整通过/失败日志、owner 验证及 SMP 时序修复见
++[速度包络与控制权证据](../../docs/bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
++
++CPU0 的 ADC ISR 不调用 RTOS。它以优先级 0 登记后，只允许在 BSP 的无持锁等待区抢占；
++CPU1 和其他中断的屏蔽规则不变。不要在该 ISR 加入 RTOS/日志调用，或给其他启用的外设分配优先级 0。
++
+ ## 构建和检查
+ 
+ ```bash
+@@ -80,6 +99,8 @@ git submodule update --init --recursive
+ python3 tests/sguan_integration_regression.py
+ python3 tests/sguan_change_review.py
+ python3 tests/sguan_smo_feedback_regression.py
++python3 tests/foc_speed_envelope_regression.py
++python3 tests/foc_irq_window_regression.py
+ python3 tests/sguan_arm_compile.py
+ git -C libraries/SguanFOC_Library diff --stat
+ ```
+diff --git a/applications/sguan/ns800_foc_port.c b/applications/sguan/ns800_foc_port.c
+index 164cd60..5fdef90 100644
+--- a/applications/sguan/ns800_foc_port.c
++++ b/applications/sguan/ns800_foc_port.c
+@@ -169,6 +169,9 @@ static void motor_hw_init(void)
+     NVIC_ClearPendingIRQ(ADCA_CONV_IRQn);
+     ADC_enableInterrupt(ADCA, ADC_INT_NUMBER1);
+     Interrupt_enable(ADCA_CONV_IRQn);
++    int fast_irq = ns800_smp_register_kernel_free_irq(ADCA_CONV_IRQn);
++    RT_ASSERT(fast_irq == RT_EOK);
++    if (fast_irq != RT_EOK) { pwm_safe_off(FOC_ERROR_ADC); return; }
+     /* PERIOD is the center of the low-side conduction window. */
+     EPWM_setADCTriggerSource(EPWM8, EPWM_SOC_A, EPWM_SOC_TBCTR_PERIOD);
+     EPWM_setADCTriggerEventPrescale(EPWM8, EPWM_SOC_A, 1U);
+diff --git a/board/board.h b/board/board.h
+index 1da3acd..feedb59 100644
+--- a/board/board.h
++++ b/board/board.h
+@@ -230,6 +230,8 @@ void Device_enableAllPeripherals(void);
+  */
+ void Device_unlockPeriphReg (void);
+ void Board_disablePowerStage(void);
++/* CPU0 ADC ISR must have priority zero and must never call RTOS services. */
++int ns800_smp_register_kernel_free_irq(IRQn_Type irq);
+ 
+ /**
+  * \brief  Disable clocks for all peripherals.
+diff --git a/board/smp/smp_port.c b/board/smp/smp_port.c
+index cc262d7..1ca75dc 100644
+--- a/board/smp/smp_port.c
++++ b/board/smp/smp_port.c
+@@ -2,6 +2,7 @@
+ #include <rtthread.h>
+ 
+ #include "board.h"
++#include "foc_irq_window.h"
+ 
+ #if defined(RT_USING_FINSH) && defined(RT_USING_HOOK)
+ #include <shell.h>
+@@ -51,6 +52,24 @@ volatile rt_uint32_t g_ns800_smp_ipi_count[NS800_CPU_COUNT];
+ extern volatile uint32_t SystemCoreClock;
+ void MU_IRQHandler(void);
+ 
++static volatile uint32_t ns800_kernel_free_irq_ready;
++
++int ns800_smp_register_kernel_free_irq(IRQn_Type irq)
++{
++    if (rt_hw_cpu_id() != NS800_CONTROL_CPU) return -RT_EINVAL;
++    ns800_kernel_free_irq_ready = 0U;
++    if (irq != ADCA_CONV_IRQn || NVIC_GetPriorityGrouping() > 7U-__NVIC_PRIO_BITS ||
++        !NVIC_GetEnableIRQ(irq) || NVIC_GetPriority(irq) != 0U)
++        return -RT_EINVAL;
++    for (int n = WWDG_IRQn; n <= EXTI_TXEV_IRQn; ++n)
++        if (n != (int)irq && NVIC_GetEnableIRQ((IRQn_Type)n) &&
++            NVIC_GetPriority((IRQn_Type)n) == 0U)
++            return -RT_EINVAL;
++    __DMB();
++    ns800_kernel_free_irq_ready = 1U;
++    return RT_EOK;
++}
++
+ static rt_base_t ns800_atomic_guard_lock(void)
+ {
+     while (1)
+@@ -68,11 +87,14 @@ static rt_base_t ns800_atomic_guard_lock(void)
+         }
+ 
+         rt_hw_local_irq_enable(level);
++        uint32_t fast_mask = ns800_foc_irq_window_open(
++            ns800_kernel_free_irq_ready && rt_hw_cpu_id() == NS800_CONTROL_CPU);
+         backoff = rt_hw_cpu_id() == 0 ? 8U : 16U;
+         while (backoff-- != 0U)
+         {
+             __NOP();
+         }
++        ns800_foc_irq_window_close(fast_mask);
+     }
+ }
+ 
+@@ -162,10 +184,13 @@ void rt_hw_spin_lock(rt_hw_spinlock_t *lock)
+         }
+ 
+         ns800_atomic_guard_unlock(level);
++        uint32_t fast_mask = ns800_foc_irq_window_open(
++            ns800_kernel_free_irq_ready && rt_hw_cpu_id() == NS800_CONTROL_CPU);
+         while (*(volatile unsigned long *)&lock->slock != 0UL)
+         {
+             __NOP();
+         }
++        ns800_foc_irq_window_close(fast_mask);
+         __DMB();
+     }
+ }
+diff --git a/docs/CANOPEN.md b/docs/CANOPEN.md
+index 092cfb4..b841210 100644
+--- a/docs/CANOPEN.md
++++ b/docs/CANOPEN.md
+@@ -3,7 +3,7 @@
+ ## 当前范围
+ 
+ 当前代码把 CANopen 控制字接到 **CPU0 的真实异步 FOC 请求接口**，不再仅改变协议模型。
+-新桥接完成主机模型回归和编译，**尚未烧录、未做经 CAN 的电机运行验证**。
++新桥接已烧录，完成 CAN 常驻时的 UART owner 运行与安全交接实测；**尚未完成经 CAN 命令启停电机的实板验收**。
+ 
+ - 上电先保持 GPIO23 低、三相 PWM Trip 关断，FOC 初始化/校准不等于使能输出。
+ - 只有 Operational 中的合法周期 RPDO 建立控制授权，且经过显式 shutdown/switch-on/enable 才提交 START。
+@@ -14,7 +14,7 @@
+ - `0x2000=1` 表示软件电机后端已连接，**不表示已经接好电机/已检测到物理电压**；
+   `0x2003=0` 表示不是旧协议台架。
+ - 启动目标限 ±350～800 rpm；进入闭环后同向改速可到 ±2500 rpm。2500 rpm 新范围只做过
+-  主机回归，未做全范围实板验收。0、HALT 或运行中反向请求先关输出，并回到 Disabled，
++  正向空载实板测试（通过 UART owner），不代表反转/带载/CAN 命令验收。0、HALT 或运行中反向请求先关输出，并回到 Disabled，
+   不自动反向重启。无 Hall/编码器时，重新反向使能前需人工确认机械已停稳。
+ - `0x605A=0` 的 Quick stop 使用立即失能，不是受控减速。没有零速保持、位置模式或
+   加减速轨迹；删除此前“只存数值不执行”的 `0x6083/6084`，访问会明确 abort。
+@@ -65,7 +65,8 @@
+ 
+ `generate_od.py` 是 OD 与 EDS 的唯一数据定义，生成 `OD.c`、`OD.h` 和
+ `NS800_FOC_BRIDGE.eds`。PDO 映射只读，不支持动态映射、SYNC、LSS、掉电保存或固件升级。
+-NMT reset 先发布 STOP，再重置协议/OD；不复位整片 MCU，也不清除驱动故障锁存。
++CAN owner 下 NMT reset 先发布 STOP，再重置协议/OD；UART owner 下只重置协议，不抢停本地运行。
++不复位整片 MCU，也不清除驱动故障锁存。
+ 
+ ## 控制流程与参数
+ 
+@@ -121,7 +122,7 @@ NMT reset 先发布 STOP，再重置协议/OD；不复位整片 MCU，也不清
+ - 默认控制权是 `motor owner=can`。可用 `motor owner uart` 交给 FinSH，切换会先提交 STOP，
+   等 CPU0 确认 `stop_seq` 后才授予；切换期间两个来源都不能提交新的 START/SPEED/RESET。
+   UART 拥有时 CANopen 只读并报告 Disabled，不能抢回执行；`motor owner can` 同样先 STOP，
+-  不自动恢复旧使能。
++   不自动恢复旧使能；返回 CAN 后须重新走 shutdown/enable 流程。
+ - 同一时刻只有一个 START/SPEED/RESET 来源，不并行竞争。FinSH 的 `motor status` 和
+   紧急 `motor stop` 始终可用；本地 STOP 后远程不会自动重新启动。CPU0 合并确认了更新的
+   本地 STOP 时，桥接也会结束原 STOP 的等待并锁存本地停止故障，不会卡在旧序号，
+@@ -165,7 +166,8 @@ JLINK_SN=4294967295 ./scripts/jlink_flash.sh
+ 
+ **旧 `scripts/zlg_canopen_test.py` 是无电机台架工具，不用于新固件运行验证。** 它在发送
+ NMT/reset/enable 前检查 `0x2000/2003`，遇到真实桥接标记会拒绝执行。不能直接把旧台架
+-“使能/故障注入”测试当作新固件的安全电机测试。新桥接本轮仅运行假 CPU0 的主机回归。
++“使能/故障注入”测试当作新固件的安全电机测试。主机回归使用假 CPU0；最新实板验证走 UART owner，
++不能混写为 CAN 命令运行或总线压力验收。见[速度包络与 owner 实板记录](bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
+ 
+ 输出文件必须不存在。ZLG 设备不能被其他抓包/控制进程同时占用。FinSH 使用
+ UART1/115200，`co` 查看协议/总线状态，`co tx` 独立发一帧，`ps/smp` 核对绑核。
+diff --git a/docs/CORE_LAYOUT.md b/docs/CORE_LAYOUT.md
+index 226d8b6..59bacc6 100644
+--- a/docs/CORE_LAYOUT.md
++++ b/docs/CORE_LAYOUT.md
+@@ -65,7 +65,7 @@ ns800_foc_owner_get();
+   `motor owner` 和 `co` 都会显示当前 owner。该约定不增加逐次核检查。
+ - 启动/改速/保护包络集中在 `applications/sguan/foc_limits.h`：启动 ±350～800 rpm，
+   闭环同向改速到 ±2500 rpm，相电流 3.0 A、母线 22～27 V、估算超速 2750 rpm 关断。
+-  2500 rpm 新范围只做主机回归，未做全范围实板验收。
++  正向空载已通过到 2500 rpm 的短时实板测试；不代表反转、带载或经 CAN 命令验收。
+ - CPU1 的多个命令来源在短本地临界区中串行发布；约定这些调用来自 CPU1 线程，
+   不在 CAN ISR 中直接调用，不从 CPU0 反向发布。
+ - 只有 CPU0 读取实时 Sguan 状态，慢线程形成快照后发布；CPU1 只读快照。
+@@ -76,9 +76,15 @@ ns800_foc_owner_get();
+   状态读取最多尝试三次，冲突时返回忙。共享 SRAM 沿用当前关闭 D-Cache 的配置；
+   以后启用 D-Cache 时必须先解决共享区一致性。
+ 
+-没有拆开 Sguan 高低环，也没有改动 PI/PLL/PWM/采样参数或放宽原有电机保护。
++没有拆开 Sguan 高低环；PI/PLL 增益、PWM/ADC 频率和采样窗口保持不变。
++Q 轴电压限幅、SMO 注入幅值调度和上游角度补偿按新包络配置，电流门限未提高。
+ 算法低环仍由 ADC ISR 每 20 个周期执行；线程慢环仅处理命令与状态。
+ 
++CPU0 允许唯一的优先级 0、无 RTOS 调用的 ADC ISR 在 BSP 的软件锁等待/SEMA 失败退避中抢占。
++这些窗口不持有本地锁/SEMA，不写内核数据；`BASEPRI` 屏蔽优先级 1～15，重试取锁前恢复
++原 `PRIMASK/BASEPRI`。持锁段、普通关中断区和 CPU1 不变。登记时验证 IRQ、优先级分组及
++没有其他已启用的优先级 0 外设，后续不得破坏此约定；ADC ISR 中禁止新增 RTOS/打印调用。
++
+ ## 诊断与验证
+ 
+ `main` 和 LED 移到 CPU1。`cpu0w/cpu1w` 仅在 `smp stress` 后运行约三秒，平时
+@@ -93,7 +99,6 @@ python3 tests/uart_irq_regression.py
+ python3 tests/sguan_integration_regression.py
+ ```
+ 
+-新桥接只完成构建和主机测试，**未烧录、未启动电机**。基础 CAN 收发通过不等于
+-经 CAN 的电机启停已通过；后续应先停机检查两核 IRQ 归属，再分阶段验证真实
+-启动/改速/关断与通信断联。精简状态不再含电流峰值和时序诊断，实板周期裕量与
+-电流边界需要独立采集，不以缺少字段或构建通过代替这些验证。
++新固件已烧录，并完成 CAN 常驻时的 UART owner 运行及交接实测；基础 CAN 收发和这些
++测试仍不等于经 CAN 命令的启停/断联验收。精简状态不再含电流峰值和时序诊断，
++本轮数据来自隔离诊断镜像，记录见[速度包络与 owner](bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
+diff --git a/docs/FOC_STATUS.md b/docs/FOC_STATUS.md
+index ebe2a1b..913b04d 100644
+--- a/docs/FOC_STATUS.md
++++ b/docs/FOC_STATUS.md
+@@ -65,6 +65,7 @@
+ | `command_mailbox` | 跨核异步请求、普通命令槽位复用及独立停止请求的交接 |
+ | `command_result` | 保存最近普通命令的执行结果，直到后续状态发布/下一命令执行 |
+ | `status_channel` | 保存通信核可读取的一致快照，避免它直接读取被 ADC ISR 修改的数据 |
++| `control_owner/owner_pending/owner_stop_seq` | 仅通信核使用的三个字：当前控制入口、待授予入口、必须先确认的 STOP 序号；不新增到六字段状态中 |
+ 
+ 邮箱中的 `offered/completed` 用来发布请求并决定槽位能否复用，`stop/stopped` 用来
+ 发布和确认独立停止请求，`request` 保存操作类型、目标速度和启动电流。
+@@ -73,7 +74,8 @@ completed 后就假定快照已经更新。共享通道的 `sequence` 用于检
+ 更新，`words[6]` 是必要的 24 字节数据存储。
+ 
+ `ns800_foc_submit(..., &sequence)` 在发布命令的同一短临界区回传实际序号，不能拿
+-可能滞后的快照序号加一猜测。旧 `ns800_foc_request()` 保留为不需要序号的调用包装。
++可能滞后的快照序号加一猜测。`ns800_foc_request()` 是 UART 来源，`ns800_foc_submit()` 是 CAN 来源；
++两者检查当前 owner，但紧急 STOP 始终允许。owner 交接须等停机快照与 STOP 确认，不等同于收到命令。
+ 桥接仍使用同样的六字段快照，没有增加时间、遥测或诊断字段。
+ 
+ 原来的 `ready` 无需单独保存：命令消费循环是在同步初始化返回后才进入的；初始化
+@@ -92,7 +94,8 @@ completed 后就假定快照已经更新。共享通道的 `sequence` 用于检
+ 
+ `foc_status_publish()` 的关中断区只读取/归并状态、错误和速度；命令确认数据及六字
+ 发布在恢复本地中断之后完成。打印换算仅在通信核执行，不再每毫秒计算诊断量。
+-本轮未测量新的实板延迟，不宣称获得严格 WCET 或完全消除内核关中断延迟。
++后续通过隔离诊断测量了运行时间并修正 BSP 等锁区对 FOC ISR 的屏蔽，见速度包络证据；
++正常状态中仍不保留计时字段，也不宣称获得严格 WCET 或完全消除中断延迟。
+ 
+ ## 输出与验证边界
+ 
+@@ -112,5 +115,6 @@ python3 tests/sguan_integration_regression.py
+ ./scripts/build.sh
+ ```
+ 
+-这些验证不访问实板、不发送电机命令。真实 CANopen 桥接已使用此接口，但本轮未烧录、
+-未启动电机；协议控制和故障复位语义见 [CANopen 桥接说明](CANOPEN.md)。
++这些脚本不访问实板、不发送电机命令。后续已烧录并完成 CAN 常驻时的 UART owner 电机运行、
++交接实测，尚未完成经 CAN 命令的实板启停验收。见 [CANopen 桥接说明](CANOPEN.md) 及
++[速度包络实板记录](bringup_evidence/sguan_speed_envelope_owner_20261030/README.md)。
+diff --git a/libraries/SguanFOC_Library b/libraries/SguanFOC_Library
+--- a/libraries/SguanFOC_Library
++++ b/libraries/SguanFOC_Library
+@@ -1 +1 @@
+-Subproject commit 5680b9ebce89203df0790c5e2313e7fd812513e9
++Subproject commit 5680b9ebce89203df0790c5e2313e7fd812513e9-dirty
+diff --git a/tests/foc_ipc_regression.py b/tests/foc_ipc_regression.py
+index 63dd542..58663ae 100644
+--- a/tests/foc_ipc_regression.py
++++ b/tests/foc_ipc_regression.py
+@@ -228,7 +228,7 @@ int main(void) {
+     assert(!running && stops == 1 && !foc_mailbox_stop_pending(&command_mailbox));
+     reset();
+     Sguan.encoder.Real_Speed=-42.5f;
+-    for (unsigned source=FOC_ERROR_NONE; source<=FOC_ERROR_OBSERVER; ++source) {
++    for (unsigned source=FOC_ERROR_NONE; source<=FOC_ERROR_BUS; ++source) {
+         fault=(source<<16) | (source==FOC_ERROR_LIBRARY ? 0x1234 : 0); Sguan.status=0;
+         command_result=-RT_EBUSY;
+         foc_status_publish();

@@ -1,6 +1,6 @@
 # NS800RT7P65D Dual-Core RT-Thread FOC + CANopen
 
-[中文详细说明](README_zh.md) · [比赛提交材料](docs/competition/) · [CANopen 说明](docs/CANOPEN.md) · [FOC 状态](docs/FOC_STATUS.md)
+[中文详细说明](README_zh.md) · [比赛提交材料](docs/competition/) · [演示视频](https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition) · [CANopen 说明](docs/CANOPEN.md) · [FOC 状态](docs/FOC_STATUS.md)
 
 NSSinePad NS800RT7P65D（双 Cortex-M7）上的 RT-Thread 5.3.1 SMP 电机控制平台：
 
@@ -16,8 +16,8 @@ NSSinePad NS800RT7P65D（双 Cortex-M7）上的 RT-Thread 5.3.1 SMP 电机控制
 | 双核 RT-Thread SMP、绑核、MU/SEMA、双 Bank 下载 | **实板通过** |
 | 20 kHz 无感 FOC 500/600/800 rpm 启动、改速、停机 | **实板通过**（短时空载） |
 | CANopen NMT/SDO/PDO/EMCY/402 协议台架 | **实板通过** |
-| CANopen → CPU0 真实异步 FOC 桥接 | **主机 ASan/UBSan 回归 + 完整构建通过；未烧录、未做经 CAN 的电机实板运行** |
-| 闭环同向改速到 2500 rpm | 主机回归通过；**未做全范围实板验收** |
+| CANopen → CPU0 真实异步 FOC 桥接 | 固件已烧录，owner 交接及 UART owner 运行已实测；**经 CAN 命令的电机启停尚未验收** |
+| 闭环同向改速到 2500 rpm | 24 V / 2.5 A 直流限流、正向空载短测通过；非带载/反转/长期保证 |
 
 速度反馈来自 SMO/PLL 估算，不是编码器或独立测速仪。项目不宣称完整 CiA 402
 一致性、零速保持、直接跨零换向或硬件安全认证。

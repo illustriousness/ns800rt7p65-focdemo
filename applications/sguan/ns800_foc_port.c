@@ -169,6 +169,9 @@ static void motor_hw_init(void)
     NVIC_ClearPendingIRQ(ADCA_CONV_IRQn);
     ADC_enableInterrupt(ADCA, ADC_INT_NUMBER1);
     Interrupt_enable(ADCA_CONV_IRQn);
+    int fast_irq = ns800_smp_register_kernel_free_irq(ADCA_CONV_IRQn);
+    RT_ASSERT(fast_irq == RT_EOK);
+    if (fast_irq != RT_EOK) { pwm_safe_off(FOC_ERROR_ADC); return; }
     /* PERIOD is the center of the low-side conduction window. */
     EPWM_setADCTriggerSource(EPWM8, EPWM_SOC_A, EPWM_SOC_TBCTR_PERIOD);
     EPWM_setADCTriggerEventPrescale(EPWM8, EPWM_SOC_A, 1U);
