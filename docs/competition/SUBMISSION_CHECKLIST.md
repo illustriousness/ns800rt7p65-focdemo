@@ -79,7 +79,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | 软件框架说明 | 论坛帖第四节 + `software_flow.png` | 图已生成，待上传 |
 | 开源软件代码 | https://github.com/illustriousness/ns800rt7p65-focdemo | **已发布公开仓库，tag `v1.0-competition`** |
 | 演示视频 | https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition | **已上传 GitHub Release** |
-| 论坛帖子 | `club.rt-thread.org` 帖子链接 | **待发布** |
+| 论坛帖子 | https://club.rt-thread.org/ask/article/54f32adfe4685d57.html | **已发布，待审核** |
 | 腾讯文档 | 项目信息、链接、附件 | **待填写** |
 | 其他附件 | EDS、实板证据、测试命令 | 已在仓库中 |
 
@@ -100,7 +100,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | 软件平台 | RT-Thread 5.3.1 SMP、SguanFOC v3.1.0、CANopenNode v4.1 |
 | 开源仓库 | https://github.com/illustriousness/ns800rt7p65-focdemo |
 | 演示视频 | https://github.com/illustriousness/ns800rt7p65-focdemo/releases/tag/v1.0-competition |
-| 论坛帖子 | {{论坛帖子链接}} |
+| 论坛帖子 | https://club.rt-thread.org/ask/article/54f32adfe4685d57.html |
 | 许可证 | Apache-2.0（第三方组件保留各自许可证） |
 
 ### 2.2 项目概述（短版，约 300 字）
@@ -182,8 +182,8 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 6. 替换所有 `{{...}}` 占位符：
    - 开源仓库、分支/tag、LICENSE 已填；
    - 演示视频链接已填（GitHub Release）；
-   - 论坛帖子链接（发布后回填腾讯文档）。
-7. 建议标签：`RT-Thread`、`NS800RT7P65D`、`FOC`、`CANopen`、`CiA402`、`双核`。
+   - 论坛帖子链接已填（待审核）。
+7. 标签最多 3 个：`NS800RT7P65D`、`FOC`、`CANopen`。
 8. 先点“预览”，检查表格、代码块、图片和中文标点；再发布。
 9. 发布后用无痕窗口打开帖子，复制 URL 填入腾讯文档。
 

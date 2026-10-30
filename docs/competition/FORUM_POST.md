@@ -454,7 +454,7 @@ tio -b 115200 -f none --no-reconnect /dev/serial/by-id/<J-Link设备>
 
 | 材料 | 位置 |
 | --- | --- |
-| 论坛帖子（本文） | 本文（发布后回填） |
+| 论坛帖子（本文） | https://club.rt-thread.org/ask/article/54f32adfe4685d57.html |
 | 项目概述/功能介绍 | 本文第一、二节 |
 | 硬件框架 | 本文第三节 + 图 1、图 2 |
 | 软件框架 | 本文第四节 + 图 3 |
