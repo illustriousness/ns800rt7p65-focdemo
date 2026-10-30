@@ -40,3 +40,8 @@ RTE/
 settings/
 *.uvguix*
 cconfig.h
+
+# Public snapshot exclusions: vendor SDK, raw Codex session logs and local NLFO trial data
+vendor/NS800_SDK_v0.4.0.zip
+docs/bringup_evidence/history_*.jsonl
+docs/bringup_evidence/sguan_if_nlfo_trial_20261030/
