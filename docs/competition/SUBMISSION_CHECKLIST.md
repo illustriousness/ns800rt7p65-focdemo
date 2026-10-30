@@ -105,7 +105,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 
 ### 2.2 项目概述（短版，约 300 字）
 
-本项目在 NSSinePad NS800RT7P65D 双核 Cortex-M7 平台上，基于 RT-Thread 5.3.1 SMP 构建无感 FOC 与 CANopen CiA 402 驱动平台。CPU0 运行 20 kHz ADC/PWM 控制与 SguanFOC 无感算法，CPU1 运行 UART、CANopenNode 协议栈和 CiA 402 桥接；通过异步邮箱和 24 字节一致性快照实现跨核命令与状态交接。项目完成 24 V 电机 500/600/800 rpm 实板闭环、CANopen 协议台架实板验证，并对新控制桥接完成 ASan/UBSan 主机回归。作品定位为可复现的教学/原型平台，不宣称完整 CiA 402 认证。
+本项目在 NSSinePad NS800RT7P65D 双核 Cortex-M7 平台上，基于 RT-Thread 5.3.1 SMP 构建无感 FOC 与 CANopen CiA 402 驱动平台。CPU0 运行 20 kHz ADC/PWM 控制与 SguanFOC 无感算法，CPU1 运行 UART、CANopenNode 协议栈和 CiA 402 桥接；通过异步邮箱和 24 字节一致性快照实现跨核命令与状态交接。项目完成 24 V 电机 500/600/800 rpm 及 UART owner 500→1500→2500 rpm 正向空载实板闭环、CANopen 协议台架实板验证；新桥接固件已烧录，UART owner 运行/交接实测，经 CAN 命令启停待验收。作品定位为可复现的教学/原型平台，不宣称完整 CiA 402 认证。
 
 ### 2.3 功能介绍（短版，约 350 字）
 
@@ -307,7 +307,7 @@ sha256sum /tmp/opencode/ns800-submission-$(date +%Y%m%d).zip
 **可以写“已完成”：**
 
 - 双核 RT-Thread SMP 实板启动、绑核、MU/SEMA；
-- 20 kHz 无感 FOC 实板 500/600/800 rpm 短时空载；
+- 20 kHz 无感 FOC 实板 500/600/800 rpm，以及 UART owner 500→1500→2500 rpm 正向空载短测；
 - CANopen 协议台架实板 NMT/SDO/PDO/EMCY/402；
 - 新桥接主机 ASan/UBSan 回归、完整固件构建、CAN 常驻时 UART owner 运行/交接；
 - UART owner 正向空载 500→1500→2500 rpm 短测。
