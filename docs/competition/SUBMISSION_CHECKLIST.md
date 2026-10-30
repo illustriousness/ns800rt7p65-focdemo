@@ -73,11 +73,11 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 
 | 比赛要求 | 本项目材料 | 当前状态 |
 | --- | --- | --- |
-| 项目概述 | `docs/competition/FORUM_POST.md` 第一节；本文件第 2.2 节短版 | 已整理，待填链接 |
+| 项目概述 | `docs/competition/FORUM_POST.md` 第一节；本文件第 2.2 节短版 | 已整理 |
 | 功能介绍 | 论坛帖第二节；本文件第 2.3 节短版 | 已整理 |
 | 硬件框架说明 | 论坛帖第三节 + `hardware_topology.png` | 图已生成，待上传 |
 | 软件框架说明 | 论坛帖第四节 + `software_flow.png` | 图已生成，待上传 |
-| 开源软件代码 | 公开仓库链接 | **阻塞：尚无 remote** |
+| 开源软件代码 | https://github.com/illustriousness/ns800rt7p65-focdemo | **已发布公开仓库，tag `v1.0-competition`** |
 | 演示视频 | B 站/腾讯视频公开链接 | **待录制/上传** |
 | 论坛帖子 | `club.rt-thread.org` 帖子链接 | **待发布** |
 | 腾讯文档 | 项目信息、链接、附件 | **待填写** |
@@ -175,10 +175,8 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
    - `docs/competition/hardware_topology.png`
    - `docs/competition/software_flow.png`
 6. 替换所有 `{{...}}` 占位符：
-   - 开源仓库链接；
-   - 演示视频链接；
-   - 分支/tag；
-   - LICENSE；
+   - 开源仓库、分支/tag、LICENSE 已填；
+   - 仍需填演示视频链接；
    - 论坛帖子链接（发布后回填腾讯文档）。
 7. 建议标签：`RT-Thread`、`NS800RT7P65D`、`FOC`、`CANopen`、`CiA402`、`双核`。
 8. 先点“预览”，检查表格、代码块、图片和中文标点；再发布。
