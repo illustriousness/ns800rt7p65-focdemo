@@ -105,9 +105,13 @@
 
 ## 三、硬件框架说明
 
-![图 1 硬件拓扑](hardware_topology.png)
+![图 1 实板调试连接](hardware_setup.jpg)
 
-**图片上传提示：** 在论坛编辑器中上传 `docs/competition/hardware_topology.png`，替换本行图片链接。
+**图 1** 实板调试连接：NSSinePad NS800RT7P65D、ATK-PD6010B 功率板、ATK-BL57H95D20E 电机、ZLG USBCANFD-100U 与 J-Link VCOM。照片为开发阶段接线，功率级默认关断。
+
+![图 2 硬件拓扑](hardware_topology.png)
+
+**图片上传提示：** 在论坛编辑器中上传 `docs/competition/hardware_setup.jpg` 和 `docs/competition/hardware_topology.png`，替换本行图片链接。
 
 ### 3.1 主要硬件
 
@@ -157,7 +161,7 @@ VBUS [V]    = raw_vbus * 3.3 * 25 / 4096
 
 ## 四、软件框架说明
 
-![图 2 软件数据流](software_flow.png)
+![图 3 软件数据流](software_flow.png)
 
 **图片上传提示：** 在论坛编辑器中上传 `docs/competition/software_flow.png`，替换本行图片链接。
 
@@ -437,8 +441,8 @@ tio -b 115200 -f none --no-reconnect {{UART设备路径}}
 | --- | --- |
 | 论坛帖子（本文） | {{论坛帖子链接}} |
 | 项目概述/功能介绍 | 本文第一、二节 |
-| 硬件框架 | 本文第三节 + `hardware_topology.png` |
-| 软件框架 | 本文第四节 + `software_flow.png` |
+| 硬件框架 | 本文第三节 + 图 1、图 2 |
+| 软件框架 | 本文第四节 + 图 3 |
 | 开源代码 | https://github.com/illustriousness/ns800rt7p65-focdemo |
 | 演示视频 | {{演示视频链接}} |
 | CANopen EDS | `applications/canopen/NS800_FOC_BRIDGE.eds` |

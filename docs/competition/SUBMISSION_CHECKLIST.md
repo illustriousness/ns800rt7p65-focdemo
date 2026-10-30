@@ -75,7 +75,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | --- | --- | --- |
 | 项目概述 | `docs/competition/FORUM_POST.md` 第一节；本文件第 2.2 节短版 | 已整理 |
 | 功能介绍 | 论坛帖第二节；本文件第 2.3 节短版 | 已整理 |
-| 硬件框架说明 | 论坛帖第三节 + `hardware_topology.png` | 图已生成，待上传 |
+| 硬件框架说明 | 论坛帖第三节 + `hardware_setup.jpg`、`hardware_topology.png` | 图已生成，待上传 |
 | 软件框架说明 | 论坛帖第四节 + `software_flow.png` | 图已生成，待上传 |
 | 开源软件代码 | https://github.com/illustriousness/ns800rt7p65-focdemo | **已发布公开仓库，tag `v1.0-competition`** |
 | 演示视频 | B 站/腾讯视频公开链接 | **待录制/上传** |
@@ -150,6 +150,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 | 附件 | 说明 |
 | --- | --- |
 | `NS800_FOC_BRIDGE.eds` | CANopen 对象字典，主站可直接导入 |
+| `hardware_setup.jpg` | 实板调试连接照片 |
 | `hardware_topology.png` | 硬件框架图 |
 | `software_flow.png` | 软件数据流图 |
 | 实板 FOC 证据摘要 | 可把 `docs/bringup_evidence/.../README.md` 导出 PDF |
@@ -175,6 +176,7 @@ git -C libraries/SguanFOC_Library apply ../../patches/sguan-ns800.patch
 
 4. 正文复制 `docs/competition/FORUM_POST.md` 的全部内容（从一级标题下一行开始）。
 5. 在编辑器中上传：
+   - `docs/competition/hardware_setup.jpg`
    - `docs/competition/hardware_topology.png`
    - `docs/competition/software_flow.png`
 6. 替换所有 `{{...}}` 占位符：

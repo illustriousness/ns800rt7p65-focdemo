@@ -4,8 +4,9 @@
 | --- | --- |
 | `FORUM_POST.md` | 可直接粘贴到 RT-Thread 官方论坛的帖子正文（含标题、项目概述、功能介绍、硬件/软件框架、验证结果、限制） |
 | `SUBMISSION_CHECKLIST.md` | 腾讯文档填写短版、代码发布步骤、演示视频脚本、最终检查清单 |
-| `hardware_topology.png` | 论坛帖图 1：硬件拓扑 |
-| `software_flow.png` | 论坛帖图 2：软件数据流 |
+| `hardware_setup.jpg` | 论坛帖图 1：实板调试连接照片 |
+| `hardware_topology.png` | 论坛帖图 2：硬件拓扑 |
+| `software_flow.png` | 论坛帖图 3：软件数据流 |
 | `hardware_topology.dot` / `software_flow.dot` | 图片源文件，修改后可用 Graphviz 重新生成 |
 
 ## 发布前必须替换
