@@ -1,0 +1,45 @@
+t=  0.42 state=idle loop=stopped target=500 est=497 pll=507 peak_mA=1405 fault=none
+t=  1.05 state=align loop=align target=800 est=0 pll=6 peak_mA=791 fault=none
+t=  1.57 state=ramp loop=current-ramp target=800 est=20 pll=142 peak_mA=1399 fault=none
+t=  2.08 state=ramp loop=current-ramp target=800 est=165 pll=104 peak_mA=1466 fault=none
+t=  2.60 state=ramp loop=current-ramp target=800 est=241 pll=287 peak_mA=1466 fault=none
+t=  3.12 state=ramp loop=current-ramp target=800 est=280 pll=211 peak_mA=1566 fault=none
+t=  3.64 state=ramp loop=current-ramp target=800 est=377 pll=498 peak_mA=1587 fault=none
+t=  4.16 state=ramp loop=current-ramp target=800 est=462 pll=431 peak_mA=1587 fault=none
+t=  4.67 state=ramp loop=current-ramp target=800 est=529 pll=539 peak_mA=1587 fault=none
+t=  5.19 state=ramp loop=current-ramp target=800 est=608 pll=610 peak_mA=1587 fault=none
+t=  5.71 state=ramp loop=current-ramp target=800 est=689 pll=704 peak_mA=1587 fault=none
+t=  6.23 state=ramp loop=current-ramp target=800 est=764 pll=768 peak_mA=1587 fault=none
+t=  6.75 state=ramp loop=current-ramp target=800 est=801 pll=795 peak_mA=1587 fault=none
+t=  7.27 state=ramp loop=blend target=800 est=798 pll=797 peak_mA=1587 fault=none
+t=  7.78 state=ramp loop=blend target=800 est=833 pll=828 peak_mA=1587 fault=none
+t=  8.30 state=run loop=closed target=800 est=811 pll=812 peak_mA=1587 fault=none
+t=  8.82 state=run loop=closed target=800 est=803 pll=798 peak_mA=1587 fault=none
+t=  9.34 state=run loop=closed target=800 est=801 pll=793 peak_mA=1587 fault=none
+t=  9.86 state=run loop=closed target=800 est=802 pll=811 peak_mA=1587 fault=none
+t= 10.37 state=run loop=closed target=800 est=798 pll=800 peak_mA=1587 fault=none
+t= 10.89 state=run loop=closed target=800 est=800 pll=791 peak_mA=1587 fault=none
+t= 11.41 state=run loop=closed target=800 est=800 pll=801 peak_mA=1587 fault=none
+t= 11.93 state=run loop=closed target=800 est=801 pll=794 peak_mA=1587 fault=none
+t= 12.44 state=run loop=closed target=800 est=800 pll=809 peak_mA=1587 fault=none
+hold 800 rpm: estimated error max=2, mean=0.9 rpm
+t= 13.05 state=run loop=closed target=700 est=699 pll=695 peak_mA=1587 fault=none
+t= 13.57 state=run loop=closed target=700 est=700 pll=687 peak_mA=1587 fault=none
+t= 14.08 state=run loop=closed target=700 est=698 pll=687 peak_mA=1587 fault=none
+t= 14.60 state=run loop=closed target=700 est=697 pll=695 peak_mA=1587 fault=none
+t= 15.12 state=run loop=closed target=700 est=697 pll=713 peak_mA=1587 fault=none
+t= 15.64 state=run loop=closed target=700 est=700 pll=715 peak_mA=1587 fault=none
+t= 16.16 state=run loop=closed target=700 est=701 pll=713 peak_mA=1587 fault=none
+t= 16.68 state=run loop=closed target=700 est=703 pll=696 peak_mA=1587 fault=none
+hold 700 rpm: estimated error max=3, mean=1.7 rpm
+t= 17.28 state=run loop=closed target=800 est=799 pll=810 peak_mA=1587 fault=none
+t= 17.80 state=run loop=closed target=800 est=799 pll=792 peak_mA=1587 fault=none
+t= 18.32 state=run loop=closed target=800 est=799 pll=799 peak_mA=1587 fault=none
+t= 18.83 state=run loop=closed target=800 est=801 pll=792 peak_mA=1587 fault=none
+t= 19.35 state=run loop=closed target=800 est=801 pll=810 peak_mA=1587 fault=none
+t= 19.87 state=run loop=closed target=800 est=798 pll=810 peak_mA=1587 fault=none
+t= 20.39 state=run loop=closed target=800 est=799 pll=796 peak_mA=1587 fault=none
+t= 20.90 state=run loop=closed target=800 est=799 pll=792 peak_mA=1587 fault=none
+hold 800 rpm: estimated error max=2, mean=1.1 rpm
+t= 21.18 state=idle loop=stopped target=800 est=798 pll=803 peak_mA=1587 fault=none
+UART sensorless test and confirmed stop passed; trace: /tmp/ns800-emath-pure-800.jsonl

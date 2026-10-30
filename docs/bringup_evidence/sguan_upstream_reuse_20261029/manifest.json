@@ -1,0 +1,166 @@
+{
+  "recorded": "2026-10-29T19:57:47.587677+08:00",
+  "project_head": "852469e71f9e7cca50a128dd2a7870b7cbd05152",
+  "submodule_head": "5680b9ebce89203df0790c5e2313e7fd812513e9",
+  "submodule_branch": "ns800",
+  "jlink_serial": "4294967295",
+  "uart": "usb-SEGGER_J-Link_004294967295-if00",
+  "upstream_original_files_sha256": {
+    "SguanFOC.h": "6cbcc387ed7e15fddfe7f8b2e4ca9cf90ea707317dbfa033e5466ec0ec7dabe9",
+    "Sguan_SMO.c": "fe53bc77411ff77fe9e7b4987c62e5e26fe3acc2ea3b36a8ca43b6539e9759ea",
+    "Sguan_SMO.h": "c058a84c7f0be285bfcb0d55b02bb92aa4899117d86a684151dc2ddb1c444774",
+    "Sguan_math.c": "1afcaa543a74a74084bc29798ce31a512a131a242f40de634adf8e84a0cbeb54",
+    "Sguan_math.h": "556508d298c978904ffecd211ad5744bca1e210f969652f79497797b46599d4c"
+  },
+  "firmware": {
+    "rtthread.bin": {
+      "bytes": 179736,
+      "sha256": "227ecb1c48d5be572810a7c1b69b9813c4f703d78d329bff97416366c29cdba5"
+    },
+    "rtthread_cpu2.bin": {
+      "bytes": 1816,
+      "sha256": "7bb640cccb8c1a06be9841bd71eab524069de711b63da275c3a3c96616a99ad8"
+    }
+  },
+  "source_sha256": {
+    "SConstruct": "6b803da5844b4365357617f2c95e9997f60a8ba2b5be45ca31e16afb61a058fb",
+    "applications/SConscript": "c8a4c7bd3b5dce0e360e479c8f3f113b0c491dcf1bdf4f4db72cb1a6cd1346c2",
+    "applications/main.c": "c3055ce1682466cacb8ac35fd7aeb66165f37db396fb2ba13dcd95634a6bfbed",
+    "applications/sguan/SConscript": "03156bb6fdec71a8e26f1e6d86ecf543268e532f1c29301d9bb3cda5218a8a7d",
+    "applications/sguan/foc_ipc.h": "425ad2f5771899f649b97185dd08d23dab5b269f15baca2183ce7d426de85a65",
+    "applications/sguan/foc_sensorless.h": "fa1f2a914cccf826d402868cf0a2e8eef2c3c89bc7cdd850dae3a60465df9e88",
+    "applications/sguan/ns800_foc_port.c": "877ae3102ddf52617d2a00121f1980450c56b1cabd19f454ac8b890f5767d20c",
+    "applications/sguan/ns800_foc_port.h": "7d16787bed1412d807a2ded50028113d7e30c5fe40ffa5904c31c0ee95d7a593",
+    "board/board.c": "cfc04b807f959875f47f0d019d8da397f65066b5c7d9b2ac4557926f48d1bc69",
+    "board/linker_scripts/link.lds": "19248c8728f0801b38e3734753547502bdfe581fa7f8caa27b6b64c1887cc521",
+    "board/linker_scripts/link_cpu2.lds": "bd2e91a24310860e00d27430ebb44c8107922bb2cf263f3a772f7dd7db6831aa",
+    "board/smp/smp_port.c": "41e37070248c727c464b4ced056966cca25668bc30ea8b34f691eb392e6b5643",
+    "board/startup/startup_NS800RT7xxx.S": "a4349b1ce0ccb1ad6b2053d26d48528983c4557d29a2fba560358e1a2fc3feab",
+    "libraries/HAL_Drivers/drivers/drv_can.c": "64b5dbf73f38f469b293cfe9345f57ff21209a75257ab028b34cc67f80f4559d",
+    "libraries/HAL_Drivers/drivers/drv_uart.c": "082f7868d2177a548f4e1cd941f14bec7bde9bea6e0f3becb52c9ec89369abfa",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/SguanFOC.c": "9d0fc6e53d645b8d2f6f097ce6f97c3c5e1a9bf2d3e29290ebb37f122c099d84",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/SguanFOC.h": "6cbcc387ed7e15fddfe7f8b2e4ca9cf90ea707317dbfa033e5466ec0ec7dabe9",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Cogging.c": "f0e5ac3eb7c5ba8b2000ee690a121922fa98d4b74b0198731b2c29e2ff5008dd",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Cogging.h": "84c2762f62a62b3a3459c8e6ad580ff621b5dc91b564cd2930c9850b1eebc869",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Config.h": "b2c463ad001431d720534f142dcd018cd71d81040ec71acbdc8b244cd399b975",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_DOB.c": "1ee0c7d63f43844bab254545f973549d827c94d96d74c226b8b5782aa7ee7f2a",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_DOB.h": "269c469ace67f0e9269c946169b04ce001f2dd19086321a3db82c7bf1bb3d560",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Feedforward.c": "c7952e0af8a4fbd2cb6bb3221b4725d4c21e89b0684c023ffce85c3030a7cb0f",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Feedforward.h": "5dd5670da9e12d83f132da7bb43506b2618c6fdf651ce4275d2fa0934c17d695",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Filter.c": "bc4dc5b69790acc55a7f309d2c90da3ad39b081ff949796314643dc08d81b14f",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Filter.h": "4bb83c2979a61d5d591308c87b774f4987ba2edd2e1b862ebc290dcb14249735",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_HFI.c": "44fd8cf79442673803a18d229b6d554196e390d0e3b2f211450fded7e4fcd9a4",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_HFI.h": "4fd2b85fb1d4984250b7ee3e66112bab1858494a39cf2f83d8eb4d7e6682dc6f",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Hall.c": "45f8a177e137115cc6e7373240e7a4a2e3abd9c15f1bf9c127eb0ff6fa37e371",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Hall.h": "ffe64ff1b8e07390a13d91a8950cfe9cc7b3fba7b8b9cb57e8811cec14eb6a0a",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_IQmath.c": "68fa2e3bcaca71bf1064d44a08767d42cd161bea93093a3afcde8679218a03ab",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_IQmath.h": "965b977ec6756354b377d05b9c0c54b19f1c549fa9fe3e5df3190d6a3198f047",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Identify.c": "4bc049af29bc4d72736bf6572b47226fcfb38b3369c07c1d807ea4605caeb250",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Identify.h": "7347713bc872ba5300808545f734c2483aa8562b2eb292f8ebb22d0acb408673",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_LTD.c": "cb11e23154e168da9bf05b13e964fec6153399ca4a999cf2de9a7634817aeaf6",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_LTD.h": "8a1e3a73ebc30592e873c3452556001fe3fac4a0a406a2984289f913bf7f968d",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Ladrc.c": "3ea87b9503e0e2eae92bdae86e24a4ee2112846b315a4f63c9b77b7bb6183001",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Ladrc.h": "59eb5aff0af1aca450889415533ba6e12d9001af11647d679c9860d2c565b164",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_MotorStatus.c": "7534e525027cb14d1c5e2fb5ce6b3dfb95343a8540ca8c619954d28f284c3cb5",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_MotorStatus.h": "8fc46c40491ee0242f5b5638e4cb537913cceab5dab0bad11d0e526c5a104826",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_NLFO.c": "e64f627b10cea56a17a1675a8729fc1d2879cb953c1b661aa26e9a508c522447",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_NLFO.h": "d96d69491ae584ce4be46760e184ee3086cc80a7db164de0244c7e97d388bea2",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_NSD.c": "b904604b133de399623d599a185c6e74e6a7bb435515c6184229adf67dae4762",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_NSD.h": "13b8f02d27ac62c5b3acd012c590e7e7339c176b1fe506d73ab360c2def854ca",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Optimize.c": "9d05cad78947ae37b0fa15151f06c57e2b1f103fc6ac2636eeaaee4d8548470c",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_Optimize.h": "c913d98dba8e44a9cb669e7737b7e0ca95959ed23b18830a0dbac96ea32e68ba",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_PID.c": "0f201b76360a59e539b16d2f94c02d79b746803d50f7088d9a1bd8662764c73d",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_PID.h": "e5bb3d831cc0c5e1f09f13b8a4fbfc8a89c1f58390df3c657ba2866949ec3a34",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_PLL.c": "77162112a4f70e52659fe0bf0a14f2d975f2e8d4ea155cfaec25c2d6450861fe",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_PLL.h": "95f25bc80e980f544713122aadf6f79b745d7d6b738e9528153ccae6bb533f71",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SMC.c": "7badc57ea30bff397f6524304469830fbef0cb17111a8b78bded839cfbf558af",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SMC.h": "dd786ec2c980a611b4869e573cfea7236a1c88d1715448df0b0b974f736c69f2",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SMO.c": "fe53bc77411ff77fe9e7b4987c62e5e26fe3acc2ea3b36a8ca43b6539e9759ea",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SMO.h": "c058a84c7f0be285bfcb0d55b02bb92aa4899117d86a684151dc2ddb1c444774",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SPWM.c": "63c9299d12539f6a9f4e0428f61f4e492bec9d66f37b141f949216e5f705f656",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SPWM.h": "8577e6967cdab51b212b00dd1edd8afe2bf221b167a029925765cf067ef6f350",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_STA.c": "82a5f4d939a3547d36cb1ffdcba9676d5041400df1e5ecf98ebff3d6aa021994",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_STA.h": "81073d4121203b2f42e041c87c39529f505e3bd337559e1ad29e682e124d7d70",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SVPWM.c": "7094827cedaa76638540485c03d6109228dd71f905f23d7d6e0c983d86b487c7",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_SVPWM.h": "160e6c829889006b174dde40a3f97df0ac8ceb9a45489bb177247e379afa9201",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_math.c": "1afcaa543a74a74084bc29798ce31a512a131a242f40de634adf8e84a0cbeb54",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_math.h": "556508d298c978904ffecd211ad5744bca1e210f969652f79497797b46599d4c",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_printf.c": "96083f762b98a9512808e92cbccac56d5eec9b0cebc32d036cdd2de8b72ca814",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/Sguan_printf.h": "15a80ee3eb7323b4c85d0deeb08086e0863f6bd0af2ee0e9b9127a277ba49982",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/UserData_Config.h": "480830aa49ab3585872bab8a1772d1245314044591278e3bdcb1d33bbc491bd1",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/UserData_Function.h": "9cfcf384f2f161fd635c2c56f65fbd51a6d0e9079b5a32c78f44799535e8b4c0",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/UserData_Motor.h": "67f41ae033f749c00a02fabc3b569846705eb5cbe4967a1b3bc76001ccef99f6",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/UserData_Parameter.h": "b8183c8c1d3beb50be82c4c9c579914be74121e2311436b99775b563d003be03",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/UserData_Status.h": "1dcd97738bf85c4af74883bf3fcdb1012add92c23469b9a02b3e11c421f2460c",
+    "libraries/SguanFOC_Library/SguanFOC库v3.1.0(无感foc，浮点运算，进阶)/UserData_UserControl.h": "d5f6930aaac293812cd35fe8b58f0aad9c3ee2c8f2d174884f0b0c9fc50941c1",
+    "rtconfig.h": "0b52db809fe55d2f41a7a9ebe612943d76963534c09a0f406584d5ab93861602"
+  },
+  "evidence_sha256": {
+    "500.log": "3890feb04dd045ce502a2209fd216c90e51a1a6c8340ec6a4e80d26786f49fca",
+    "800.log": "58546cdb15bf71c1392ba4f52b9ec56a57f32f230efe088fa2646124a4e739cc",
+    "500.jsonl": "f17ee5c564e48ce99062ba5e2ee6f8902d1b24d1a4b73daed9ce45e297ecad62",
+    "800.jsonl": "b4484bc22280373d6ec5573b1c0df1c0044f3abc9c141ab004a7dd571d53b7b6",
+    "final-status.log": "707709445111df7d173a889b4d070994f6c5a1009bf36aee17ba773c129bb37c",
+    "gates-off.log": "2f9fa538fe790963d1de390da1aaab1b3004059f867c967d18eb0c9b13f58fb3",
+    "flash.log": "e94563b3bfe19423d0c5e00e31ad61e923cb65905d9e6a404130a004f514e9ff"
+  },
+  "tests": {
+    "500": {
+      "sequence_rpm": [
+        500,
+        600,
+        500
+      ],
+      "hold_seconds_each": 8,
+      "seconds_total": 27.531,
+      "first_closed_snapshot_seconds": 2.223,
+      "isr_max_ns": 27185,
+      "phase_current_peak_mA": 1272,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "raw_pll_rpm_range": [
+        -1201,
+        2125
+      ],
+      "hold_results": [
+        "hold 500 rpm: estimated error max=13, mean=7.2 rpm",
+        "hold 600 rpm: estimated error max=14, mean=5.5 rpm",
+        "hold 500 rpm: estimated error max=15, mean=8.7 rpm"
+      ],
+      "dwt_active_all_running_snapshots": true,
+      "confirmed_stop": true
+    },
+    "800": {
+      "sequence_rpm": [
+        800,
+        700,
+        800
+      ],
+      "hold_seconds_each": 8,
+      "seconds_total": 26.948,
+      "first_closed_snapshot_seconds": 1.671,
+      "isr_max_ns": 27470,
+      "phase_current_peak_mA": 1189,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "raw_pll_rpm_range": [
+        -537,
+        2238
+      ],
+      "hold_results": [
+        "hold 800 rpm: estimated error max=9, mean=3.0 rpm",
+        "hold 700 rpm: estimated error max=9, mean=4.7 rpm",
+        "hold 800 rpm: estimated error max=5, mean=2.7 rpm"
+      ],
+      "dwt_active_all_running_snapshots": true,
+      "confirmed_stop": true
+    }
+  },
+  "gpio23_after_stop": 0,
+  "final_reset_idle_target_rpm": 0,
+  "limits": [
+    "No independent shaft speed reference",
+    "No hot restart, reverse-board, loaded, stalled-board, thermal or long-duration acceptance",
+    "CANopen motor controls remain disconnected"
+  ]
+}

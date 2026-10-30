@@ -1,0 +1,29 @@
+import os
+from building import *
+Import('RTT_ROOT')
+
+cwd = GetCurrentDir()
+src = ['board.c', 'smp/context_smp_gcc.S']
+path = [cwd, cwd + '/port', cwd + '/smp']
+
+if GetDepend('BSP_RTC_USING_DS1307'):
+    src += ['port/ds1307.c']
+
+if GetDepend('BSP_RTC_USING_SOFT'):
+    src += ['port/soft_rtc.c']
+
+cppdefines = ['NS800RT7P65X', 'USE_HAL_DRIVER', 'DUAL_CORE_ENABLE=0',
+        'SYSCLK_USE_PLL', 'SYSCLK_SOURCE_USE_HXTL', 'PLLCLK_SOURCE_USE_HXTL']
+
+group = DefineGroup('Board', src, depend = [''], CPPPATH = path, CPPDEFINES = cppdefines)
+group += DefineGroup('SMP Port', ['smp/smp_port.c'], depend = [''],
+                     CPPPATH = [cwd + '/smp'], LOCAL_CFLAGS = ' -O2')
+
+cpu_src = [
+    os.path.join(RTT_ROOT, 'libcpu/arm/common/div0.c'),
+    os.path.join(RTT_ROOT, 'libcpu/arm/common/showmem.c'),
+    os.path.join(RTT_ROOT, 'libcpu/arm/cortex-m7/cpu_cache.c'),
+    os.path.join(RTT_ROOT, 'libcpu/arm/cortex-m7/cpuport.c'),
+]
+group += DefineGroup('CPU', cpu_src, depend = [''], CPPPATH = [cwd + '/smp'])
+Return('group')

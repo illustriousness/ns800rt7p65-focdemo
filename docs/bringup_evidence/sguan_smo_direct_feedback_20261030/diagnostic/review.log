@@ -1,0 +1,3 @@
+Original IF/current/position/PID, math and public state preserved; only exact SMO feedback repair allowed
+Supervisor: read-only observation, bounded confirmation/loss/startup and invalid data passed
+Library SMO and NLFO configurations both compile; no production sources changed

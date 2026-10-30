@@ -1,0 +1,49 @@
+{
+  "updated": "2026-10-09",
+  "cpu_hz": 400000000,
+  "target_eMath_only": true,
+  "tests": [
+    {
+      "name": "sensorless_emath_500_final",
+      "total_samples": 37,
+      "closed_samples": 25,
+      "duration_seconds": 19.167,
+      "peak_current_mA": 1346,
+      "max_isr_cycles": 13424,
+      "max_isr_ns": 33560,
+      "max_control_cycles": 8712,
+      "max_emath_sincos_cycles": 250,
+      "max_emath_trig_cycles": 451,
+      "max_emath_sqrt_cycles": 269,
+      "overflow_values": [
+        0
+      ],
+      "targets_rpm": [
+        500,
+        600
+      ],
+      "final_state": "idle"
+    },
+    {
+      "name": "sensorless_emath_800_final",
+      "total_samples": 40,
+      "closed_samples": 25,
+      "duration_seconds": 20.759,
+      "peak_current_mA": 1593,
+      "max_isr_cycles": 13380,
+      "max_isr_ns": 33560,
+      "max_control_cycles": 8834,
+      "max_emath_sincos_cycles": 270,
+      "max_emath_trig_cycles": 391,
+      "max_emath_sqrt_cycles": 269,
+      "overflow_values": [
+        0
+      ],
+      "targets_rpm": [
+        800,
+        700
+      ],
+      "final_state": "idle"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-29",
+  "mode": "CANopen CiA402 protocol bench; no motor backend",
+  "canopen_node_revision": "ac2140717c3c498d9b0351bce052bab630a74764",
+  "physical_bus": {
+    "bitrate": 1000000,
+    "format": "classic 11-bit",
+    "node_id": 1,
+    "zlg_type": 33,
+    "zlg_index": 0,
+    "zlg_channel": 0
+  },
+  "results": {
+    "classic_echo_pass": 100,
+    "classic_echo_fail": 0,
+    "canopen_external_test": "PASS",
+    "zlg_rxe": 0,
+    "zlg_txe": 0,
+    "independent_tx": "0x456 8081828384858687 received",
+    "motor_connected": false,
+    "gpioa_data": "0x00003010",
+    "epwm8_9_10_tzflg": [
+      "0x4",
+      "0x4",
+      "0x4"
+    ],
+    "cpu0_nvic_iser2": "0x0"
+  },
+  "note": "MCU TXE after adapter close may rise due to missing heartbeat ACK; UART snapshot is not the same interval as connected ZLG tests.",
+  "images": {
+    "rtthread.bin": {
+      "bytes": 151652,
+      "sha256": "48d1c48955fd49691b41c562bfdaa6482f1c6c68536f92897faa43650e8f4cee"
+    },
+    "rtthread.elf": {
+      "bytes": 1842620,
+      "sha256": "ace2d9c3e63ef7738d1d7ac7e55b10319f2536cbc8a0198a7852e20f1faf8426"
+    },
+    "rtthread_cpu2.bin": {
+      "bytes": 1816,
+      "sha256": "7bb640cccb8c1a06be9841bd71eab524069de711b63da275c3a3c96616a99ad8"
+    },
+    "rtthread_cpu2.elf": {
+      "bytes": 129172,
+      "sha256": "6c7bd92ec5ede6697dae035e6c3c55dda7439f84a581df1658e253890c65bd60"
+    }
+  },
+  "evidence": {
+    "docs/canopen_evidence/20261029_192037_independent_tx/metadata.txt": {
+      "bytes": 306,
+      "sha256": "f02ab897310842cd07baa5f04efd1c9bb78c6ff4a6002aeecf53a816375b81e6"
+    },
+    "docs/canopen_evidence/20261029_192037_independent_tx/motor_control.csv": {
+      "bytes": 143,
+      "sha256": "dea4a08336aaacc52a48c3cfa92741b11cdf0b7d64027291013daf9944b26c49"
+    },
+    "docs/canopen_evidence/20261029_192037_independent_tx/motor_heartbeat.csv": {
+      "bytes": 289,
+      "sha256": "7608c4e1e1eb800e78023ce4f51559903c079c7e4570cd73be9373c578101039"
+    },
+    "docs/canopen_evidence/20261029_192037_independent_tx/raw_frames.csv": {
+      "bytes": 523,
+      "sha256": "58d6c17b195953afa98b5fd6b2bf24bc9c5d39169b58fc49e375c3bcd7c65512"
+    },
+    "docs/canopen_evidence/20261029_192037_independent_tx/summary.txt": {
+      "bytes": 330,
+      "sha256": "a6c9d22738aee50c737fc8dd61227f329d2783408878e3f9c1ae72a3fba3e45b"
+    },
+    "docs/canopen_evidence/canopen_402.csv": {
+      "bytes": 4814,
+      "sha256": "04d7bb7c41c72547b51e19cd7bc0d60900791b0dd5959598b117fe2f02b17c68"
+    },
+    "docs/canopen_evidence/canopen_402_final.csv": {
+      "bytes": 4880,
+      "sha256": "897d3069c81864fa2ea74ed47011b64614bf5f9d8d81aa8296a79d1ffd377716"
+    },
+    "docs/canopen_evidence/canopen_final.log": {
+      "bytes": 574,
+      "sha256": "d99af16a31fd3a91a54993b5d6b614f0aad4ea1711fe378159d267f9e19d47c1"
+    },
+    "docs/canopen_evidence/capture.log": {
+      "bytes": 497,
+      "sha256": "858236cc1d5f5e7799876aaba200a8e4b878830785f09f6a514e5e8025573d1a"
+    },
+    "docs/canopen_evidence/classic_100.csv": {
+      "bytes": 8751,
+      "sha256": "cc8d78df30cb9c69c99af94fe35b3ef91797518103507382605a94551a3f1150"
+    },
+    "docs/canopen_evidence/power_off_swd.log": {
+      "bytes": 1952,
+      "sha256": "60cc390350fe71ec15ff5779015d9beb69a169b105c4557190ec50293d313857"
+    },
+    "docs/canopen_evidence/uart_final.log": {
+      "bytes": 1527,
+      "sha256": "bc2c5d2e38d0fc38b07d6cb51faf535fa18c4b73ded60d12a541946e829d9825"
+    }
+  }
+}

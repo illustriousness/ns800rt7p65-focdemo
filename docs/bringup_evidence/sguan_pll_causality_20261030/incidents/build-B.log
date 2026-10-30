@@ -1,0 +1,511 @@
+scons: Reading SConscript files ...
+Newlib version: 4.6.0
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: `rtthread_cpu2.elf' is up to date.
+CC build/applications/sguan/ns800_foc_port.o
+CC build/sguan/SguanFOC.o
+CC build/sguan/Sguan_Cogging.o
+CC build/sguan/Sguan_DOB.o
+CC build/sguan/Sguan_Feedforward.o
+CC build/sguan/Sguan_Filter.o
+CC build/sguan/Sguan_HFI.o
+CC build/sguan/Sguan_Hall.o
+CC build/sguan/Sguan_IQmath.o
+CC build/sguan/Sguan_Identify.o
+CC build/sguan/Sguan_LTD.o
+CC build/sguan/Sguan_Ladrc.o
+CC build/sguan/Sguan_MotorStatus.o
+CC build/sguan/Sguan_NLFO.o
+CC build/sguan/Sguan_NSD.o
+CC build/sguan/Sguan_Optimize.o
+CC build/sguan/Sguan_PID.o
+CC build/sguan/Sguan_PLL.o
+CC build/sguan/Sguan_SMC.o
+CC build/sguan/Sguan_SMO.o
+CC build/sguan/Sguan_SPWM.o
+CC build/sguan/Sguan_STA.o
+CC build/sguan/Sguan_SVPWM.o
+CC build/sguan/Sguan_math.o
+CC build/sguan/Sguan_printf.o
+In file included from applications/sguan/ns800_foc_port.c:55:
+applications/sguan/foc_trace_diag.h: In function 'trace_reset':
+applications/sguan/foc_trace_diag.h:29:32: error: 'adc_overflows' undeclared (first use in this function); did you mean 'adc_overflow_streak'?
+   29 |     foc_trace.overflow_start = adc_overflows;
+      |                                ^~~~~~~~~~~~~
+      |                                adc_overflow_streak
+applications/sguan/foc_trace_diag.h:29:32: note: each undeclared identifier is reported only once for each function it appears in
+applications/sguan/foc_trace_diag.h: In function 'trace_sample_save':
+applications/sguan/foc_trace_diag.h:37:14: error: 'adc_count' undeclared (first use in this function)
+   37 |     s->adc = adc_count; s->dwt = entered;
+      |              ^~~~~~~~~
+applications/sguan/foc_trace_diag.h:52:15: error: 'peak_current' undeclared (first use in this function)
+   52 |     s->peak = peak_current; s->bus = vbus;
+      |               ^~~~~~~~~~~~
+applications/sguan/foc_trace_diag.h:58:61: error: 'adc_overflows' undeclared (first use in this function); did you mean 'adc_overflow_streak'?
+   58 |     foc_trace.end_adc = adc_count; foc_trace.overflow_end = adc_overflows;
+      |                                                             ^~~~~~~~~~~~~
+      |                                                             adc_overflow_streak
+applications/sguan/foc_trace_diag.h: In function 'trace_cmd':
+applications/sguan/foc_trace_diag.h:82:53: error: 'struct ns800_foc_status' has no member named 'running'
+   82 |         if (ns800_foc_status_read(&s) != RT_EOK || s.running || trace_zero_active)
+      |                                                     ^
+applications/sguan/ns800_foc_port.c: In function 'ADCA_CONV_IRQHandler':
+applications/sguan/ns800_foc_port.c:183:5: error: 'adc_count' undeclared (first use in this function)
+  183 |     adc_count++;
+      |     ^~~~~~~~~
+applications/sguan/ns800_foc_port.c:187:9: error: 'adc_overflows' undeclared (first use in this function); did you mean 'adc_overflow_streak'?
+  187 |         adc_overflows++;
+      |         ^~~~~~~~~~~~~
+      |         adc_overflow_streak
+applications/sguan/ns800_foc_port.c:192:64: error: 'PORT_ADC' undeclared (first use in this function); did you mean 'PORT_FAST'?
+  192 |         if (running && adc_overflow_streak >= 3U) pwm_safe_off(PORT_ADC);
+      |                                                                ^~~~~~~~
+      |                                                                PORT_FAST
+applications/sguan/ns800_foc_port.c:197:10: error: 'calibrated' undeclared (first use in this function)
+  197 |     if (!calibrated)
+      |          ^~~~~~~~~~
+applications/sguan/ns800_foc_port.c:214:23: error: 'peak_current' undeclared (first use in this function)
+  214 |             if (mag > peak_current) peak_current = mag;
+      |                       ^~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:238:5: error: 'control_last' undeclared (first use in this function)
+  238 |     control_last = DWT->CYCCNT - start;
+      |     ^~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:239:24: error: 'control_max' undeclared (first use in this function)
+  239 |     if (control_last > control_max) control_max = control_last;
+      |                        ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:244:69: error: 'PORT_OBSERVER' undeclared (first use in this function)
+  244 |         if (!foc_sensorless_tick(&sensorless, &Sguan)) pwm_safe_off(PORT_OBSERVER);
+      |                                                                     ^~~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:245:9: error: 'low_last' undeclared (first use in this function); did you mean 'low_start'?
+  245 |         low_last = DWT->CYCCNT - low_start;
+      |         ^~~~~~~~
+      |         low_start
+applications/sguan/ns800_foc_port.c:246:24: error: 'low_max' undeclared (first use in this function)
+  246 |         if (low_last > low_max) low_max = low_last;
+      |                        ^~~~~~~
+applications/sguan/ns800_foc_port.c:249:20: error: 'PORT_LIB' undeclared (first use in this function)
+  249 |     { pwm_safe_off(PORT_LIB); goto done; }
+      |                    ^~~~~~~~
+applications/sguan/ns800_foc_port.c:251:30: error: 'transitions' undeclared (first use in this function)
+  251 |     if (sensorless.closed && transitions == 0) transitions = 1;
+      |                              ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:263:5: error: 'isr_last' undeclared (first use in this function)
+  263 |     isr_last = DWT->CYCCNT - entered;
+      |     ^~~~~~~~
+applications/sguan/ns800_foc_port.c:264:20: error: 'isr_max' undeclared (first use in this function)
+  264 |     if (isr_last > isr_max) isr_max = isr_last;
+      |                    ^~~~~~~
+applications/sguan/ns800_foc_port.c: In function 'foc_execute_request':
+applications/sguan/ns800_foc_port.c:273:10: error: 'ready' undeclared (first use in this function)
+  273 |     if (!ready || calibrated != 1) return -RT_EBUSY;
+      |          ^~~~~
+applications/sguan/ns800_foc_port.c:273:19: error: 'calibrated' undeclared (first use in this function)
+  273 |     if (!ready || calibrated != 1) return -RT_EBUSY;
+      |                   ^~~~~~~~~~
+applications/sguan/ns800_foc_port.c:316:13: error: 'SguanMath' undeclared (first use in this function)
+  316 |     memset(&SguanMath, 0, sizeof(SguanMath));
+      |             ^~~~~~~~~
+applications/sguan/ns800_foc_port.c:317:13: error: 'PORT_OK' undeclared (first use in this function)
+  317 |     fault = PORT_OK;
+      |             ^~~~~~~
+applications/sguan/ns800_foc_port.c:318:5: error: 'peak_current' undeclared (first use in this function)
+  318 |     peak_current = 0;
+      |     ^~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:320:5: error: 'isr_last' undeclared (first use in this function)
+  320 |     isr_last = isr_max = control_last = control_max = 0;
+      |     ^~~~~~~~
+applications/sguan/ns800_foc_port.c:320:16: error: 'isr_max' undeclared (first use in this function)
+  320 |     isr_last = isr_max = control_last = control_max = 0;
+      |                ^~~~~~~
+applications/sguan/ns800_foc_port.c:320:26: error: 'control_last' undeclared (first use in this function)
+  320 |     isr_last = isr_max = control_last = control_max = 0;
+      |                          ^~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:320:41: error: 'control_max' undeclared (first use in this function)
+  320 |     isr_last = isr_max = control_last = control_max = 0;
+      |                                         ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:321:32: error: 'transitions' undeclared (first use in this function)
+  321 |     align_count = high_count = transitions = 0;
+      |                                ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c: In function 'sguan_main_entry':
+applications/sguan/ns800_foc_port.c:339:26: error: 'PORT_OK' undeclared (first use in this function)
+  339 |             pwm_safe_off(PORT_OK);
+      |                          ^~~~~~~
+applications/sguan/ns800_foc_port.c: In function 'foc_status_publish':
+applications/sguan/ns800_foc_port.c:369:6: error: 'struct ns800_foc_status' has no member named 'running'
+  369 |     s.running = running; s.fault = fault; s.ready = ready; s.cal = calibrated;
+      |      ^
+applications/sguan/ns800_foc_port.c:369:27: error: 'struct ns800_foc_status' has no member named 'fault'
+  369 |     s.running = running; s.fault = fault; s.ready = ready; s.cal = calibrated;
+      |                           ^
+applications/sguan/ns800_foc_port.c:369:44: error: 'struct ns800_foc_status' has no member named 'ready'
+  369 |     s.running = running; s.fault = fault; s.ready = ready; s.cal = calibrated;
+      |                                            ^
+applications/sguan/ns800_foc_port.c:369:53: error: 'ready' undeclared (first use in this function)
+  369 |     s.running = running; s.fault = fault; s.ready = ready; s.cal = calibrated;
+      |                                                     ^~~~~
+applications/sguan/ns800_foc_port.c:369:61: error: 'struct ns800_foc_status' has no member named 'cal'
+  369 |     s.running = running; s.fault = fault; s.ready = ready; s.cal = calibrated;
+      |                                                             ^
+applications/sguan/ns800_foc_port.c:369:68: error: 'calibrated' undeclared (first use in this function)
+  369 |     s.running = running; s.fault = fault; s.ready = ready; s.cal = calibrated;
+      |                                                                    ^~~~~~~~~~
+applications/sguan/ns800_foc_port.c:370:6: error: 'struct ns800_foc_status' has no member named 'adc'
+  370 |     s.adc = adc_count; s.overflow = adc_overflows; s.status = Sguan.status;
+      |      ^
+applications/sguan/ns800_foc_port.c:370:13: error: 'adc_count' undeclared (first use in this function)
+  370 |     s.adc = adc_count; s.overflow = adc_overflows; s.status = Sguan.status;
+      |             ^~~~~~~~~
+applications/sguan/ns800_foc_port.c:370:25: error: 'struct ns800_foc_status' has no member named 'overflow'
+  370 |     s.adc = adc_count; s.overflow = adc_overflows; s.status = Sguan.status;
+      |                         ^
+applications/sguan/ns800_foc_port.c:370:37: error: 'adc_overflows' undeclared (first use in this function); did you mean 'adc_overflow_streak'?
+  370 |     s.adc = adc_count; s.overflow = adc_overflows; s.status = Sguan.status;
+      |                                     ^~~~~~~~~~~~~
+      |                                     adc_overflow_streak
+applications/sguan/ns800_foc_port.c:370:54: error: 'struct ns800_foc_status' has no member named 'status'; did you mean 'state'?
+  370 |     s.adc = adc_count; s.overflow = adc_overflows; s.status = Sguan.status;
+      |                                                      ^~~~~~
+      |                                                      state
+applications/sguan/ns800_foc_port.c:371:6: error: 'struct ns800_foc_status' has no member named 'closed'
+  371 |     s.closed = sensorless.closed; s.transitions = transitions;
+      |      ^
+applications/sguan/ns800_foc_port.c:371:36: error: 'struct ns800_foc_status' has no member named 'transitions'
+  371 |     s.closed = sensorless.closed; s.transitions = transitions;
+      |                                    ^
+applications/sguan/ns800_foc_port.c:371:51: error: 'transitions' undeclared (first use in this function)
+  371 |     s.closed = sensorless.closed; s.transitions = transitions;
+      |                                                   ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:372:6: error: 'struct ns800_foc_status' has no member named 'isr_last'
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |      ^
+applications/sguan/ns800_foc_port.c:372:18: error: 'isr_last' undeclared (first use in this function)
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                  ^~~~~~~~
+applications/sguan/ns800_foc_port.c:372:29: error: 'struct ns800_foc_status' has no member named 'isr_max'
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                             ^
+applications/sguan/ns800_foc_port.c:372:40: error: 'isr_max' undeclared (first use in this function)
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                                        ^~~~~~~
+applications/sguan/ns800_foc_port.c:372:50: error: 'struct ns800_foc_status' has no member named 'ctrl_last'
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                                                  ^
+applications/sguan/ns800_foc_port.c:372:63: error: 'control_last' undeclared (first use in this function)
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                                                               ^~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:372:78: error: 'struct ns800_foc_status' has no member named 'ctrl_max'
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                                                                              ^
+applications/sguan/ns800_foc_port.c:372:90: error: 'control_max' undeclared (first use in this function)
+  372 |     s.isr_last = isr_last; s.isr_max = isr_max; s.ctrl_last = control_last; s.ctrl_max = control_max;
+      |                                                                                          ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:373:6: error: 'struct ns800_foc_status' has no member named 'low_last'
+  373 |     s.low_last = low_last; s.low_max = low_max;
+      |      ^
+applications/sguan/ns800_foc_port.c:373:18: error: 'low_last' undeclared (first use in this function)
+  373 |     s.low_last = low_last; s.low_max = low_max;
+      |                  ^~~~~~~~
+applications/sguan/ns800_foc_port.c:373:29: error: 'struct ns800_foc_status' has no member named 'low_max'
+  373 |     s.low_last = low_last; s.low_max = low_max;
+      |                             ^
+applications/sguan/ns800_foc_port.c:373:40: error: 'low_max' undeclared (first use in this function)
+  373 |     s.low_last = low_last; s.low_max = low_max;
+      |                                        ^~~~~~~
+applications/sguan/ns800_foc_port.c:374:39: error: 'struct ns800_foc_status' has no member named 'raw'
+  374 |     for (unsigned i = 0; i < 4; ++i) s.raw[i] = raw[i];
+      |                                       ^
+applications/sguan/ns800_foc_port.c:375:39: error: 'struct ns800_foc_status' has no member named 'cur'
+  375 |     for (unsigned i = 0; i < 3; ++i) s.cur[i] = current[i];
+      |                                       ^
+applications/sguan/ns800_foc_port.c:376:6: error: 'struct ns800_foc_status' has no member named 'bus'
+  376 |     s.bus = vbus; s.peak = peak_current; s.target = Sguan.foc.Target_Speed;
+      |      ^
+applications/sguan/ns800_foc_port.c:376:20: error: 'struct ns800_foc_status' has no member named 'peak'
+  376 |     s.bus = vbus; s.peak = peak_current; s.target = Sguan.foc.Target_Speed;
+      |                    ^
+applications/sguan/ns800_foc_port.c:376:28: error: 'peak_current' undeclared (first use in this function)
+  376 |     s.bus = vbus; s.peak = peak_current; s.target = Sguan.foc.Target_Speed;
+      |                            ^~~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:376:43: error: 'struct ns800_foc_status' has no member named 'target'
+  376 |     s.bus = vbus; s.peak = peak_current; s.target = Sguan.foc.Target_Speed;
+      |                                           ^
+applications/sguan/ns800_foc_port.c:377:42: error: 'struct ns800_foc_status' has no member named 'pll_speed'
+  377 |     s.speed = Sguan.encoder.Real_Speed; s.pll_speed = Sguan.value.High_Wm;
+      |                                          ^
+applications/sguan/ns800_foc_port.c:378:6: error: 'struct ns800_foc_status' has no member named 'forced'
+  378 |     s.forced = Sguan.value.Low_Wm; s.angle = Sguan.encoder.Real_Re;
+      |      ^
+applications/sguan/ns800_foc_port.c:378:37: error: 'struct ns800_foc_status' has no member named 'angle'
+  378 |     s.forced = Sguan.value.Low_Wm; s.angle = Sguan.encoder.Real_Re;
+      |                                     ^
+applications/sguan/ns800_foc_port.c:379:6: error: 'struct ns800_foc_status' has no member named 'forced_angle'
+  379 |     s.forced_angle = sensorless.forced_angle;
+      |      ^
+applications/sguan/ns800_foc_port.c:379:32: error: 'struct foc_sensorless_monitor' has no member named 'forced_angle'
+  379 |     s.forced_angle = sensorless.forced_angle;
+      |                                ^
+applications/sguan/ns800_foc_port.c:380:6: error: 'struct ns800_foc_status' has no member named 'id'
+  380 |     s.id = Sguan.current.Real_Id; s.iq = Sguan.current.Real_Iq; s.iqref = Sguan.foc.Target_Iq;
+      |      ^
+applications/sguan/ns800_foc_port.c:380:36: error: 'struct ns800_foc_status' has no member named 'iq'
+  380 |     s.id = Sguan.current.Real_Id; s.iq = Sguan.current.Real_Iq; s.iqref = Sguan.foc.Target_Iq;
+      |                                    ^
+applications/sguan/ns800_foc_port.c:380:66: error: 'struct ns800_foc_status' has no member named 'iqref'
+  380 |     s.id = Sguan.current.Real_Id; s.iq = Sguan.current.Real_Iq; s.iqref = Sguan.foc.Target_Iq;
+      |                                                                  ^
+applications/sguan/ns800_foc_port.c:381:6: error: 'struct ns800_foc_status' has no member named 'emf'
+  381 |     s.emf = sensorless.emf;
+      |      ^
+applications/sguan/ns800_foc_port.c:381:23: error: 'struct foc_sensorless_monitor' has no member named 'emf'
+  381 |     s.emf = sensorless.emf;
+      |                       ^
+applications/sguan/ns800_foc_port.c:382:6: error: 'struct ns800_foc_status' has no member named 'pll_error'
+  382 |     s.pll_error = Sguan.transfer.PLL_encoder.go.Error;
+      |      ^
+applications/sguan/ns800_foc_port.c:383:6: error: 'struct ns800_foc_status' has no member named 'lock'
+  383 |     s.lock = sensorless.valid_ms * .001f; s.blend = 0.0f;
+      |      ^
+applications/sguan/ns800_foc_port.c:383:44: error: 'struct ns800_foc_status' has no member named 'blend'
+  383 |     s.lock = sensorless.valid_ms * .001f; s.blend = 0.0f;
+      |                                            ^
+applications/sguan/ns800_foc_port.c:384:6: error: 'struct ns800_foc_status' has no member named 'if_stage'
+  384 |     s.if_stage = s.running ? (sensorless.observer ? 3U : 1U) : 0U;
+      |      ^
+applications/sguan/ns800_foc_port.c:384:19: error: 'struct ns800_foc_status' has no member named 'running'
+  384 |     s.if_stage = s.running ? (sensorless.observer ? 3U : 1U) : 0U;
+      |                   ^
+applications/sguan/ns800_foc_port.c:384:41: error: 'struct foc_sensorless_monitor' has no member named 'observer'
+  384 |     s.if_stage = s.running ? (sensorless.observer ? 3U : 1U) : 0U;
+      |                                         ^
+applications/sguan/ns800_foc_port.c:385:7: error: 'struct ns800_foc_status' has no member named 'startup'; did you mean 'state'?
+  385 |     s.startup = sensorless.elapsed_ms * .001f; s.lost = sensorless.lost_ms * .001f;
+      |       ^~~~~~~
+      |       state
+applications/sguan/ns800_foc_port.c:385:49: error: 'struct ns800_foc_status' has no member named 'lost'
+  385 |     s.startup = sensorless.elapsed_ms * .001f; s.lost = sensorless.lost_ms * .001f;
+      |                                                 ^
+applications/sguan/ns800_foc_port.c:386:6: error: 'struct ns800_foc_status' has no member named 'phase'
+  386 |     s.phase = Sguan.value.High_angle - Sguan.value.Low_angle * Sguan.motor.Poles;
+      |      ^
+applications/sguan/ns800_foc_port.c:387:6: error: 'struct ns800_foc_status' has no member named 'wm_err'
+  387 |     s.wm_err = Sguan.value.High_Wm - Sguan.value.Low_Wm;
+      |      ^
+applications/sguan/ns800_foc_port.c:388:6: error: 'struct ns800_foc_status' has no member named 'speed_abs'
+  388 |     s.speed_abs = Sguan.value.Speed_abs; s.gain = Sguan.value.Sensorless_Gain;
+      |      ^
+applications/sguan/ns800_foc_port.c:388:43: error: 'struct ns800_foc_status' has no member named 'gain'
+  388 |     s.speed_abs = Sguan.value.Speed_abs; s.gain = Sguan.value.Sensorless_Gain;
+      |                                           ^
+applications/sguan/ns800_foc_port.c:390:6: error: 'struct ns800_foc_status' has no member named 'math'
+  390 |     s.math = SguanMath;
+      |      ^
+applications/sguan/ns800_foc_port.c:390:14: error: 'SguanMath' undeclared (first use in this function)
+  390 |     s.math = SguanMath;
+      |              ^~~~~~~~~
+applications/sguan/ns800_foc_port.c:392:6: error: 'struct ns800_foc_status' has no member named 'phase'
+  392 |     s.phase = Value_normalize(s.phase + Value_PI) - Value_PI;
+      |      ^
+applications/sguan/ns800_foc_port.c:392:32: error: 'struct ns800_foc_status' has no member named 'phase'
+  392 |     s.phase = Value_normalize(s.phase + Value_PI) - Value_PI;
+      |                                ^
+applications/sguan/ns800_foc_port.c:393:6: error: 'struct ns800_foc_status' has no member named 'current_error'
+  393 |     s.current_error = fmaxf(fabsf(target_id-s.id), fabsf(s.iqref-s.iq));
+      |      ^
+applications/sguan/ns800_foc_port.c:393:46: error: 'struct ns800_foc_status' has no member named 'id'
+  393 |     s.current_error = fmaxf(fabsf(target_id-s.id), fabsf(s.iqref-s.iq));
+      |                                              ^
+applications/sguan/ns800_foc_port.c:393:59: error: 'struct ns800_foc_status' has no member named 'iqref'
+  393 |     s.current_error = fmaxf(fabsf(target_id-s.id), fabsf(s.iqref-s.iq));
+      |                                                           ^
+applications/sguan/ns800_foc_port.c:393:67: error: 'struct ns800_foc_status' has no member named 'iq'
+  393 |     s.current_error = fmaxf(fabsf(target_id-s.id), fabsf(s.iqref-s.iq));
+      |                                                                   ^
+applications/sguan/ns800_foc_port.c: In function 'foc_status':
+applications/sguan/ns800_foc_port.c:429:26: error: 'struct ns800_foc_status' has no member named 'fault'
+  429 |     const char *state = s.fault ? "fault" : !s.running ? "idle" : s.closed ? "run" : "ramp";
+      |                          ^
+applications/sguan/ns800_foc_port.c:429:47: error: 'struct ns800_foc_status' has no member named 'running'
+  429 |     const char *state = s.fault ? "fault" : !s.running ? "idle" : s.closed ? "run" : "ramp";
+      |                                               ^
+applications/sguan/ns800_foc_port.c:429:68: error: 'struct ns800_foc_status' has no member named 'closed'
+  429 |     const char *state = s.fault ? "fault" : !s.running ? "idle" : s.closed ? "run" : "ramp";
+      |                                                                    ^
+applications/sguan/ns800_foc_port.c:430:26: error: 'struct ns800_foc_status' has no member named 'running'
+  430 |     const char *loop = !s.running ? "stopped" : s.closed ? "closed" : s.if_stage == 3 ? "observer-acquire" : "current-ramp";
+      |                          ^
+applications/sguan/ns800_foc_port.c:430:50: error: 'struct ns800_foc_status' has no member named 'closed'
+  430 |     const char *loop = !s.running ? "stopped" : s.closed ? "closed" : s.if_stage == 3 ? "observer-acquire" : "current-ramp";
+      |                                                  ^
+applications/sguan/ns800_foc_port.c:430:72: error: 'struct ns800_foc_status' has no member named 'if_stage'
+  430 |     const char *loop = !s.running ? "stopped" : s.closed ? "closed" : s.if_stage == 3 ? "observer-acquire" : "current-ramp";
+      |                                                                        ^
+applications/sguan/ns800_foc_port.c:431:90: error: 'fault_names' undeclared (first use in this function)
+  431 |     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+      |                                                                                          ^~~~~~~~~~~
+applications/sguan/ns800_foc_port.c:431:103: error: 'struct ns800_foc_status' has no member named 'fault'
+  431 |     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+      |                                                                                                       ^
+applications/sguan/ns800_foc_port.c:431:113: error: 'struct ns800_foc_status' has no member named 'ready'
+  431 |     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+      |                                                                                                                 ^
+applications/sguan/ns800_foc_port.c:431:122: error: 'struct ns800_foc_status' has no member named 'cal'
+  431 |     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+      |                                                                                                                          ^
+applications/sguan/ns800_foc_port.c:431:137: error: 'struct ns800_foc_status' has no member named 'adc'
+  431 |     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+      |                                                                                                                                         ^
+applications/sguan/ns800_foc_port.c:431:144: error: 'struct ns800_foc_status' has no member named 'overflow'
+  431 |     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+      |                                                                                                                                                ^
+applications/sguan/ns800_foc_port.c:432:106: error: 'struct ns800_foc_status' has no member named 'status'; did you mean 'state'?
+  432 |     rt_kprintf("controller=sguan mode=SMO lib_status=%u math=upstream smo=diagnostic%u if=upstream\n", s.status, FOC_DIAG_VARIANT);
+      |                                                                                                          ^~~~~~
+      |                                                                                                          state
+applications/sguan/ns800_foc_port.c:434:10: error: 'struct ns800_foc_status' has no member named 'running'
+  434 |         s.running ? (int)(s.speed * 2 / Value_2PI * 1000) : 0, (int)(s.bus*1000),
+      |          ^
+applications/sguan/ns800_foc_port.c:434:71: error: 'struct ns800_foc_status' has no member named 'bus'
+  434 |         s.running ? (int)(s.speed * 2 / Value_2PI * 1000) : 0, (int)(s.bus*1000),
+      |                                                                       ^
+applications/sguan/ns800_foc_port.c:435:16: error: 'struct ns800_foc_status' has no member named 'cur'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                ^
+applications/sguan/ns800_foc_port.c:435:38: error: 'struct ns800_foc_status' has no member named 'cur'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                      ^
+applications/sguan/ns800_foc_port.c:435:60: error: 'struct ns800_foc_status' has no member named 'cur'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                                            ^
+applications/sguan/ns800_foc_port.c:435:82: error: 'struct ns800_foc_status' has no member named 'peak'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                                                                  ^
+applications/sguan/ns800_foc_port.c:435:96: error: 'struct ns800_foc_status' has no member named 'raw'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                                                                                ^
+applications/sguan/ns800_foc_port.c:435:105: error: 'struct ns800_foc_status' has no member named 'raw'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                                                                                         ^
+applications/sguan/ns800_foc_port.c:435:114: error: 'struct ns800_foc_status' has no member named 'raw'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                                                                                                  ^
+applications/sguan/ns800_foc_port.c:435:123: error: 'struct ns800_foc_status' has no member named 'raw'
+  435 |         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+      |                                                                                                                           ^
+applications/sguan/ns800_foc_port.c:437:10: error: 'struct ns800_foc_status' has no member named 'isr_last'
+  437 |         s.isr_last,s.isr_max,(unsigned)((uint64_t)s.isr_max*1000000000/RCC_getCpuclkFrequency()),s.ctrl_last,s.ctrl_max,
+      |          ^
+applications/sguan/ns800_foc_port.c:437:21: error: 'struct ns800_foc_status' has no member named 'isr_max'
+  437 |         s.isr_last,s.isr_max,(unsigned)((uint64_t)s.isr_max*1000000000/RCC_getCpuclkFrequency()),s.ctrl_last,s.ctrl_max,
+      |                     ^
+applications/sguan/ns800_foc_port.c:437:52: error: 'struct ns800_foc_status' has no member named 'isr_max'
+  437 |         s.isr_last,s.isr_max,(unsigned)((uint64_t)s.isr_max*1000000000/RCC_getCpuclkFrequency()),s.ctrl_last,s.ctrl_max,
+      |                                                    ^
+applications/sguan/ns800_foc_port.c:437:99: error: 'struct ns800_foc_status' has no member named 'ctrl_last'
+  437 |         s.isr_last,s.isr_max,(unsigned)((uint64_t)s.isr_max*1000000000/RCC_getCpuclkFrequency()),s.ctrl_last,s.ctrl_max,
+      |                                                                                                   ^
+applications/sguan/ns800_foc_port.c:437:111: error: 'struct ns800_foc_status' has no member named 'ctrl_max'
+  437 |         s.isr_last,s.isr_max,(unsigned)((uint64_t)s.isr_max*1000000000/RCC_getCpuclkFrequency()),s.ctrl_last,s.ctrl_max,
+      |                                                                                                               ^
+applications/sguan/ns800_foc_port.c:438:10: error: 'struct ns800_foc_status' has no member named 'low_last'
+  438 |         s.low_last,s.low_max);
+      |          ^
+applications/sguan/ns800_foc_port.c:438:21: error: 'struct ns800_foc_status' has no member named 'low_max'
+  438 |         s.low_last,s.low_max);
+      |                     ^
+applications/sguan/ns800_foc_port.c:439:92: error: 'struct ns800_foc_status' has no member named 'fault'
+  439 |     rt_kprintf("loop=%s err=%u target_rpm=%d est_rpm=%d pll_rpm=%d forced_rpm=%d\n", loop,s.fault,
+      |                                                                                            ^
+applications/sguan/ns800_foc_port.c:440:16: error: 'struct ns800_foc_status' has no member named 'target'
+  440 |         (int)(s.target*60/Value_2PI),(int)(s.speed*60/Value_2PI),(int)(s.pll_speed*60/Value_2PI),(int)(s.forced*60/Value_2PI));
+      |                ^
+applications/sguan/ns800_foc_port.c:440:73: error: 'struct ns800_foc_status' has no member named 'pll_speed'
+  440 |         (int)(s.target*60/Value_2PI),(int)(s.speed*60/Value_2PI),(int)(s.pll_speed*60/Value_2PI),(int)(s.forced*60/Value_2PI));
+      |                                                                         ^
+applications/sguan/ns800_foc_port.c:440:105: error: 'struct ns800_foc_status' has no member named 'forced'
+  440 |         (int)(s.target*60/Value_2PI),(int)(s.speed*60/Value_2PI),(int)(s.pll_speed*60/Value_2PI),(int)(s.forced*60/Value_2PI));
+      |                                                                                                         ^
+applications/sguan/ns800_foc_port.c:442:16: error: 'struct ns800_foc_status' has no member named 'id'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                ^
+applications/sguan/ns800_foc_port.c:442:33: error: 'struct ns800_foc_status' has no member named 'iq'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                                 ^
+applications/sguan/ns800_foc_port.c:442:50: error: 'struct ns800_foc_status' has no member named 'iqref'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                                                  ^
+applications/sguan/ns800_foc_port.c:442:70: error: 'struct ns800_foc_status' has no member named 'emf'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                                                                      ^
+applications/sguan/ns800_foc_port.c:442:88: error: 'struct ns800_foc_status' has no member named 'pll_error'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                                                                                        ^
+applications/sguan/ns800_foc_port.c:442:117: error: 'struct ns800_foc_status' has no member named 'lock'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                                                                                                                     ^
+applications/sguan/ns800_foc_port.c:442:141: error: 'struct ns800_foc_status' has no member named 'blend'
+  442 |         (int)(s.id*1000),(int)(s.iq*1000),(int)(s.iqref*1000),(int)(s.emf*1000),(int)(s.pll_error*1000),(unsigned)(s.lock*1000),(unsigned)(s.blend*100));
+      |                                                                                                                                             ^
+applications/sguan/ns800_foc_port.c:443:85: error: 'struct ns800_foc_status' has no member named 'transitions'
+  443 |     rt_kprintf("transitions=%u angle_mrad=%d forced_mrad=%d current_error_mA=%d\n",s.transitions,
+      |                                                                                     ^
+applications/sguan/ns800_foc_port.c:444:16: error: 'struct ns800_foc_status' has no member named 'angle'
+  444 |         (int)(s.angle*1000),(int)(s.forced_angle*1000),(int)(s.current_error*1000));
+      |                ^
+applications/sguan/ns800_foc_port.c:444:36: error: 'struct ns800_foc_status' has no member named 'forced_angle'
+  444 |         (int)(s.angle*1000),(int)(s.forced_angle*1000),(int)(s.current_error*1000));
+      |                                    ^
+applications/sguan/ns800_foc_port.c:444:63: error: 'struct ns800_foc_status' has no member named 'current_error'
+  444 |         (int)(s.angle*1000),(int)(s.forced_angle*1000),(int)(s.current_error*1000));
+      |                                                               ^
+applications/sguan/ns800_foc_port.c:446:10: error: 'struct ns800_foc_status' has no member named 'if_stage'
+  446 |         s.if_stage, (unsigned)(s.startup*1000), (unsigned)(s.lost*1000),
+      |          ^
+applications/sguan/ns800_foc_port.c:446:34: error: 'struct ns800_foc_status' has no member named 'startup'; did you mean 'state'?
+  446 |         s.if_stage, (unsigned)(s.startup*1000), (unsigned)(s.lost*1000),
+      |                                  ^~~~~~~
+      |                                  state
+applications/sguan/ns800_foc_port.c:446:61: error: 'struct ns800_foc_status' has no member named 'lost'
+  446 |         s.if_stage, (unsigned)(s.startup*1000), (unsigned)(s.lost*1000),
+      |                                                             ^
+applications/sguan/ns800_foc_port.c:447:16: error: 'struct ns800_foc_status' has no member named 'phase'
+  447 |         (int)(s.phase*1000), (int)(s.wm_err*1000), (int)(s.speed_abs*1000), (unsigned)(s.gain*100));
+      |                ^
+applications/sguan/ns800_foc_port.c:447:37: error: 'struct ns800_foc_status' has no member named 'wm_err'
+  447 |         (int)(s.phase*1000), (int)(s.wm_err*1000), (int)(s.speed_abs*1000), (unsigned)(s.gain*100));
+      |                                     ^
+applications/sguan/ns800_foc_port.c:447:59: error: 'struct ns800_foc_status' has no member named 'speed_abs'
+  447 |         (int)(s.phase*1000), (int)(s.wm_err*1000), (int)(s.speed_abs*1000), (unsigned)(s.gain*100));
+      |                                                           ^
+applications/sguan/ns800_foc_port.c:447:89: error: 'struct ns800_foc_status' has no member named 'gain'
+  447 |         (int)(s.phase*1000), (int)(s.wm_err*1000), (int)(s.speed_abs*1000), (unsigned)(s.gain*100));
+      |                                                                                         ^
+applications/sguan/ns800_foc_port.c:448:63: error: 'struct ns800_foc_status' has no member named 'math'
+  448 |     rt_kprintf("emath_sincos=%u/%u/%u emath_trig=%u/%u/%u\n",s.math.sincos_last,s.math.sincos_max,s.math.sincos_calls,s.math.trig_last,s.math.trig_max,s.math.trig_calls);
+      |                                                               ^
+applications/sguan/ns800_foc_port.c:448:82: error: 'struct ns800_foc_status' has no member named 'math'
+  448 |     rt_kprintf("emath_sincos=%u/%u/%u emath_trig=%u/%u/%u\n",s.math.sincos_last,s.math.sincos_max,s.math.sincos_calls,s.math.trig_last,s.math.trig_max,s.math.trig_calls);
+      |                                                                                  ^
+applications/sguan/ns800_foc_port.c:448:100: error: 'struct ns800_foc_status' has no member named 'math'
+  448 |     rt_kprintf("emath_sincos=%u/%u/%u emath_trig=%u/%u/%u\n",s.math.sincos_last,s.math.sincos_max,s.math.sincos_calls,s.math.trig_last,s.math.trig_max,s.math.trig_calls);
+      |                                                                                                    ^
+applications/sguan/ns800_foc_port.c:448:120: error: 'struct ns800_foc_status' has no member named 'math'
+  448 |     rt_kprintf("emath_sincos=%u/%u/%u emath_trig=%u/%u/%u\n",s.math.sincos_last,s.math.sincos_max,s.math.sincos_calls,s.math.trig_last,s.math.trig_max,s.math.trig_calls);
+      |                                                                                                                        ^
+applications/sguan/ns800_foc_port.c:448:137: error: 'struct ns800_foc_status' has no member named 'math'
+  448 |     rt_kprintf("emath_sincos=%u/%u/%u emath_trig=%u/%u/%u\n",s.math.sincos_last,s.math.sincos_max,s.math.sincos_calls,s.math.trig_last,s.math.trig_max,s.math.trig_calls);
+      |                                                                                                                                         ^
+applications/sguan/ns800_foc_port.c:448:153: error: 'struct ns800_foc_status' has no member named 'math'
+  448 |     rt_kprintf("emath_sincos=%u/%u/%u emath_trig=%u/%u/%u\n",s.math.sincos_last,s.math.sincos_max,s.math.sincos_calls,s.math.trig_last,s.math.trig_max,s.math.trig_calls);
+      |                                                                                                                                                         ^
+applications/sguan/ns800_foc_port.c:449:41: error: 'struct ns800_foc_status' has no member named 'math'
+  449 |     rt_kprintf("emath_sqrt=%u/%u/%u\n",s.math.sqrt_last,s.math.sqrt_max,s.math.sqrt_calls);
+      |                                         ^
+applications/sguan/ns800_foc_port.c:449:58: error: 'struct ns800_foc_status' has no member named 'math'
+  449 |     rt_kprintf("emath_sqrt=%u/%u/%u\n",s.math.sqrt_last,s.math.sqrt_max,s.math.sqrt_calls);
+      |                                                          ^
+applications/sguan/ns800_foc_port.c:449:74: error: 'struct ns800_foc_status' has no member named 'math'
+  449 |     rt_kprintf("emath_sqrt=%u/%u/%u\n",s.math.sqrt_last,s.math.sqrt_max,s.math.sqrt_calls);
+      |                                                                          ^
+scons: *** [build/applications/sguan/ns800_foc_port.o] Error 1
+scons: building terminated because of errors.

@@ -1,0 +1,10 @@
+CompileFlags:
+  CompilationDatabase: build
+  Compiler: arm-none-eabi-gcc
+  Add:
+    - -isystem
+    - /usr/lib/arm-none-eabi/include
+  Remove:
+    - -Wduplicated-branches
+    - -Wduplicated-cond
+    - -Wlogical-op

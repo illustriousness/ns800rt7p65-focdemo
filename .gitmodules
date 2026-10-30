@@ -1,0 +1,6 @@
+[submodule "sguan-foc"]
+	path = libraries/SguanFOC_Library
+	url = https://github.com/Sguan-ZhouQing/SguanFOC_Library.git
+[submodule "libraries/CANopenNode"]
+	path = libraries/CANopenNode
+	url = https://github.com/CANopenNode/CANopenNode.git

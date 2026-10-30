@@ -1,0 +1,79 @@
+SEGGER J-Link Commander V9.84 (Compiled Oct  7 2026 14:39:34)
+DLL version V9.84, compiled Oct  7 2026 14:38:44
+
+
+J-Link Command File read successfully.
+Processing script file...
+J-Link>mem32 0x400A004C 1
+J-Link connection not established yet but required for command.
+Connecting to J-Link ...O.K.
+Firmware: J-Link V9 compiled May  7 2021 16:26:12
+Hardware version: V9.20
+J-Link uptime (since boot): N/A (Not supported by this model)
+S/N: -1
+License(s): RDI,FlashBP,FlashDL,JFlash,GDB
+VTref=3.349V
+Target connection not established yet but required for command.
+Device "NS800RT7P65D-DHQFOY2" selected.
+
+
+Connecting to target via SWD
+ConfigTargetSettings() start
+ConfigTargetSettings() end - Took 3us
+Found SW-DP with ID 0x6BA02477
+DPIDR: 0x6BA02477
+CoreSight SoC-400 or earlier
+AP map detection skipped. Manually configured AP map found.
+AP[0]: AHB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[0]: Core found
+AP[0]: AHB-AP ROM base: 0xE00FE000
+CPUID register: 0x411FC272. Implementer code: 0x41 (ARM)
+Cache: L1 I/D-cache present
+Found Cortex-M7 r1p2, Little endian.
+FPUnit: 8 code (BP) slots and 0 literal slots
+CoreSight components:
+ROMTbl[0] @ E00FE000
+[0][0]: E00FF000 CID B105100D PID 000BB4C7 ROM Table
+ROMTbl[1] @ E00FF000
+[1][0]: E000E000 CID B105E00D PID 000BB00C SCS-M7
+[1][1]: E0001000 CID B105E00D PID 000BB002 DWT
+[1][2]: E0002000 CID B105E00D PID 000BB00E FPB-M7
+[1][3]: E0000000 CID B105E00D PID 000BB001 ITM
+[0][1]: E0041000 CID B105900D PID 001BB975 ETM-M7
+[0][2]: E0042000 CID B105900D PID 004BB906 CTI
+I-Cache L1: 16 KB, 256 Sets, 32 Bytes/Line, 2-Way
+D-Cache L1: 16 KB, 128 Sets, 32 Bytes/Line, 4-Way
+Memory zones:
+  Zone: "Default" Description: Default access mode
+Cortex-M7 identified.
+400A004C = 00003000 
+J-Link>w4 0x400A0054 0x00800000
+Writing 00800000 -> 400A0054
+J-Link>h
+PC = 0801CD00, CycleCnt = 2918A12D
+R0 = 00000000, R1 = 00000000, R2 = 20105990, R3 = 00000000
+R4 = DEADBEEF, R5 = DEADBEEF, R6 = DEADBEEF, R7 = 20105878
+R8 = DEADBEEF, R9 = DEADBEEF, R10= DEADBEEF, R11= DEADBEEF
+R12= 00000000
+SP(R13)= 20105878, MSP= 200013C0, PSP= 20105878, R14(LR) = 0801CAAD
+XPSR = 81000000: APSR = Nzcvq, EPSR = 01000000, IPSR = 000 (NoException)
+CFBP = 02000000, CONTROL = 02, FAULTMASK = 00, BASEPRI = 00, PRIMASK = 00
+
+FPS0 = 42517084, FPS1 = 3F0A36E2, FPS2 = 451C4000, FPS3 = 43FA0001
+FPS4 = 84FC0000, FPS5 = 400051EB, FPS6 = F6080000, FPS7 = BFFF5C28
+FPS8 = 00000000, FPS9 = 000001FA, FPS10= 447A0000, FPS11= 44C2B0A0
+FPS12= 44C12A60, FPS13= 44C2E5C0, FPS14= BBDC0000, FPS15= 3D60F100
+FPS16= 504C4C54, FPS17= 00000001, FPS18= 42700000, FPS19= 40C90FDB
+FPS20= 7F7FFFFF, FPS21= 3F4CCCCD, FPS22= 43FA0000, FPS23= 00000000
+FPS24= 00000000, FPS25= 00000000, FPS26= 00000000, FPS27= 00000000
+FPS28= 00000000, FPS29= 00000000, FPS30= 00000000, FPS31= FFFFFFFF
+FPSCR= 20000010
+J-Link>savebin /tmp/opencode/sguan-direct-feedback-20261030/A2-500/trace.bin, 0x20120000, 0x1c040
+Opening binary file for writing... [/tmp/opencode/sguan-direct-feedback-20261030/A2-500/trace.bin]
+Reading 114752 bytes from addr 0x20120000 into file...O.K.
+J-Link>g
+Memory map 'after startup completion point' is active
+J-Link>exit
+
+Script processing completed.
+

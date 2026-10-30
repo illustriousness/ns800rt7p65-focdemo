@@ -1,0 +1,18 @@
+{
+  "magic": 1347177556,
+  "version": 1,
+  "variant": 0,
+  "kind": 2,
+  "count": 1024,
+  "capacity": 1024,
+  "sample_bytes": 112,
+  "cpu_hz": 400000000,
+  "fs": 20000,
+  "start_adc": 53403,
+  "end_adc": 54426,
+  "overflow_start": 0,
+  "overflow_end": 0,
+  "abort": 0,
+  "max_isr": 3086,
+  "completed": 1
+}

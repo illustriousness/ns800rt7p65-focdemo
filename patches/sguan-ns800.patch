@@ -1,0 +1,560 @@
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/SguanFOC.c" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/SguanFOC.c"
+index db6866e..9883850 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/SguanFOC.c"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/SguanFOC.c"
+@@ -10,6 +10,9 @@
+  * Copyright (c) 2026 by $星必尘Sguan, All Rights Reserved. 
+  */
+ #include "SguanFOC.h"
++#if CONFIG_MODE < 0 || CONFIG_MODE > MODE_Debug_HN
++#error Invalid Sguan mode
++#endif
+ 
+ /* USER CODE BEGIN Includes */
+ // 电机控制User用户设置声明
+@@ -484,6 +487,10 @@ static void Transfer_SMO_Loop(SguanFOC_System_STRUCT *sguan,
+                             PLL_STRUCT *pll){
+     #if IS_SMO_MODE
+     float Sine, Cosine;
++    /* Board range: h=6 below 800 rpm, ramp to h=12 at 2000 rpm. */
++    float injection = 6.0f + .0477464829f*(sguan->value.Speed_abs - 83.7758041f);
++    Value_Limit(&injection, 12.0f, 6.0f);
++    sguan->transfer.SMO.h = injection;
+     sguan->transfer.SMO.data.Input_We = pll->go.OutWe;
+     sguan->transfer.SMO.alpha.Input_Ix = sguan->current.Real_Ialpha;
+     sguan->transfer.SMO.alpha.Input_Ux = sguan->foc.Ualpha;
+@@ -495,6 +502,8 @@ static void Transfer_SMO_Loop(SguanFOC_System_STRUCT *sguan,
+                 &Cosine);
+     pll->go.Error = - (sguan->transfer.SMO.alpha.Output_Ex*Cosine + 
+         sguan->transfer.SMO.beta.Output_Ex*Sine);
++    if (CONFIG_MODE == MODE_Sensorless_SMO && sguan->foc.Target_Speed < 0.0f)
++        pll->go.Error = -pll->go.Error;
+     PLL_Loop(pll);
+     #endif // IS_SMO_MODE
+ }
+@@ -1601,7 +1610,11 @@ static void PWM_Tick(SguanFOC_System_STRUCT *sguan,
+         &sguan->foc.Dv,
+         &sguan->foc.Dw);          
+     #else // CONFIG_PWM
+-    SVPWM(U_alpha, 
++    #if CONFIG_MODE == MODE_Sensorless_SMO
++    U_alpha *= Value_SQRT3;
++    U_beta *= Value_SQRT3;
++    #endif
++    SVPWM(U_alpha,
+         U_beta,
+         &sguan->foc.Du,
+         &sguan->foc.Dv,
+@@ -1722,7 +1735,7 @@ static void Status_VBUS_OVERVOLTAGE(SguanFOC_System_STRUCT *sguan,uint32_t *coun
+ 
+ // Status判断欠压保护状态
+ static void Status_VBUS_UNDERVOLTAGE(SguanFOC_System_STRUCT *sguan,uint32_t *count){
+-    if (sguan->foc.Real_VBUS < sguan->safe.VBUS_MIM){
++    if (sguan->foc.Real_VBUS < sguan->safe.VBUS_MIN){
+         Status_Switch_STANDBY(sguan,count);
+     }
+ }
+@@ -1787,7 +1800,7 @@ static void Status_Switch_Loop(SguanFOC_System_STRUCT *sguan){
+             sguan->status = MOTOR_STATUS_OVERVOLTAGE;
+         }
+         else if ((sguan->status != MOTOR_STATUS_UNDERVOLTAGE) && 
+-            sguan->foc.Real_VBUS < sguan->safe.VBUS_MIM){
++            sguan->foc.Real_VBUS < sguan->safe.VBUS_MIN){
+             sguan->status = MOTOR_STATUS_UNDERVOLTAGE;
+         }
+     }
+@@ -2038,8 +2051,7 @@ static void Sguan_Calculate_High_Loop(SguanFOC_System_STRUCT *sguan){
+         Current_Tick(sguan);
+ 
+         // 2.电机角度和角速度计算，并相位补偿
+-        Encoder_Tick[Value_set(CONFIG_MODE,
+-            MODE_Debug_HN,0)](sguan);
++        Encoder_Tick[CONFIG_MODE](sguan);
+         #if CONFIG_AngleComp
+         sguan->value.AngleComp_Re = sguan->encoder.Real_Re + 
+                                 AngleComp_Loop(
+@@ -2056,8 +2068,7 @@ static void Sguan_Calculate_High_Loop(SguanFOC_System_STRUCT *sguan){
+         #endif // CONFIG_AngleComp
+ 
+         // 3.外载“无感观测器”
+-        Debug_Tick[Value_set(CONFIG_MODE,
+-            MODE_Debug_HN,0)](sguan);
++        Debug_Tick[CONFIG_MODE](sguan);
+     }
+ 
+     // MOTOR_STATUS_START->MOTOR_STATUS_INITIALIZING
+@@ -2080,13 +2091,21 @@ static void Sguan_Calculate_High_Loop(SguanFOC_System_STRUCT *sguan){
+     // (编码器运算使能，控制器使能)
+     if (sguan->status >= MOTOR_STATUS_IDLE){
+         // 6.运算控制器输出
+-        Control_Tick[Value_set(CONFIG_MODE,
+-            MODE_Debug_HN,0)](sguan);   
++        Control_Tick[CONFIG_MODE](sguan);
+     }
+     
+     // MOTOR_STATUS_START，部分权限开启
+     // (SVPWM/SPWM使能）
+     if (sguan->status >= MOTOR_STATUS_START){
++        #if CONFIG_MODE == MODE_Sensorless_SMO
++        float magnitude = Value_sqrtf(sguan->foc.Ud_in*sguan->foc.Ud_in + sguan->foc.Uq_in*sguan->foc.Uq_in);
++        float voltage_limit = Value_minf(11.5f, .43f*sguan->foc.Real_VBUS);
++        if (magnitude > voltage_limit) {
++            float scale = voltage_limit/magnitude;
++            sguan->foc.Ud_in *= scale;
++            sguan->foc.Uq_in *= scale;
++        }
++        #endif
+         ipark(&sguan->foc.Ualpha, 
+             &sguan->foc.Ubeta, 
+             sguan->foc.Ud_in, 
+@@ -2131,6 +2150,7 @@ static void Sguan_Calculate_main_Loop(SguanFOC_System_STRUCT *sguan){
+         // sguan->foc.Ud_in = 0.0f;
+         // User_Delay(800);
+ 
++        #if CONFIG_MODE != MODE_Sensorless_SMO
+         // 1.电机强拖到D轴零位
+         sguan->foc.Ud_in = 0.0f;
+         sguan->foc.Uq_in = 1.0f;
+@@ -2163,6 +2183,7 @@ static void Sguan_Calculate_main_Loop(SguanFOC_System_STRUCT *sguan){
+             sguan->motor.Motor_Dir = 1;
+         }              
+         User_Delay(600);
++        #endif
+ 
+         // // 我的电机的固定角度偏置
+         // sguan->encoder.Real_offset = 5.81071901f;
+@@ -2198,7 +2219,7 @@ static void Sguan_Calculate_main_Loop(SguanFOC_System_STRUCT *sguan){
+  * @reminder: 10Khz或者更高定时中断中调用，任务优先级“最高”
+  * @return {*}
+  */
+-void SguanFOC_High_Loop(void){
++__attribute__((section(".fast"))) void SguanFOC_High_Loop(void){
+     static uint8_t PWM_watchdog_counter = 0;
+ 
+     // ISR标志位开启，代表High_Loop正在执行
+@@ -2253,7 +2274,7 @@ void SguanFOC_High_Loop(void){
+  * @reminder: 1Khz或者更低定时中断中调用，任务优先级“中”
+  * @return {*}
+  */
+-void SguanFOC_Low_Loop(void){
++__attribute__((section(".fast"))) void SguanFOC_Low_Loop(void){
+     // ISR标志位开启，PWM计算中断正在执行
+     // (则会在此时跳过当前Low_Loop函数)
+     if (Sguan.flag.in_PWM_Calc_ISR) {
+@@ -2307,4 +2328,3 @@ void SguanFOC_main_Loop(void){
+         #endif // CONFIG_Printf
+     }
+ }
+-
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/Sguan_SMO.c" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/Sguan_SMO.c"
+index 1bfb92c..4b043d7 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/Sguan_SMO.c"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/Sguan_SMO.c"
+@@ -16,11 +16,15 @@ static void SMO_RUN(SMO_STRUCT *smo,SMO_GO_STRUCT *run);
+ 
+ // 静止坐标系下的x轴观测器框图（x可以是alpha或者beta轴）
+ static void SMO_RUN(SMO_STRUCT *smo,SMO_GO_STRUCT *run){
++    /* Feed switching correction directly into the current predictor.
++     * The low-pass estimate is an output for the PLL, not this feedback. */
++    float error = run->Output_Ix - run->Input_Ix;
++    float Ex = Value_Sign(error)*smo->h;
+     float I_input,part0,part1,part2,part3;
+     part0 = run->Input_Ux*smo->data.Gain0;
+     part1 = run->Output_Ix*smo->data.Gain1;
+     part2 = smo->data.Input_We*smo->data.Gain2*run->Input_Iy;
+-    part3 = run->Output_Ex*smo->data.Gain0;
++    part3 = Ex*smo->data.Gain0;
+     I_input = part0 - part1 - part2 - part3;
+ 
+     // 积分x轴，判断是否需要冻结积分
+@@ -50,10 +54,7 @@ static void SMO_RUN(SMO_STRUCT *smo,SMO_GO_STRUCT *run){
+         }
+     }
+ 
+-    // 输出x轴的预测反电动势，并滤波
+-    float error = run->Output_Ix - run->Input_Ix;
+-	error = Value_Sign(error);	
+-    float Ex = error*smo->h;
++    // 输出x轴的预测反电动势，并滤波（与预测器共用同一个开关注入）
+     run->Output_Ex = smo->data.F_num*(Ex + run->F_i) - smo->data.F_den*run->F_o;
+ 
+     // 更新历史输入输出值
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Config.h" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Config.h"
+index a55b38c..1adbaea 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Config.h"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Config.h"
+@@ -26,7 +26,7 @@
+  * @reminder: 18->MODE_Debug_HN         HFI切NLFO_转速环    (高精度编码器提供Rad)
+  * @return {*}
+  */
+-#define Define_Run_Mode 0
++#define Define_Run_Mode 8
+ 
+ /**
+  * @description: 宏定义0-3决定“电机速度环”的控制方式(默认使用PI控制)
+@@ -36,7 +36,7 @@
+  * @reminder: 3->Control_STA            电流环“PI控制”，转速环“STA超螺旋滑模控制”
+  * @return {*}
+  */
+-#define Switch_MOTOR_Control_Vel 1
++#define Switch_MOTOR_Control_Vel 0
+ 
+ /**
+  * @description: 宏定义0-3决定“电机位置环”的控制方式(默认使用PD控制)
+@@ -120,7 +120,7 @@
+  * @reminder: 1->开启相位延迟补偿，恒定延迟补偿，固定Td和Offset补偿算法
+  * @return {*}
+  */
+-#define Open_AngleComp_Calculate 0
++#define Open_AngleComp_Calculate 1
+ 
+ /**
+  * @description: 宏定义0或1决定“电流前馈”是否开启(开启最优)
+@@ -128,7 +128,7 @@
+  * @reminder: 1->开启电流的前馈解耦
+  * @return {*}
+  */
+-#define Open_Current_Feedforward 1
++#define Open_Current_Feedforward 0
+ 
+ /**
+  * @description: 宏定义0或1决定“速度前馈”是否开启(开启最优)
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Function.h" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Function.h"
+index cdac7ca..3b5efaf 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Function.h"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Function.h"
+@@ -1,6 +1,12 @@
+ #ifndef __USERDATA_FUNCTION_H
+ #define __USERDATA_FUNCTION_H
+ #include <stdint.h>
++extern void ns800_foc_delay(uint32_t ms);
++extern void ns800_foc_user_initial(void);
++extern void ns800_foc_user_start(void);
++extern int32_t ns800_foc_adc_raw(int32_t ch);
++extern void ns800_foc_pwm_set(uint32_t u, uint32_t v, uint32_t w);
++extern float ns800_foc_vbus(void);
+ /* 电机控制User用户设置·功能接口 */
+ /* 用户自己的CODE BEGIN Includes */
+ 
+@@ -24,6 +30,7 @@
+ static inline void User_Initial_Init(void){
+     /* Your code for Initializing immediately upon powering on here */
+ 
++    ns800_foc_user_initial();
+     // User profile is like:
+     // // 初始化定时器中断
+     // HAL_TIM_Base_Start_IT(&htim1);
+@@ -42,6 +49,7 @@ static inline void User_Initial_Init(void){
+ static inline void User_StartMotor_Init(void){
+     /* Your code for initing TIM and gate driver and encoder and ADC here */
+ 
++    ns800_foc_user_start();
+     // User profile is like:
+     // // 开启SD使能栅极驱动器
+     // HAL_GPIO_WritePin(SD1_GPIO_Port,SD1_Pin,GPIO_PIN_SET);
+@@ -66,6 +74,8 @@ static inline void User_StartMotor_Init(void){
+ static inline void User_Delay(uint32_t ms){
+     /* Your code for Delay_ms here */
+ 
++    ns800_foc_delay(ms);
++
+     // User profile is like:
+     // HAL_Delay(ms);
+ }
+@@ -81,16 +91,16 @@ static inline int32_t User_ReadADC_Raw(int32_t Current_CH){
+     // 电流采样通道0->AB相，1->AC相，2->BC相
+     // Sguan.motor.Current_Num值自定义采样通道
+     // 用户在UserData_Motor.h中定义“这个值”
+-    int32_t ADC_num = 0;
++    int32_t ADC_num = ns800_foc_adc_raw(Current_CH);
+     switch (Current_CH){
+     case 0:
+-        /* Your code for Motor CH0 raw */
++        /* board adapter supplies phase-U/phase-V */
+ 
+         // User profile is like:
+         // ADC_num = (int32_t)ADC_InjectedValues[1];
+         break;
+     case 1:
+-        /* Your code for Motor CH1 raw */
++        /* board adapter supplies phase-U/phase-W */
+ 
+         // User profile is like:
+         // ADC_num = (int32_t)ADC_InjectedValues[2];
+@@ -157,7 +167,7 @@ static inline uint8_t User_Encoder_ReadHall(uint8_t CH){
+ static inline void User_PwmDuty_Set(uint32_t Duty_u,
+                                 uint32_t Duty_v,
+                                 uint32_t Duty_w){
+-    /* Your code for Motor PWM_CH0~2 duty set */
++    ns800_foc_pwm_set(Duty_u, Duty_v, Duty_w);
+ 
+     // User profile is like:
+     // __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,Duty_u);
+@@ -175,7 +185,7 @@ static inline float User_VBUS_DataGet(void){
+     /* Your code for motor VBUS_Voltage Data return if you use it */
+     
+     // 如果不使用电压功能，返回0xFF800000（正常数值不会是负无穷）
+-    return 0xFF800000;
++    return ns800_foc_vbus();
+ }
+ 
+ /**
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Motor.h" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Motor.h"
+index 8977f39..2de8ff0 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Motor.h"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Motor.h"
+@@ -20,51 +20,51 @@ static inline void User_Motor_Init(SguanFOC_System_STRUCT *user){
+     user->foc.Target_Iq = 0.0f;                     // (float)期望的Q轴电流
+ 
+     user->foc.Target_VF_Uq = 0.0f;                  // (float)设置的Uq大小
+-    user->foc.Target_IF_Iq = 0.0f;                  // (float)设置的Iq大小
++    user->foc.Target_IF_Iq = 0.0f;
+ 
+     user->foc.Ud_in = 0.0f;                         // (float)实际输入的D轴电压
+     user->foc.Uq_in = 0.0f;                         // (float)实际输入的Q轴电压
+ 
+     // 2.Sguan.motor参数设计(电机个性化配置)
+-    user->motor.identify.Rs = 0.19067f;             // (float)相线电阻_默认参数
+-    user->motor.identify.Ld = 0.0000519338f;        // (float)D轴电感_默认参数
+-    user->motor.identify.Lq = 0.0000519338f;        // (float)Q轴电感_默认参数
++    user->motor.identify.Rs = 0.200f;               // ATK-BL57H95D20E phase resistance (initial)
++    user->motor.identify.Ld = 0.000400f;            // ATK-BL57H95D20E d-axis inductance (initial)
++    user->motor.identify.Lq = 0.000400f;            // ATK-BL57H95D20E q-axis inductance (initial)
+     
+-    user->motor.identify.Flux = 0.00028043f;        // (float)电机磁链_默认参数
+-    user->motor.identify.B = 0.00028043f;           // (float)粘性阻尼_默认参数
+-    user->motor.identify.J = 0.00028043f;           // (float)转动惯量_默认参数
++    user->motor.identify.Flux = 0.01520f;           // ATK-BL57H95D20E flux estimate
++    user->motor.identify.B = 0.0001f;               // unknown; conservative initial value
++    user->motor.identify.J = 0.0001f;               // unknown; conservative initial value
+     /* ====================================== 分割线 =================================== */
+-    user->motor.Poles = 7;                          // (uint8_t)电机的极对数
+-    user->motor.VBUS = 12.0f;                       // (float)标定的母线电压
++    user->motor.Poles = 2;                          // ATK-BL57H95D20E pole pairs
++    user->motor.VBUS = 24.0f;                       // (float)标定的母线电压
+     
+     user->motor.Motor_Dir = 1;                      // (int8_t)电机方向1->正向，负1->负向
+     user->motor.Encoder_Dir = -1;                   // (int8_t)Q轴电感_默认参数
+-    user->motor.PWM_Dir = -1;                       // (int8_t)PWM占空比电平，1为正向,-1为负向
+-    user->motor.Duty = 4249;                        // (uint16_t)PWM满占空比数值
++    user->motor.PWM_Dir = 1;                       // (int8_t)PWM占空比电平，1为正向,-1为负向
++    user->motor.Duty = 1000;                        // normalized PWM scale used by adapter
+ 
+-    user->motor.Current_Dir0 = 1;                   // (int8_t)相线电流方向1->正向，负1->负向
+-    user->motor.Current_Dir1 = 1;                   // (int8_t)相线电流方向1->正向，负1->负向
+-    user->motor.Current_Num = 1;                    // (uint8_t)通道0->AB相，1->AC相，2->BC相
++    user->motor.Current_Dir0 = -1;                   // (int8_t)相线电流方向1->正向，负1->负向
++    user->motor.Current_Dir1 = -1;                   // (int8_t)相线电流方向1->正向，负1->负向
++    user->motor.Current_Num = 0;                    // AMP_IU/AMP_IV are used as AB currents
+     user->motor.ADC_Precision = 4096;               // (uint32_t)ADC采样精度
+-    user->motor.Amplifier = 10.0f;                  // (float)运算放大器增益
++    user->motor.Amplifier = 6.0f;                   // ATK board current amplifier gain
+     user->motor.MCU_Voltage = 3.3f;                 // (float)DSP/单片机的ADC电压基准
+-    user->motor.Sampling_Rs = 0.005f;               // (float)采样电阻的大小
++    user->motor.Sampling_Rs = 0.020f;               // ATK board 20 mOhm shunts
+ 
+     // 3.Sguan.safe参数设计(维护驱动器安全)
+-    user->safe.VBUS_MAX = 14.0f;                    // (float)母线电压值波动MAX阈值
+-    user->safe.VBUS_MIN = 10.0f;                    // (float)母线电压值波动MIN阈值
++    user->safe.VBUS_MAX = 30.0f;                    // ATK board input range
++    user->safe.VBUS_MIN = 12.0f;                    // ATK board minimum test bus voltage
+     user->safe.VBUS_watchdog_limit = 1000;          // (uint32_t)看门狗
+ 
+     user->safe.Temp_MAX = 60.0f;                    // (float)驱动器允许最大温度
+     user->safe.Temp_MIN = -20.0f;                   // (float)驱动器允许最小温度
+     user->safe.Temp_watchdog_limit = 1000;          // (uint32_t)看门狗
+ 
+-    user->safe.Dcur_MAX = 60.0f;                    // (float)电机最大电流D轴限制
+-    user->safe.Qcur_MAX = 60.0f;                    // (float)电机最大电流Q轴限制
++    user->safe.Dcur_MAX = 3.0f;                     // first bring-up current limit
++    user->safe.Qcur_MAX = 3.0f;                     // first bring-up current limit
+     user->safe.DQcur_watchdog_limit = 1000;         // (uint32_t)看门狗
+ 
+-    user->safe.Current_limit = 0.5f;                // (float)电机->电流状态机判断的电流范围
+-    user->safe.Speed_limit = 5.0f;                  // (float)电机->速度状态机判断的速度范围
++    user->safe.Current_limit = 3.0f;                // first bring-up current limit
++    user->safe.Speed_limit = 100.0f;                // about 955 rpm mechanical
+     user->safe.Position_limit = 1.0f;               // (float)电机->位置状态机判断的位置范围
+ 
+     user->safe.DISABLED_watchdog_limit = 1000;      // (uint32_t)看门狗
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Parameter.h" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Parameter.h"
+index 46091e3..65324ef 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Parameter.h"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Parameter.h"
+@@ -15,54 +15,54 @@ static inline void User_Parameter_Init(SguanFOC_System_STRUCT *user){
+     // +---------------------------------------------------------+
+     // 1.电流环参数
+     user->transfer.Current_D.Wc = 100.0f;           // PID电流环D轴参数->微分滤波
+-    user->transfer.Current_D.Kp = 0.3082f;          // PID电流环D轴参数->Kp
+-    user->transfer.Current_D.Ki = 1131.54f;         // PID电流环D轴参数->Ki
++    user->transfer.Current_D.Kp = .5f;          // PID电流环D轴参数->Kp
++    user->transfer.Current_D.Ki = 250.0f;         // PID电流环D轴参数->Ki
+     user->transfer.Current_D.Kd = 0.0f;             // PID电流环D轴参数->Kd
+-    user->transfer.Current_D.OutMax = 10.0f;        // PID电流环D轴参数->最大限幅
+-    user->transfer.Current_D.OutMin = -10.0f;       // PID电流环D轴参数->最小限幅
+-    user->transfer.Current_D.IntMax = 150.0f;       // PID电流环D轴参数->积分项上限
+-    user->transfer.Current_D.IntMin = -150.0f;      // PID电流环D轴参数->积分项下限
++    user->transfer.Current_D.OutMax = 6.0f;        // PID电流环D轴参数->最大限幅
++    user->transfer.Current_D.OutMin = -6.0f;       // PID电流环D轴参数->最小限幅
++    user->transfer.Current_D.IntMax = 6.0f;       // PID电流环D轴参数->积分项上限
++    user->transfer.Current_D.IntMin = -6.0f;      // PID电流环D轴参数->积分项下限
+     /* =================================== 分割线 ================================= */
+     user->transfer.Current_Q.Wc = 100.0f;           // PID电流环Q轴参数->微分滤波
+-    user->transfer.Current_Q.Kp = 0.3082f;          // PID电流环Q轴参数->Kp
+-    user->transfer.Current_Q.Ki = 1131.54f;         // PID电流环Q轴参数->Ki
++    user->transfer.Current_Q.Kp = .5f;          // PID电流环Q轴参数->Kp
++    user->transfer.Current_Q.Ki = 250.0f;         // PID电流环Q轴参数->Ki
+     user->transfer.Current_Q.Kd = 0.0f;             // PID电流环Q轴参数->Kd
+-    user->transfer.Current_Q.OutMax = 10.0f;        // PID电流环Q轴参数->最大限幅
+-    user->transfer.Current_Q.OutMin = -10.0f;       // PID电流环Q轴参数->最小限幅
+-    user->transfer.Current_Q.IntMax = 150.0f;       // PID电流环Q轴参数->积分项上限
+-    user->transfer.Current_Q.IntMin = -150.0f;      // PID电流环Q轴参数->积分项下限
++    user->transfer.Current_Q.OutMax = 11.5f;       // Vector output remains limited by measured VBUS.
++    user->transfer.Current_Q.OutMin = -11.5f;
++    user->transfer.Current_Q.IntMax = 11.5f;
++    user->transfer.Current_Q.IntMin = -11.5f;
+ 
+     // 2.转速环参数
+     #if CONFIG_CtrlVel==Control_LADRC
+     user->transfer.Velocity.r = 60.0f;              // 双环速度外环speed的LADRC->速度因子
+     user->transfer.Velocity.b0 = 8e5;               // 双环速度外环speed的LADRC->控制量增益
+     user->transfer.Velocity.Wc = 120.0f;            // 双环速度外环speed的LADRC->控制器带宽
+-    user->transfer.Velocity.OutMax = 10.5f;         // 双环速度外环speed的LADRC->输出上限
+-    user->transfer.Velocity.OutMin = -10.5f;        // 双环速度外环speed的LADRC->输出下限
++    user->transfer.Velocity.OutMax = .9f;         // 双环速度外环speed的LADRC->输出上限
++    user->transfer.Velocity.OutMin = -.9f;        // 双环速度外环speed的LADRC->输出下限
+     #elif CONFIG_CtrlVel==Control_SMC
+     user->transfer.Velocity.miu = 200.0f;           // 双环速度外环speed的SMC->不连续控制增益
+     user->transfer.Velocity.q = 30.0f;              // 双环速度外环speed的SMC->切换项增益
+     user->transfer.Velocity.C = 2000.0f;            // 双环速度外环speed的SMC->动态响应增益
+     user->transfer.Velocity.Gain = 30.0f;           // 双环速度外环speed的SMC->电机输入增益
+-    user->transfer.Velocity.IntMax = 10.5;          // 双环速度外环speed的SMC->积分上限
+-    user->transfer.Velocity.IntMin = -10.5f;        // 双环速度外环speed的SMC->积分下限
++    user->transfer.Velocity.IntMax = .9f;          // 双环速度外环speed的SMC->积分上限
++    user->transfer.Velocity.IntMin = -.9f;        // 双环速度外环speed的SMC->积分下限
+     #elif CONFIG_CtrlVel==Control_STA
+     user->transfer.Velocity.boundary = 12.0f;       // 双环速度外环speed的STA->边界厚度
+     user->transfer.Velocity.k1 = 0.36f;             // 双环速度外环speed的STA->比例项增益
+     user->transfer.Velocity.k2 = 52.0f;             // 双环速度外环speed的STA->积分项增益
+-    user->transfer.Velocity.OutMax = 10.5f;         // 双环速度外环speed的STA->输出限幅
+-    user->transfer.Velocity.OutMin = -10.5f;        // 双环速度外环speed的STA->输出限幅
+-    user->transfer.Velocity.IntMax = 50.0f;         // 双环速度外环speed的STA->积分限幅
+-    user->transfer.Velocity.IntMin = -50.0f;        // 双环速度外环speed的STA->积分限幅
++    user->transfer.Velocity.OutMax = .9f;         // 双环速度外环speed的STA->输出限幅
++    user->transfer.Velocity.OutMin = -.9f;        // 双环速度外环speed的STA->输出限幅
++    user->transfer.Velocity.IntMax = .9f;         // 双环速度外环speed的STA->积分限幅
++    user->transfer.Velocity.IntMin = -.9f;        // 双环速度外环speed的STA->积分限幅
+     #else // CONFIG_CtrlVel
+     user->transfer.Velocity.Wc = 100.0f;            // 双环速度外环speed的PID->微分滤波
+-    user->transfer.Velocity.Kp = 0.06f;             // 双环速度外环speed的PID->Kp
+-    user->transfer.Velocity.Ki = 0.4f;              // 双环速度外环speed的PID->Ki
++    user->transfer.Velocity.Kp = .0143f;             // 双环速度外环speed的PID->Kp
++    user->transfer.Velocity.Ki = .0382f;              // 双环速度外环speed的PID->Ki
+     user->transfer.Velocity.Kd = 0.0f;              // 双环速度外环speed的PID->Kd
+-    user->transfer.Velocity.OutMax = 10.5f;         // 双环速度外环speed的PID->最大限幅
+-    user->transfer.Velocity.OutMin = -10.5f;        // 双环速度外环speed的PID->最小限幅
+-    user->transfer.Velocity.IntMax = 15000.0f;      // 双环速度外环speed的PID->积分项上限
+-    user->transfer.Velocity.IntMin = -15000.0f;     // 双环速度外环speed的PID->积分项下限
++    user->transfer.Velocity.OutMax = .9f;          // protected bring-up Iq limit
++    user->transfer.Velocity.OutMin = -.9f;
++    user->transfer.Velocity.IntMax = .9f;
++    user->transfer.Velocity.IntMin = -.9f;
+     #endif // CONFIG_Control
+ 
+     // 3.位置环参数
+@@ -99,7 +99,7 @@ static inline void User_Parameter_Init(SguanFOC_System_STRUCT *user){
+     #endif // CONFIG_CtrlPos
+ 
+     // 4.响应倍数参数
+-    user->value.Response = 5;                       // (uint8_t)响应带宽倍数(核心参数)
++    user->value.Response = 20;                       // (uint8_t)响应带宽倍数(核心参数)
+ 
+     // 5.滤波器参数
+     user->transfer.LPF_D.Wc = 31415.96f;            // 电机D轴电流滤波->截止频率
+@@ -107,8 +107,8 @@ static inline void User_Parameter_Init(SguanFOC_System_STRUCT *user){
+     user->transfer.LPF_encoder.Wc = 100.0f;         // 速度信号滤波->截止频率
+ 
+     // 6.锁相环参数
+-    user->transfer.PLL_encoder.Kp = 650.0f;         // 锁相环->比例项增益
+-    user->transfer.PLL_encoder.Ki = 210000.0f;      // 锁相环->积分项增益
++    user->transfer.PLL_encoder.Kp = 200.0f;         // 锁相环->比例项增益
++    user->transfer.PLL_encoder.Ki = 10000.0f;      // 锁相环->积分项增益
+     #if IS_COM_MODE
+     user->transfer.PLL_another.Kp = 650.0f;         // 锁相环->比例项增益
+     user->transfer.PLL_another.Ki = 210000.0f;      // 锁相环->积分项增益
+@@ -169,8 +169,8 @@ static inline void User_Parameter_Init(SguanFOC_System_STRUCT *user){
+ 
+     // 13.角度补偿参数
+     #if CONFIG_AngleComp
+-    user->value.AngleComp_Td = 1e-7f;               // (float)随电角速度的相位延迟时间
+-    user->value.AngleComp_Offset = 0.03f;           // (float)随速度方向变化的固定相位偏置
++    user->value.AngleComp_Td = .0011f;              // Approximate SMO LPF phase lead over tested range.
++    user->value.AngleComp_Offset = 0.0f;
+     #endif // CONFIG_AngleComp
+ 
+     // 14.抗齿槽离线标定
+@@ -181,7 +181,7 @@ static inline void User_Parameter_Init(SguanFOC_System_STRUCT *user){
+ 
+     // 15.最速控制结构体
+     #if IS_LTD_MODE
+-    user->transfer.LTD.r = 1.0f;                    // LTD最速控制->跟踪因子2rad/s合适
++    user->transfer.LTD.r = 1.0f;
+     #endif // IS_LTD_MODE
+     
+     // 16.霍尔有感结构体
+@@ -207,24 +207,24 @@ static inline void User_Parameter_Init(SguanFOC_System_STRUCT *user){
+ 
+     // 18.滑模观测器
+     #if IS_SMO_MODE
+-    user->transfer.SMO.Wc = 10000.0f;               // 滑模观测器->反电动势低通滤波
+-    user->transfer.SMO.h = 3.5f;                    // 滑模观测器->滑模解调增益
+-    user->transfer.SMO.IntMax = 1e10f;              // 滑模观测器->观测器积分限幅
+-    user->transfer.SMO.IntMin = -1e10f;             // 滑模观测器->观测器积分限幅
++    user->transfer.SMO.Wc = 800.0f;               // 滑模观测器->反电动势低通滤波
++    user->transfer.SMO.h = 6.0f;                    // Scheduled 6..12 V in Transfer_SMO_Loop.
++    user->transfer.SMO.IntMax = 10.0f;              // 滑模观测器->观测器积分限幅
++    user->transfer.SMO.IntMin = -10.0f;             // 滑模观测器->观测器积分限幅
+     #endif // IS_SMO_MODE
+ 
+     // 19.非线性磁链观测器
+     #if IS_NLFO_MODE
+-    user->transfer.NLFO.Gain = 38000000;            // 非线性磁链->磁链观测解调增益
++    user->transfer.NLFO.Gain = 3800000;             // ATK motor bring-up gain
+     #endif // IS_NLFO_MODE
+ 
+     // 20.无感参数数据
+     #if CONFIG_MODE>=MODE_Sensorless_HFI
+-    user->value.Sensorless_Stop = 175.0f;           // 分界限->低速域观测器关闭
+-    user->value.Sensorless_Open = 165.0f;           // 分界限->低速域观测器开启
+-    user->value.Sensorless_AbsMax = 155.0f;         // 分界限->“过渡区”到“高速域”
+-    user->value.Sensorless_AbsMin = 140.0f;         // 分界限->“低速域”到“过渡区”
+-    user->value.Sensorless_Start = 130.0f;          // 分界限->“低速域”到“过渡区”
++    user->value.Sensorless_Stop = 25.0f;
++    user->value.Sensorless_Open = 35.0f;
++    user->value.Sensorless_AbsMax = 45.0f;
++    user->value.Sensorless_AbsMin = 35.0f;
++    user->value.Sensorless_Start = 25.0f;
+     #endif // CONFIG_MODE
+ 
+ 
+diff --git "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Status.h" "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Status.h"
+index 3f9310f..b7e4e62 100644
+--- "a/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Status.h"
++++ "b/SguanFOC\345\272\223v3.1.0(\346\227\240\346\204\237foc\357\274\214\346\265\256\347\202\271\350\277\220\347\256\227\357\274\214\350\277\233\351\230\266)/UserData_Status.h"
+@@ -1,6 +1,7 @@
+ #ifndef __USERDATA_STATUS_H
+ #define __USERDATA_STATUS_H
+ #include <stdint.h>
++extern volatile uint8_t ns800_foc_start_requested;
+ /* 电机控制User用户设置·状态管理 */
+ /* 用户自己的CODE BEGIN Includes */
+ 
+@@ -16,7 +17,7 @@ static inline uint8_t STANDBY_Signal(void){
+ }
+ 
+ static inline uint8_t START_Signal(void){
+-    uint8_t START_num = 0;
++    uint8_t START_num = 0; /* Start is a one-shot mailbox command. */
+     // 准备开始初始化信号(Preparing to start initializing the signal)
+     // 输出0->待机 输出1->准备开始初始化
+     return START_num;

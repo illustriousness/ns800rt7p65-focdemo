@@ -1,0 +1,1 @@
+sequence,host_elapsed_us,device_timestamp_raw,side,can_id,kind,position_rad,velocity_rad_s,kp,kd,feedforward_torque_nm,torque_nm,reserved_zero

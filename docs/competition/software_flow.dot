@@ -1,0 +1,24 @@
+digraph SW {
+  graph [rankdir=TB, bgcolor="white", fontname="Noto Sans CJK SC", fontsize=12,
+         pad=0.25, nodesep=0.35, ranksep=0.34];
+  node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=11,
+        color="#4a5568", fillcolor="#edf2f7", penwidth=1.15, margin="0.14,0.08"];
+  edge [color="#4a5568", arrowsize=0.65, fontname="Noto Sans CJK SC", fontsize=9];
+
+  CAN [label="CAN 帧 / RPDO1（控制字 + 目标速度）", fillcolor="#bee3f8", color="#2b6cb0"];
+  STACK [label="CANopenNode v4.1\nNMT / SDO / PDO / EMCY / Heartbeat", fillcolor="#bee3f8", color="#2b6cb0"];
+  BRIDGE [label="CiA 402 桥接\n状态机 / 500 ms 控制授权 / 故障复位", fillcolor="#bee3f8", color="#2b6cb0"];
+  MAIL [label="跨核异步邮箱\nSTART / STOP / SPEED / RESET\n发布时回传实际序号", fillcolor="#fefcbf", color="#b7791f", penwidth=1.4];
+  SLOW [label="CPU0 sguan 慢线程\n请求校验 / 执行 / 状态发布", fillcolor="#c6f6d5", color="#2f855a"];
+  ISR [label="ADC EOC ISR 20 kHz\nIF → SMO/PLL → 电流环 → SVPWM", fillcolor="#c6f6d5", color="#2f855a"];
+  PWM [label="EPWM8/9/10 + CTRL_SD\n三拍释放 / One-Shot Trip 关断", fillcolor="#fed7d7", color="#c53030"];
+  SNAP [label="六字段快照 24 B\nstate / error / command_seq\nstop_seq / result / speed", fillcolor="#c6f6d5", color="#2f855a"];
+
+  CAN -> STACK -> BRIDGE -> MAIL [label="提交命令"];
+  MAIL -> SLOW [label="CPU0 消费"];
+  SLOW -> ISR [label="启动 / 改速"];
+  ISR -> PWM [label="占空比 / 关断"];
+  ISR -> SNAP [label="发布", style=dashed];
+  SNAP -> BRIDGE [label="状态 / 序号", style=dashed, constraint=false];
+  BRIDGE -> CAN [label="TPDO / EMCY", style=dashed, constraint=false];
+}

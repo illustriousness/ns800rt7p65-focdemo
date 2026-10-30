@@ -1,0 +1,21 @@
+motor stop
+msh >
+msh >
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=617523 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=22,5,-45 peak_mA=0 raw=1561,1547,1553,1193
+msh >
+m
+h >motor closed 500 0.8
+motor: sensorless start requested; acquisition timeout 10 s
+msh >
+msh 
+time=0.54 motor status
+motor fault fault=current ready=1 cal=1 pwm=20000Hz adc=630370 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=89,-8,-32 peak_mA=3012 raw=1571,1545,1555,1193
+loop=align err=0 target_rpm=500 est_rpm=-706 forced_rpm=0 lock_ms=0 blend_pct=0
+Idq_mA=-2898,1053 Iqref_mA=0 emf_mV=2729 pll_mrad=-362 transitions=0 ISR_ns=58117
+msh >
+sh >motor stop
+msh >
+msh >

@@ -1,0 +1,31 @@
+--- a/Sguan_SMO.c
++++ b/Sguan_SMO.c
+@@ -16,11 +16,15 @@
+ 
+ // 静止坐标系下的x轴观测器框图（x可以是alpha或者beta轴）
+ static void SMO_RUN(SMO_STRUCT *smo,SMO_GO_STRUCT *run){
++    /* Feed switching correction directly into the current predictor.
++     * The low-pass estimate is an output for the PLL, not this feedback. */
++    float error = run->Output_Ix - run->Input_Ix;
++    float Ex = Value_Sign(error)*smo->h;
+     float I_input,part0,part1,part2,part3;
+     part0 = run->Input_Ux*smo->data.Gain0;
+     part1 = run->Output_Ix*smo->data.Gain1;
+     part2 = smo->data.Input_We*smo->data.Gain2*run->Input_Iy;
+-    part3 = run->Output_Ex*smo->data.Gain0;
++    part3 = Ex*smo->data.Gain0;
+     I_input = part0 - part1 - part2 - part3;
+ 
+     // 积分x轴，判断是否需要冻结积分
+@@ -50,10 +54,7 @@
+         }
+     }
+ 
+-    // 输出x轴的预测反电动势，并滤波
+-    float error = run->Output_Ix - run->Input_Ix;
+-	error = Value_Sign(error);	
+-    float Ex = error*smo->h;
++    // 输出x轴的预测反电动势，并滤波（与预测器共用同一个开关注入）
+     run->Output_Ex = smo->data.F_num*(Ex + run->F_i) - smo->data.F_den*run->F_o;
+ 
+     // 更新历史输入输出值

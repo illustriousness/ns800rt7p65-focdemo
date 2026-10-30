@@ -1,0 +1,7 @@
+HWV=0x0301, FWV=0x0223, DRV=0x0000, API=0x0100, IRQ=0x0000, CHN=0x01, SN=0226D40F50CD09843AA0USBCANFD-100U, ID=USBCANFD-100U, linChn=0x02
+receive-only capture prepared: docs/canopen_evidence/20261029_192037_independent_tx
+duration=4 s clock=80000000 aset=28,9,4,1 dset=13,4,4,0 termination=on
+usbcanfd log path:/home/ari/code/ns800rt7p65-focdemo
+no open log file(./usbcanfd.log)
+capture started
+capture finished elapsed=4.019 s frames=9 output=docs/canopen_evidence/20261029_192037_independent_tx

@@ -1,0 +1,45 @@
+version
+
+ \ | /
+- RT -     Thread Operating System
+ / | \     5.3.1 build Oct  8 2026 17:56:45
+ 2006 - 2026 Copyright by RT-Thread team
+msh >
+msh >list device
+device                   type         ref count
+---------------- -------------------- ----------
+uart1            Character Device     2       
+pin              Pin Device           0       
+msh >
+msh >ps
+thread           cpu bind pri  status      sp     stack size max used left tick   error  tcb addr   usage
+---------------- --- ---- ---  ------- ---------- ----------  ------  ---------- ------- ---------- -----
+cpu1w            N/A   1   20  suspend 0x000000e0 0x00000200     48%   0x00000009 EINTRPT 0x201008bc  N/A
+cpu0w            N/A   0   20  suspend 0x000000e0 0x00000200     48%   0x0000000a EINTRPT 0x2010080c  N/A
+tshell             0   0   20  running 0x0000026c 0x00001000     15%   0x00000005 OK      0x2011cb50  N/A
+motor            N/A   0   16  suspend 0x0000018c 0x00000600     25%   0x00000009 EINTRPT 0x201015f8  N/A
+tsystem          N/A   2   30  suspend 0x000000b4 0x00000100     79%   0x0000001f EINTRPT 0x20102330  N/A
+tidle1             1   1   31  running 0x0000005c 0x00000100     35%   0x0000001c OK      0x201025c0  N/A
+tidle0           N/A   0   31  ready   0x0000005c 0x00000100     35%   0x00000014 OK      0x20102510  N/A
+main             N/A   0   10  suspend 0x000000fc 0x00000800     15%   0x00000003 EINTRPT 0x2011c050  N/A
+msh >
+msh >free
+total    : 16288
+used     : 7216
+maximum  : 7216
+available: 9072
+msh >
+msh >smp
+smp ready=c020c020 cpu0=6469 mask0=1 cpu1=6473 mask1=2 shared=12942 ipi0=1 ipi1=6475 shell_cpu=0
+msh >
+ms[version]
+
+[device]
+
+[threads]
+
+[heap]
+
+[smp]
+
+RT-Thread ecosystem test passed on /dev/serial/by-id/usb-SEGGER_J-Link_004294967295-if00 at 115200 8N1

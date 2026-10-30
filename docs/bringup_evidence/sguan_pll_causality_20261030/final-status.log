@@ -1,0 +1,39 @@
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=131980 overflow=0
+controller=sguan mode=SMO lib_status=0 math=upstream smo=upstream if=upstream
+electrical_mHz=0 vbus_mV=23525 I_mA=-5,24,8 peak_mA=0 raw=1558,1542,1558,1168
+cpu_hz=400000000 isr_cycles=298/418 ISR_ns=1045 control_cycles=0/0 low_cycles=0/0
+loop=stopped err=0 target_rpm=0 est_rpm=0 pll_rpm=0 forced_rpm=0
+Idq_mA=0,0 Iqref_mA=0 emf_mV=0 pll_error_mV=0 lock_ms=0 blend_pct=0
+transitions=0 angle_mrad=0 forced_mrad=0 current_error_mA=0
+if_stage=0 startup_ms=0 lost_ms=0 phase_mrad=0 wm_err_mrad=0 speed_abs_mrad=0 gain_pct=0
+emath_sincos=0/0/0 emath_trig=0/0/0
+emath_sqrt=0/0/0
+command_seq=0 result=0 stop_seq=0 comm_cpu=1
+msh >
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=154840 overflow=0
+controller=sguan mode=SMO lib_status=0 math=upstream smo=upstream if=upstream
+electrical_mHz=0 vbus_mV=23525 I_mA=-59,4,-18 peak_mA=0 raw=1566,1545,1562,1168
+cpu_hz=400000000 isr_cycles=305/434 ISR_ns=1085 control_cycles=0/0 low_cycles=0/0
+loop=stopped err=0 target_rpm=0 est_rpm=0 pll_rpm=0 forced_rpm=0
+Idq_mA=0,0 Iqref_mA=0 emf_mV=0 pll_error_mV=0 lock_ms=0 blend_pct=0
+transitions=0 angle_mrad=0 forced_mrad=0 current_error_mA=0
+if_stage=0 startup_ms=0 lost_ms=0 phase_mrad=0 wm_err_mrad=0 speed_abs_mrad=0 gain_pct=0
+emath_sincos=0/0/0 emath_trig=0/0/0
+emath_sqrt=0/0/0
+command_seq=0 result=0 stop_seq=0 comm_cpu=1
+msh >
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=177680 overflow=0
+controller=sguan mode=SMO lib_status=0 math=upstream smo=upstream if=upstream
+electrical_mHz=0 vbus_mV=23525 I_mA=-5,4,-5 peak_mA=0 raw=1558,1545,1560,1168
+cpu_hz=400000000 isr_cycles=304/434 ISR_ns=1085 control_cycles=0/0 low_cycles=0/0
+loop=stopped err=0 target_rpm=0 est_rpm=0 pll_rpm=0 forced_rpm=0
+Idq_mA=0,0 Iqref_mA=0 emf_mV=0 pll_error_mV=0 lock_ms=0 blend_pct=0
+transitions=0 angle_mrad=0 forced_mrad=0 current_error_mA=0
+if_stage=0 startup_ms=0 lost_ms=0 phase_mrad=0 wm_err_mrad=0 speed_abs_mrad=0 gain_pct=0
+emath_sincos=0/0/0 emath_trig=0/0/0
+emath_sqrt=0/0/0
+command_seq=0 result=0 stop_seq=0 comm_cpu=1
+msh >

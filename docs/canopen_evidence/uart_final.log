@@ -1,0 +1,25 @@
+
+msh >
+msh >co tx
+msh >
+msh >co
+co cpu=1 node=1 classic=1 bitrate=1000000 nmt=127 rx=4 tx=15 RXE=0 TXE=122 busoff=0
+controls=DISCONNECTED motor_connected=0 cw=0000 sw=0040 mode=3 target=0 actual=0 error=0000
+msh >
+msh >ps
+thread           cpu bind pri  status      sp     stack size max used left tick   error  tcb addr   usage
+---------------- --- ---- ---  ------- ---------- ----------  ------  ---------- ------- ---------- -----
+cpu1w            N/A   1   20  suspend 0x000000c0 0x00000200     42%   0x0000000a EINTRPT 0x2010147c  N/A
+cpu0w            N/A   0   20  suspend 0x000000c0 0x00000200     42%   0x0000000a EINTRPT 0x201013cc  N/A
+tshell             1   1   20  running 0x00000194 0x00001000     15%   0x00000007 OK      0x2011cb50  N/A
+canopen          N/A   1   17  suspend 0x00000170 0x00001000     14%   0x00000009 EINTRPT 0x201034f4  N/A
+canpoll          N/A   1   21  ready   0x000000e8 0x00000800     12%   0x00000007 ETIMOUT 0x201019bc  N/A
+tsystem          N/A   2   30  suspend 0x000000b4 0x00000100     79%   0x0000001f EINTRPT 0x20103db0  N/A
+tidle1           N/A   1   31  ready   0x0000005c 0x00000100     35%   0x00000007 OK      0x20104040  N/A
+tidle0             0   0   31  running 0x0000005c 0x00000100     35%   0x00000013 OK      0x20103f90  N/A
+main             N/A   1   10  suspend 0x000000fc 0x00000800     16%   0x00000004 EINTRPT 0x2011c050  N/A
+msh >
+msh >smp
+smp ready=c020c020 cpu0=0 mask0=1 cpu1=0 mask1=2 shared=0 ipi0=2 ipi1=503948 shell_cpu=1
+msh >
+msh >

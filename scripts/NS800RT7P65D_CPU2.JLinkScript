@@ -1,0 +1,4 @@
+int ConfigTargetSettings(void) {
+  JLINK_ExecCommand("CORESIGHT_SetIndexAHBAPToUse = 2");
+  return 0;
+}

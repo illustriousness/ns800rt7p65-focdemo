@@ -1,0 +1,16 @@
+receive_only=true
+label=independent_tx
+notes=
+mode=classic
+elapsed_us=4018876
+total_frames=9
+average_rate_hz=2.239432
+extended_frames=0
+remote_frames=0
+error_frames=0
+controller_rx_error_count=0
+controller_tx_error_count=0
+
+can_id,count,rate_hz,min_len,max_len,fd_count,brs_count
+0x456,1,0.248826,8,8,0,0
+0x701,8,1.990606,1,1,0,0

@@ -1,0 +1,504 @@
+{
+  "A1-500": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 210981,
+      "end_adc": 212004,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 10733,
+      "completed": 1
+    },
+    "trace_sha256": "54c05e7dab4896844fdaceadc884a7e3c60125d17a6222def9c2273f47b22b78",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 26.8325,
+    "dwt_interval_us_min_median_max": [
+      22.8125,
+      50.0,
+      81.8925
+    ],
+    "raw_rpm_mean": 493.0120696209565,
+    "raw_rpm_std": 821.5952380072795,
+    "raw_rpm_range": [
+      -1387.3232533936002,
+      2256.4960437956893
+    ],
+    "filtered_rpm_mean": 495.9938638218662,
+    "filtered_rpm_std": 19.945758509230004,
+    "detector_error_std_V": 0.8602563900269639,
+    "PI_integral_rpm_std": 15.998486359432585,
+    "raw_rpm_error_correlation": 0.9998103950267619,
+    "raw_rpm_200_3000": {
+      "rms": 861.3734730118942,
+      "peak_bin_Hz": 742.1875
+    },
+    "raw_rpm_200_9900": {
+      "rms": 862.2630773641,
+      "peak_bin_Hz": 742.1875
+    },
+    "control_angle_deg_200_3000": {
+      "rms": 2.1801076087981004,
+      "peak_bin_Hz": 742.1875
+    },
+    "control_angle_deg_200_9900": {
+      "rms": 2.18017437418296,
+      "peak_bin_Hz": 742.1875
+    },
+    "emf_alpha_200_3000": {
+      "rms": 0.8655838207565294,
+      "peak_bin_Hz": 722.65625
+    },
+    "emf_alpha_200_9900": {
+      "rms": 0.8665882975561885,
+      "peak_bin_Hz": 722.65625
+    },
+    "id_200_3000": {
+      "rms": 0.04708406433751473,
+      "peak_bin_Hz": 742.1875
+    },
+    "iq_200_3000": {
+      "rms": 0.026884734505916493,
+      "peak_bin_Hz": 214.84375
+    },
+    "phase_current_peak_A": 1.4528703689575195,
+    "bus_mean_V": 23.577239513397217,
+    "observer_current_error_rms_A": 0.4688010584053352,
+    "observer_recurrence_max_error_A": 5.6624412533845536e-08,
+    "emf_filter_recurrence_max_error_V": 1.7998265278151848e-07,
+    "PI_recurrence_max_error_rpm": 0.0001222319270555161,
+    "uart_run_peak_mA": 1452,
+    "uart_run_max_isr_us": 26.8325
+  },
+  "B1-500": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 2,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 210421,
+      "end_adc": 211444,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 10937,
+      "completed": 1
+    },
+    "trace_sha256": "e6e7ab3a118c6748004fddf421088126fc5dd50eba7e0106cb913e3cf3d616ae",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 27.3425,
+    "dwt_interval_us_min_median_max": [
+      21.3925,
+      50.0,
+      81.585
+    ],
+    "raw_rpm_mean": 498.8983678733791,
+    "raw_rpm_std": 142.87565948126166,
+    "raw_rpm_range": [
+      141.2102360079706,
+      839.3548437061302
+    ],
+    "filtered_rpm_mean": 497.4699802929056,
+    "filtered_rpm_std": 24.16612121096161,
+    "detector_error_std_V": 0.14856839495572569,
+    "PI_integral_rpm_std": 17.11470635224635,
+    "raw_rpm_error_correlation": 0.9927995801064148,
+    "raw_rpm_200_3000": {
+      "rms": 57.50419277593512,
+      "peak_bin_Hz": 2675.78125
+    },
+    "raw_rpm_200_9900": {
+      "rms": 135.16662908021232,
+      "peak_bin_Hz": 5039.0625
+    },
+    "control_angle_deg_200_3000": {
+      "rms": 0.10675296170247352,
+      "peak_bin_Hz": 312.5
+    },
+    "control_angle_deg_200_9900": {
+      "rms": 0.11616424597083903,
+      "peak_bin_Hz": 312.5
+    },
+    "emf_alpha_200_3000": {
+      "rms": 0.06813164741434005,
+      "peak_bin_Hz": 2109.375
+    },
+    "emf_alpha_200_9900": {
+      "rms": 0.14164514465960995,
+      "peak_bin_Hz": 4531.25
+    },
+    "id_200_3000": {
+      "rms": 0.02485899476974518,
+      "peak_bin_Hz": 214.84375
+    },
+    "iq_200_3000": {
+      "rms": 0.030464536031498787,
+      "peak_bin_Hz": 214.84375
+    },
+    "phase_current_peak_A": 1.2606072425842285,
+    "bus_mean_V": 23.572322130203247,
+    "observer_current_error_rms_A": 0.4914821502550585,
+    "observer_recurrence_max_error_A": 1.424923539161682e-07,
+    "emf_filter_recurrence_max_error_V": 1.2855903808173252e-07,
+    "PI_recurrence_max_error_rpm": 4.9758995374793447e-05,
+    "uart_run_peak_mA": 1260,
+    "uart_run_max_isr_us": 27.3425
+  },
+  "A2-500": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 210881,
+      "end_adc": 211904,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 10251,
+      "completed": 1
+    },
+    "trace_sha256": "9f335a56d03c1019fdf1469837bf248e3922cbc7cc3ee767fc4b07e419ad3e29",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 25.6275,
+    "dwt_interval_us_min_median_max": [
+      21.9225,
+      50.0,
+      79.4975
+    ],
+    "raw_rpm_mean": 498.08177860406227,
+    "raw_rpm_std": 776.817630358276,
+    "raw_rpm_range": [
+      -1404.2420144583152,
+      2281.447981588553
+    ],
+    "filtered_rpm_mean": 500.4236888404362,
+    "filtered_rpm_std": 10.562638202103757,
+    "detector_error_std_V": 0.8133768935718368,
+    "PI_integral_rpm_std": 11.854013934263405,
+    "raw_rpm_error_correlation": 0.9998835638781779,
+    "raw_rpm_200_3000": {
+      "rms": 711.9661496971012,
+      "peak_bin_Hz": 800.78125
+    },
+    "raw_rpm_200_9900": {
+      "rms": 713.1175641531487,
+      "peak_bin_Hz": 800.78125
+    },
+    "control_angle_deg_200_3000": {
+      "rms": 1.7575219218327112,
+      "peak_bin_Hz": 800.78125
+    },
+    "control_angle_deg_200_9900": {
+      "rms": 1.7576206926062012,
+      "peak_bin_Hz": 800.78125
+    },
+    "emf_alpha_200_3000": {
+      "rms": 0.8782438485187536,
+      "peak_bin_Hz": 722.65625
+    },
+    "emf_alpha_200_9900": {
+      "rms": 0.879125653037857,
+      "peak_bin_Hz": 722.65625
+    },
+    "id_200_3000": {
+      "rms": 0.030523662990300227,
+      "peak_bin_Hz": 312.5
+    },
+    "iq_200_3000": {
+      "rms": 0.027535490191247434,
+      "peak_bin_Hz": 253.90625
+    },
+    "phase_current_peak_A": 1.1982941627502441,
+    "bus_mean_V": 23.574662804603577,
+    "observer_current_error_rms_A": 0.498298107174648,
+    "observer_recurrence_max_error_A": 6.332993507385254e-08,
+    "emf_filter_recurrence_max_error_V": 1.68295467339874e-07,
+    "PI_recurrence_max_error_rpm": 0.00014101494725515806,
+    "uart_run_peak_mA": 1198,
+    "uart_run_max_isr_us": 25.6275
+  },
+  "B2-500": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 2,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 210701,
+      "end_adc": 211724,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 11103,
+      "completed": 1
+    },
+    "trace_sha256": "7d6a2a9467f11eaf9e19a6ee256f82bb3ca6c0a56371d3e19d8fc732664fa20b",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 27.7575,
+    "dwt_interval_us_min_median_max": [
+      20.0475,
+      50.0,
+      79.975
+    ],
+    "raw_rpm_mean": 494.904588027797,
+    "raw_rpm_std": 147.96101268657264,
+    "raw_rpm_range": [
+      105.52440094070269,
+      857.596075104862
+    ],
+    "filtered_rpm_mean": 500.4082502294606,
+    "filtered_rpm_std": 11.375128258257597,
+    "detector_error_std_V": 0.15462165327697794,
+    "PI_integral_rpm_std": 10.447346000566991,
+    "raw_rpm_error_correlation": 0.9975041709885683,
+    "raw_rpm_200_3000": {
+      "rms": 65.75907995336551,
+      "peak_bin_Hz": 2636.71875
+    },
+    "raw_rpm_200_9900": {
+      "rms": 142.07335298777,
+      "peak_bin_Hz": 4902.34375
+    },
+    "control_angle_deg_200_3000": {
+      "rms": 0.1436479393569617,
+      "peak_bin_Hz": 214.84375
+    },
+    "control_angle_deg_200_9900": {
+      "rms": 0.1511717996309049,
+      "peak_bin_Hz": 214.84375
+    },
+    "emf_alpha_200_3000": {
+      "rms": 0.07729851087972102,
+      "peak_bin_Hz": 2949.21875
+    },
+    "emf_alpha_200_9900": {
+      "rms": 0.1458547833550026,
+      "peak_bin_Hz": 3828.125
+    },
+    "id_200_3000": {
+      "rms": 0.029110737293798896,
+      "peak_bin_Hz": 292.96875
+    },
+    "iq_200_3000": {
+      "rms": 0.024694682823013663,
+      "peak_bin_Hz": 292.96875
+    },
+    "phase_current_peak_A": 1.2436127662658691,
+    "bus_mean_V": 23.57718050479889,
+    "observer_current_error_rms_A": 0.5025974673745572,
+    "observer_recurrence_max_error_A": 1.3541430243790842e-07,
+    "emf_filter_recurrence_max_error_V": 9.81723560222747e-08,
+    "PI_recurrence_max_error_rpm": 5.4517004746512665e-05,
+    "uart_run_peak_mA": 1243,
+    "uart_run_max_isr_us": 27.7575
+  },
+  "B-800": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 2,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 210561,
+      "end_adc": 211584,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 11261,
+      "completed": 1
+    },
+    "trace_sha256": "477677f0288927c1b7b020c2bf9c734ebb84fb1a98f75a9741c2dcb9a4a2fa1e",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 28.1525,
+    "dwt_interval_us_min_median_max": [
+      20.3925,
+      50.0,
+      80.405
+    ],
+    "raw_rpm_mean": 795.7688675606026,
+    "raw_rpm_std": 145.7098767669029,
+    "raw_rpm_range": [
+      423.77498893993913,
+      1150.8761654105301
+    ],
+    "filtered_rpm_mean": 800.6286354494914,
+    "filtered_rpm_std": 4.6318490597743045,
+    "detector_error_std_V": 0.1526471174589,
+    "PI_integral_rpm_std": 6.195377243714413,
+    "raw_rpm_error_correlation": 0.999096518473426,
+    "raw_rpm_200_3000": {
+      "rms": 72.56971746000112,
+      "peak_bin_Hz": 2324.21875
+    },
+    "raw_rpm_200_9900": {
+      "rms": 144.00932322447716,
+      "peak_bin_Hz": 4062.5
+    },
+    "control_angle_deg_200_3000": {
+      "rms": 0.18739347513069537,
+      "peak_bin_Hz": 214.84375
+    },
+    "control_angle_deg_200_9900": {
+      "rms": 0.19353210227227768,
+      "peak_bin_Hz": 214.84375
+    },
+    "emf_alpha_200_3000": {
+      "rms": 0.09079260795564426,
+      "peak_bin_Hz": 2558.59375
+    },
+    "emf_alpha_200_9900": {
+      "rms": 0.152657437875421,
+      "peak_bin_Hz": 3066.40625
+    },
+    "id_200_3000": {
+      "rms": 0.0426912439713866,
+      "peak_bin_Hz": 214.84375
+    },
+    "iq_200_3000": {
+      "rms": 0.036581339918986634,
+      "peak_bin_Hz": 214.84375
+    },
+    "phase_current_peak_A": 1.2442946434020996,
+    "bus_mean_V": 23.558592796325684,
+    "observer_current_error_rms_A": 0.5362574410683976,
+    "observer_recurrence_max_error_A": 1.2591481213242162e-07,
+    "emf_filter_recurrence_max_error_V": 1.6128315616370514e-07,
+    "PI_recurrence_max_error_rpm": 5.634016724528901e-05,
+    "uart_run_peak_mA": 1244,
+    "uart_run_max_isr_us": 28.1525
+  },
+  "A-800": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 211061,
+      "end_adc": 212084,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 10657,
+      "completed": 1
+    },
+    "trace_sha256": "d0118cf1386c7254f7a70e0f76ccc947a80e8f7a388e1834fb0dcddd4e021b08",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 26.642500000000002,
+    "dwt_interval_us_min_median_max": [
+      21.3525,
+      50.0,
+      72.8025
+    ],
+    "raw_rpm_mean": 798.9723666648492,
+    "raw_rpm_std": 744.0686240109783,
+    "raw_rpm_range": [
+      -1356.5149110541518,
+      2424.747026048497
+    ],
+    "filtered_rpm_mean": 798.7798616873281,
+    "filtered_rpm_std": 2.908724251156214,
+    "detector_error_std_V": 0.77913210398238,
+    "PI_integral_rpm_std": 8.869807842014897,
+    "raw_rpm_error_correlation": 0.9999289461080499,
+    "raw_rpm_200_3000": {
+      "rms": 725.1613869469181,
+      "peak_bin_Hz": 839.84375
+    },
+    "raw_rpm_200_9900": {
+      "rms": 726.5677778472465,
+      "peak_bin_Hz": 839.84375
+    },
+    "control_angle_deg_200_3000": {
+      "rms": 1.7023705853029913,
+      "peak_bin_Hz": 839.84375
+    },
+    "control_angle_deg_200_9900": {
+      "rms": 1.7024975657294297,
+      "peak_bin_Hz": 839.84375
+    },
+    "emf_alpha_200_3000": {
+      "rms": 0.7792358282561392,
+      "peak_bin_Hz": 742.1875
+    },
+    "emf_alpha_200_9900": {
+      "rms": 0.7805094420747168,
+      "peak_bin_Hz": 742.1875
+    },
+    "id_200_3000": {
+      "rms": 0.050347553667225986,
+      "peak_bin_Hz": 234.375
+    },
+    "iq_200_3000": {
+      "rms": 0.030389027245067816,
+      "peak_bin_Hz": 312.5
+    },
+    "phase_current_peak_A": 1.2446355819702148,
+    "bus_mean_V": 23.559772968292236,
+    "observer_current_error_rms_A": 0.4876587016799073,
+    "observer_recurrence_max_error_A": 6.705522537231445e-08,
+    "emf_filter_recurrence_max_error_V": 1.823200896922117e-07,
+    "PI_recurrence_max_error_rpm": 0.0001307696637407041,
+    "uart_run_peak_mA": 1244,
+    "uart_run_max_isr_us": 26.6425
+  },
+  "comparison": {
+    "B1-500": {
+      "A1-500": {
+        "raw_std_reduction_pct": 82.60996986450454,
+        "control_angle_band_rms_reduction_pct": 95.10331686052292
+      },
+      "A2-500": {
+        "raw_std_reduction_pct": 81.60756734944778,
+        "control_angle_band_rms_reduction_pct": 93.92593854014899
+      }
+    },
+    "B2-500": {
+      "A1-500": {
+        "raw_std_reduction_pct": 81.99100897353769,
+        "control_angle_band_rms_reduction_pct": 93.41097023021928
+      },
+      "A2-500": {
+        "raw_std_reduction_pct": 80.95292808708119,
+        "control_angle_band_rms_reduction_pct": 91.82667723386527
+      }
+    }
+  }
+}

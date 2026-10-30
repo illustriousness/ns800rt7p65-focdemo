@@ -1,0 +1,23 @@
+from building import *
+import json
+import os
+
+cwd = GetCurrentDir()
+root = Dir('#').abspath
+config = os.path.join(cwd, 'upstream.json')
+with open(config, encoding='utf-8') as stream:
+    settings = json.load(stream)
+upstream = os.path.join(root, 'libraries', 'SguanFOC_Library')
+library = os.path.join(upstream, settings['source_directory'])
+if not os.path.isfile(os.path.join(library, 'SguanFOC.c')):
+    raise RuntimeError('SguanFOC missing: run git submodule update --init --recursive')
+# Compile the submodule directly; only object files go into build/sguan.
+# UserData_* lives beside the library sources, as intended by SguanFOC.
+objects = os.path.join(root, 'build', 'sguan')
+VariantDir(objects, library, duplicate=0)
+src = [File(os.path.join(objects, name)) for name in sorted(os.listdir(library))
+       if name.endswith('.c')] + Glob('*.c')
+
+group = DefineGroup('SguanFOC', src, depend = [''], CPPPATH = [cwd, library],
+                     LOCAL_CFLAGS = ' -O3 -fno-strict-aliasing -DFOC_DIAG_VARIANT=2')
+Return('group')

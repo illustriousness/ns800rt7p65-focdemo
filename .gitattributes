@@ -1,0 +1,2 @@
+# Preserve raw terminal/J-Link evidence, including CRLF and device formatting.
+docs/canopen_evidence/*.log -whitespace

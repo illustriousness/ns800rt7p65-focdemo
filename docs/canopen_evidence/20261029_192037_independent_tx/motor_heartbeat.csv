@@ -1,0 +1,1 @@
+sequence,host_elapsed_us,device_timestamp_raw,side,can_id,fault_code,power_state,system_mode,system_torque_raw,input_angle_rad,output_angle_rad,torque_nm,q_current_a,input_velocity_rad_s,input_acceleration_rad_s2,output_velocity_rad_s,output_acceleration_rad_s2,temperature_c,reserved_hex

@@ -1,0 +1,117 @@
+--- a/applications/sguan/ns800_foc_port.c
++++ b/applications/sguan/ns800_foc_port.c
+@@ -58,6 +58,7 @@
+ }
+ 
+ void ns800_foc_user_start(void) { /* Gates remain off until initialization ends. */ }
++#include "foc_trace_diag.h"
+ void ns800_foc_delay(uint32_t ms) { rt_thread_mdelay(ms); }
+ int32_t ns800_foc_adc_raw(int32_t ch) { return raw[ch == 0 ? 0 : ch == 1 ? 1 : 2]; }
+ float ns800_foc_vbus(void) { return vbus; }
+@@ -222,10 +223,27 @@
+             if (mag > peak_current) peak_current = mag;
+         }
+     }
+-    if (!running) goto done;
++    if (!running) {
++        if (__atomic_load_n(&trace_zero_active, __ATOMIC_ACQUIRE)) {
++            SMO_Loop(&zero_observer);
++            if (++zero_count > 20000U)
++                trace_sample_save(&zero_observer, entered, 0, 0, 1);
++            if (foc_trace.completed)
++                __atomic_store_n(&trace_zero_active, 0, __ATOMIC_RELEASE);
++        }
++        goto done;
++    }
++    /* Diagnostic-only fast bounds and an independent 12 s run deadline. */
++    if (peak_current >= 3 || adc_overflows != foc_trace.overflow_start || high_count >= 240000U) {
++        foc_trace.abort = 1; pwm_safe_off(PORT_ADC); goto done;
++    }
+     Sguan.foc.Real_VBUS = vbus;
+     uint32_t start = DWT->CYCCNT;
++    float trace_previous_angle = Sguan.transfer.PLL_encoder.go.OutRe;
++    float trace_previous_we = Sguan.transfer.PLL_encoder.go.OutWe;
+     SguanFOC_High_Loop();
++    if (high_count >= 180000U && foc_trace.count < TRACE_N)
++        trace_sample_save(&Sguan.transfer.SMO, entered, trace_previous_angle, trace_previous_we, 0);
+     control_last = DWT->CYCCNT - start;
+     if (control_last > control_max) control_max = control_last;
+     if (++high_count % 20U == 0)
+@@ -253,6 +271,10 @@
+ done:
+     isr_last = DWT->CYCCNT - entered;
+     if (isr_last > isr_max) isr_max = isr_last;
++    foc_trace.max_isr = isr_max;
++    if (running && (isr_last == 0 || isr_last >= foc_trace.cpu_hz/PWM_HZ)) {
++        foc_trace.abort = 2; pwm_safe_off(PORT_ADC);
++    }
+ }
+ 
+ static int foc_execute_request(const struct foc_request *request)
+@@ -273,7 +295,8 @@
+     int busy = running;
+     rt_hw_local_irq_enable(level);
+     if (request->operation != FOC_START) return -RT_EINVAL;
+-    if (busy) return -RT_EBUSY;
++    if (busy || trace_zero_active) return -RT_EBUSY;
++    trace_reset(1);
+ 
+     /* Library initialization may sleep. Keep gates off and recheck STOP just
+      * before arming, so a STOP arriving during initialization cannot be lost. */
+@@ -313,6 +336,7 @@
+ static void sguan_main_entry(void *unused)
+ {
+     RT_UNUSED(unused);
++    trace_reset(0);
+     SguanFOC_main_Loop(); /* Peripheral init with gates disabled. */
+     while (1)
+     {
+@@ -339,6 +363,7 @@
+                 foc_mailbox_complete(&command_mailbox, seq);
+             }
+         }
++        trace_zero_poll();
+         foc_status_publish();
+         rt_thread_mdelay(1);
+     }
+@@ -413,7 +438,7 @@
+     const char *state = s.fault ? "fault" : !s.running ? "idle" : s.closed ? "run" : "ramp";
+     const char *loop = !s.running ? "stopped" : s.closed ? "closed" : s.if_stage == 3 ? "observer-acquire" : "current-ramp";
+     rt_kprintf("motor %s fault=%s ready=%u cal=%u pwm=%uHz adc=%u overflow=%u\n", state, fault_names[s.fault], s.ready, s.cal, PWM_HZ, s.adc, s.overflow);
+-    rt_kprintf("controller=sguan mode=SMO lib_status=%u math=upstream smo=upstream if=upstream\n", s.status);
++    rt_kprintf("controller=sguan mode=SMO lib_status=%u math=upstream smo=diagnostic%u if=upstream\n", s.status, FOC_DIAG_VARIANT);
+     rt_kprintf("electrical_mHz=%d vbus_mV=%d I_mA=%d,%d,%d peak_mA=%d raw=%u,%u,%u,%u\n",
+         s.running ? (int)(s.speed * 2 / Value_2PI * 1000) : 0, (int)(s.bus*1000),
+         (int)(s.cur[0]*1000), (int)(s.cur[1]*1000), (int)(s.cur[2]*1000), (int)(s.peak*1000), s.raw[0],s.raw[1],s.raw[2],s.raw[3]);
+--- a/Sguan_SMO.c
++++ b/Sguan_SMO.c
+@@ -20,7 +20,12 @@
+     part0 = run->Input_Ux*smo->data.Gain0;
+     part1 = run->Output_Ix*smo->data.Gain1;
+     part2 = smo->data.Input_We*smo->data.Gain2*run->Input_Iy;
++    #if FOC_DIAG_VARIANT == 2
++    float switching = Value_Sign(run->Output_Ix-run->Input_Ix)*smo->h;
++    part3 = switching*smo->data.Gain0;
++    #else
+     part3 = run->Output_Ex*smo->data.Gain0;
++    #endif
+     I_input = part0 - part1 - part2 - part3;
+ 
+     // 积分x轴，判断是否需要冻结积分
+@@ -52,8 +57,16 @@
+ 
+     // 输出x轴的预测反电动势，并滤波
+     float error = run->Output_Ix - run->Input_Ix;
++    #if FOC_DIAG_VARIANT == 1
++    error /= .8f;
++    Value_Limit(&error, 1.0f, -1.0f);
++    #else
+ 	error = Value_Sign(error);	
++    #endif
+     float Ex = error*smo->h;
++    #if FOC_DIAG_VARIANT == 2
++    Ex = switching;
++    #endif
+     run->Output_Ex = smo->data.F_num*(Ex + run->F_i) - smo->data.F_den*run->F_o;
+ 
+     // 更新历史输入输出值

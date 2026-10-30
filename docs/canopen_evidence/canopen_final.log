@@ -1,0 +1,8 @@
+HWV=0x0301, FWV=0x0223, DRV=0x0000, API=0x0100, IRQ=0x0000, CHN=0x01, SN=0226D40F50CD09843AA0USBCANFD-100U, ID=USBCANFD-100U, linChn=0x02
+usbcanfd log path:/home/ari/code/ns800rt7p65-focdemo
+no open log file(./usbcanfd.log)
+PASS boot-up, pre-operational heartbeat, device identity and disconnected marker
+PASS expedited/segmented SDO, mode selection and abort responses
+PASS RPDO/TPDO and 402 shutdown/switch-on/enable/quick-stop state model
+PASS protocol fault injection, EMCY and fault-reset edge
+PASS CANopen/402 protocol bench: frames=90 RXE=0 TXE=0; motor disconnected

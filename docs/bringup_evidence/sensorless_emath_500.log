@@ -1,0 +1,41 @@
+t=  0.39 state=idle loop=- target=- est=- pll=- peak_mA=0 fault=none
+t=  1.02 state=align loop=align target=500 est=0 pll=-1 peak_mA=697 fault=none
+t=  1.53 state=ramp loop=current-ramp target=500 est=105 pll=148 peak_mA=989 fault=none
+t=  2.05 state=ramp loop=current-ramp target=500 est=130 pll=233 peak_mA=1056 fault=none
+t=  2.57 state=ramp loop=current-ramp target=500 est=241 pll=389 peak_mA=1117 fault=none
+t=  3.09 state=ramp loop=current-ramp target=500 est=348 pll=542 peak_mA=1405 fault=none
+t=  3.61 state=ramp loop=current-ramp target=500 est=407 pll=393 peak_mA=1405 fault=none
+t=  4.13 state=ramp loop=current-ramp target=500 est=448 pll=446 peak_mA=1405 fault=none
+t=  4.65 state=ramp loop=current-ramp target=500 est=498 pll=504 peak_mA=1405 fault=none
+t=  5.17 state=ramp loop=blend target=500 est=498 pll=497 peak_mA=1405 fault=none
+t=  5.69 state=ramp loop=blend target=500 est=518 pll=556 peak_mA=1405 fault=none
+t=  6.20 state=run loop=closed target=500 est=520 pll=539 peak_mA=1405 fault=none
+t=  6.72 state=run loop=closed target=500 est=495 pll=506 peak_mA=1405 fault=none
+t=  7.24 state=run loop=closed target=500 est=499 pll=520 peak_mA=1405 fault=none
+t=  7.76 state=run loop=closed target=500 est=511 pll=520 peak_mA=1405 fault=none
+t=  8.28 state=run loop=closed target=500 est=492 pll=498 peak_mA=1405 fault=none
+t=  8.80 state=run loop=closed target=500 est=496 pll=502 peak_mA=1405 fault=none
+t=  9.31 state=run loop=closed target=500 est=507 pll=532 peak_mA=1405 fault=none
+t=  9.83 state=run loop=closed target=500 est=494 pll=466 peak_mA=1405 fault=none
+t= 10.35 state=run loop=closed target=500 est=496 pll=466 peak_mA=1405 fault=none
+hold 500 rpm: estimated error max=11, mean=5.9 rpm
+t= 10.96 state=run loop=closed target=600 est=602 pll=618 peak_mA=1405 fault=none
+t= 11.47 state=run loop=closed target=600 est=598 pll=600 peak_mA=1405 fault=none
+t= 11.99 state=run loop=closed target=600 est=596 pll=596 peak_mA=1405 fault=none
+t= 12.51 state=run loop=closed target=600 est=603 pll=604 peak_mA=1405 fault=none
+t= 13.03 state=run loop=closed target=600 est=599 pll=604 peak_mA=1405 fault=none
+t= 13.55 state=run loop=closed target=600 est=597 pll=622 peak_mA=1405 fault=none
+t= 14.06 state=run loop=closed target=600 est=605 pll=579 peak_mA=1405 fault=none
+t= 14.58 state=run loop=closed target=600 est=600 pll=583 peak_mA=1405 fault=none
+hold 600 rpm: estimated error max=5, mean=2.6 rpm
+t= 15.19 state=run loop=closed target=500 est=509 pll=528 peak_mA=1405 fault=none
+t= 15.71 state=run loop=closed target=500 est=491 pll=490 peak_mA=1405 fault=none
+t= 16.23 state=run loop=closed target=500 est=497 pll=495 peak_mA=1405 fault=none
+t= 16.75 state=run loop=closed target=500 est=506 pll=528 peak_mA=1405 fault=none
+t= 17.27 state=run loop=closed target=500 est=491 pll=469 peak_mA=1405 fault=none
+t= 17.78 state=run loop=closed target=500 est=499 pll=460 peak_mA=1405 fault=none
+t= 18.30 state=run loop=closed target=500 est=501 pll=543 peak_mA=1405 fault=none
+t= 18.82 state=run loop=closed target=500 est=497 pll=467 peak_mA=1405 fault=none
+hold 500 rpm: estimated error max=9, mean=4.6 rpm
+t= 19.09 state=idle loop=stopped target=500 est=497 pll=507 peak_mA=1405 fault=none
+UART sensorless test and confirmed stop passed; trace: /tmp/ns800-emath-pure-final.jsonl

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Database>
+  <Device>
+    <ChipInfo Vendor="NOVOSENSE"
+              Name="NS800RT7P65D-DHQFOY2"
+              Aliases="NS800RT7P65D_DHQFOY2;NS800RT7P65D"
+              WorkRAMAddr="0x20120000"
+              WorkRAMSize="0x00002000"
+              Core="JLINK_CORE_CORTEX_M7"
+              JLinkScriptFile="NS800RT7P65D_CPU1.JLinkScript" />
+    <FlashBankInfo Name="Main Flash Bank 1"
+                   BaseAddr="0x08000000"
+                   AlwaysPresent="1">
+      <LoaderInfo Name="NS800RT7xxx Bank 1"
+                  MaxSize="0x00080000"
+                  Loader="NS800RT7xxx_FlashBank1.FLM"
+                  LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+    <FlashBankInfo Name="Main Flash Bank 2"
+                   BaseAddr="0x08080000"
+                   AlwaysPresent="1">
+      <LoaderInfo Name="NS800RT7xxx Bank 2"
+                  MaxSize="0x00080000"
+                  Loader="NS800RT7xxx_FlashBank2.FLM"
+                  LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+  </Device>
+  <Device>
+    <ChipInfo Vendor="NOVOSENSE"
+              Name="NS800RT7P65D-DHQFOY2_CPU2"
+              WorkRAMAddr="0x20120000"
+              WorkRAMSize="0x00002000"
+              Core="JLINK_CORE_CORTEX_M7"
+              JLinkScriptFile="NS800RT7P65D_CPU2.JLinkScript" />
+  </Device>
+</Database>

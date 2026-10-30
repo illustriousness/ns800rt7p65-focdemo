@@ -1,0 +1,46 @@
+scons: Reading SConscript files ...
+Newlib version: 4.6.0
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: `rtthread_cpu2.elf' is up to date.
+CC build/applications/sguan/ns800_foc_port.o
+CC build/sguan/SguanFOC.o
+CC build/sguan/Sguan_Cogging.o
+CC build/sguan/Sguan_DOB.o
+CC build/sguan/Sguan_Feedforward.o
+CC build/sguan/Sguan_Filter.o
+CC build/sguan/Sguan_HFI.o
+CC build/sguan/Sguan_Hall.o
+CC build/sguan/Sguan_IQmath.o
+CC build/sguan/Sguan_Identify.o
+CC build/sguan/Sguan_LTD.o
+CC build/sguan/Sguan_Ladrc.o
+CC build/sguan/Sguan_MotorStatus.o
+CC build/sguan/Sguan_NLFO.o
+CC build/sguan/Sguan_NSD.o
+CC build/sguan/Sguan_Optimize.o
+CC build/sguan/Sguan_PID.o
+CC build/sguan/Sguan_PLL.o
+CC build/sguan/Sguan_SMC.o
+CC build/sguan/Sguan_SMO.o
+CC build/sguan/Sguan_SPWM.o
+CC build/sguan/Sguan_STA.o
+CC build/sguan/Sguan_SVPWM.o
+CC build/sguan/Sguan_math.o
+CC build/sguan/Sguan_printf.o
+LINK rtthread.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:        164 KB       512 KB     32.03%
+         VT_DTCM:         972 B         1 KB     94.92%
+            DTCM:          4 KB        71 KB      5.63%
+        DTCM_EXT:           0 B        40 KB      0.00%
+          SHARED:       23532 B       112 KB     20.52%
+         RT_HEAP:         16 KB        16 KB    100.00%
+           SRAM2:      114752 B     130816 B     87.72%
+         BKPSRAM:           0 B         4 KB      0.00%
+            ITCM:        5024 B        64 KB      7.67%
+arm-none-eabi-objcopy -O binary rtthread.elf rtthread.bin
+arm-none-eabi-size rtthread.elf
+   text	   data	    bss	    dec	    hex	filename
+ 172960	   5564	 154168	 332692	  51394	rtthread.elf
+scons: done building targets.

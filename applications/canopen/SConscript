@@ -1,0 +1,14 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+stack = os.path.join(Dir('#').abspath, 'libraries', 'CANopenNode')
+objects = os.path.join(Dir('#').abspath, 'build', 'canopen-stack')
+VariantDir(objects, os.path.join(stack, '301'), duplicate=0)
+names = ['CO_ODinterface.c', 'CO_Emergency.c', 'CO_NMT_Heartbeat.c',
+         'CO_SDOserver.c', 'CO_PDO.c']
+src = Glob('*.c') + [File(os.path.join(objects, name)) for name in names]
+group = DefineGroup('CANopen FOC bridge', src, depend=['BSP_USING_CANFD1'],
+                    CPPPATH=[cwd, stack, os.path.join(Dir('#').abspath, 'applications', 'sguan')],
+                    LOCAL_CFLAGS=' -O2')
+Return('group')

@@ -1,0 +1,354 @@
+0x08015ec2 in rt_assert_handler (ex_string=0x8019ee0 "completion != RT"..., func=0x801d9e4 <__FUNCTION__.0> "rt_completion_wa"..., line=309) at rt-thread/src/kservice.c:1546
+1546	            while (dummy == 0);
+r0             0x0                 0
+r1             0xa                 10
+r2             0x1                 1
+r3             0x0                 0
+r4             0x20101b9c          537926556
+r5             0x201016a0          537925280
+r6             0x2010169c          537925276
+r7             0x20001328          536875816
+r8             0x13726f            1274479
+r9             0x20101b4c          537926476
+r10            0x20101ba1          537926561
+r11            0x0                 0
+r12            0x0                 0
+sp             0x20001328          0x20001328
+lr             0x8015a07           134306311
+pc             0x8015ec2           0x8015ec2 <rt_assert_handler+42>
+xpsr           0x610000d6          1627390166
+fpscr          0x80000010          -2147483632
+msp            0x20001328          0x20001328
+psp            0x201014c0          0x201014c0 <stack+1236>
+primask        0x0                 0
+basepri        0x0                 0
+faultmask      0x0                 0
+control        0x0                 0
+apsr           0x60000000          1610612736
+epsr           0x1000000           16777216
+ipsr           0xd6                214
+iapsr          0x600000d6          1610612950
+eapsr          0x61000000          1627389952
+iepsr          0x10000d6           16777430
+#0  0x08015ec2 in rt_assert_handler (ex_string=0x8019ee0 "completion != RT"..., func=0x801d9e4 <__FUNCTION__.0> "rt_completion_wa"..., line=309) at rt-thread/src/kservice.c:1546
+        dummy = 0 '\000'
+#1  0x08010836 in rt_completion_wakeup_by_errno (completion=0x0, thread_errno=-1) at rt-thread/components/drivers/ipc/completion_mp.c:309
+        error = -255
+        suspend_thread = 0x2011c920
+        exchange_succ = 0
+        expected_value = 537925280
+        __FUNCTION__ = "rt_completion_wa"...
+#2  0x080104ba in rt_completion_done (completion=0x0) at rt-thread/components/drivers/ipc/completion_comm.c:21
+No locals.
+#3  0x080119ee in rt_hw_serial_isr (serial=0x20100f70 <uart_obj+28>, event=2) at rt-thread/components/drivers/serial/dev_serial.c:1624
+        tx_fifo = 0x0
+        __FUNCTION__ = "rt_hw_serial_isr"
+#4  0x0800a568 in uart_isr (serial=0x20100f70 <uart_obj+28>) at libraries/HAL_Drivers/drivers/drv_uart.c:484
+        uart = 0x20100f54 <uart_obj>
+        __FUNCTION__ = "uart_isr"
+#5  0x0800a586 in UART1_IRQHandler () at libraries/HAL_Drivers/drivers/drv_uart.c:492
+No locals.
+#6  <signal handler called>
+No symbol table info available.
+#7  0x0800fa48 in rt_hw_local_irq_enable (level=0) at board/smp/smp_port.c:140
+No locals.
+#8  0x08017bcc in rt_schedule () at rt-thread/src/scheduler_mp.c:996
+        level = 0
+        to_thread = 0x201024f0 <idle_thread>
+        current_thread = 0x201015ec <thread>
+        pcpu = 0x201020d4 <_cpus>
+        cpu_id = 0
+        __FUNCTION__ = "rt_schedule"
+#9  0x08017fc6 in rt_exit_critical () at rt-thread/src/scheduler_mp.c:1430
+        current_thread = 0x201015ec <thread>
+        need_resched = 1
+        level = 0
+        pcpu = 0x201020d4 <_cpus>
+        __FUNCTION__ = "rt_exit_critical"
+#10 0x08017f18 in rt_exit_critical_safe (critical_level=1) at rt-thread/src/scheduler_mp.c:1299
+No locals.
+#11 0x08018810 in _thread_sleep (tick=1) at rt-thread/src/thread.c:692
+        thread = 0x201015ec <thread>
+        critical_level = 1
+        err = 0
+        __FUNCTION__ = "_thread_sleep"
+#12 0x08018866 in rt_thread_mdelay (ms=1) at rt-thread/src/thread.c:800
+        tick = 1
+#13 0x0800e242 in motor_entry (parameter=<optimized out>) at applications/motor_openloop.c:375
+        level = <optimized out>
+        command = <optimized out>
+        last_adc = 1274479
+        stale = <optimized out>
+#14 0x08018224 in _thread_detach_from_mutex (thread=0xdeadbeef) at rt-thread/src/thread.c:110
+        node = 0x8018225 <_thread_exit>
+        tmp_list = 0xdeadbeef
+        mutex = 0xdeadbeef
+        level = -559038737
+#15 0x6f746f6c in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+  Id   Target Id         Frame 
+* 1    Thread 57005      0x08015ec2 in rt_assert_handler (ex_string=0x8019ee0 "completion != RT"..., func=0x801d9e4 <__FUNCTION__.0> "rt_completion_wa"..., line=309) at rt-thread/src/kservice.c:1546
+$1 = {
+  handle = {
+    Instance = 0x40042000,
+    baud_rate = 115200,
+    data_bits = 8 '\b',
+    stop_bits = 0 '\000',
+    parity = 0 '\000',
+    bit_order = 0 '\000',
+    invert = 0 '\000',
+    bufsz = 0 '\000',
+    flowcontrol = 0 '\000',
+    reserved = 0 '\000'
+  },
+  config = 0x201002a0 <uart_config>,
+  DR_mask = 0,
+  tx_block_timeout = 6000,
+  serial = {
+    parent = {
+      parent = {
+        name = "uart1\000\000\000\000\000\000\000\000\000\000",
+        type = 137 '\211',
+        flag = 0 '\000',
+        list = {
+          next = 0x20101ff4 <_hw_pin+20>,
+          prev = 0x201004c4 <_object_container+172>
+        }
+      },
+      type = RT_Device_Class_Char,
+      flag = 1299,
+      open_flag = 331,
+      ref_count = 2 '\002',
+      device_id = 0 '\000',
+      rx_indicate = 0x8013469 <finsh_rx_ind>,
+      tx_complete = 0x0,
+      init = 0x8011291 <rt_serial_init>,
+      open = 0x80112fd <rt_serial_open>,
+      close = 0x8011509 <rt_serial_close>,
+      read = 0x8011609 <rt_serial_read>,
+      write = 0x8011671 <rt_serial_write>,
+      control = 0x80116d9 <rt_serial_control>,
+      readlink = 0x0,
+      user_data = 0x0
+    },
+    ops = 0x801d2d0 <ns800_uart_ops>,
+    config = {
+      baud_rate = 115200,
+      data_bits = 8,
+      stop_bits = 0,
+      parity = 0,
+      bit_order = 0,
+      invert = 0,
+      bufsz = 64,
+      flowcontrol = 0,
+      reserved = 0
+    },
+    serial_rx = 0x2011dc20,
+    serial_tx = 0x0,
+    spinlock = {
+      lock = {
+        slock = 0,
+        tickets = {
+          owner = 0,
+          next = 0
+        }
+      },
+      critical_level = 0
+    },
+    rx_notify = {
+      notify = 0x0,
+      dev = 0x0
+    }
+  }
+}
+$2 = {
+  rx_sem = {
+    parent = {
+      parent = {
+        name = "shrx", '\000' <repeats 11 times>,
+        type = 130 '\202',
+        flag = 0 '\000',
+        list = {
+          next = 0x201024d4 <system_sem+20>,
+          prev = 0x20100434 <_object_container+28>
+        }
+      },
+      suspend_thread = {
+        next = 0x2011c93c,
+        prev = 0x2011c93c
+      }
+    },
+    value = 0,
+    max_value = 65535,
+    spinlock = {
+      lock = {
+        slock = 0,
+        tickets = {
+          owner = 0,
+          next = 0
+        }
+      },
+      critical_level = 0
+    }
+  },
+  stat = WAIT_NORMAL,
+  echo_mode = 1 '\001',
+  prompt_mode = 1 '\001',
+  overwrite_mode = 0 '\000',
+  current_history = 3,
+  history_count = 3,
+  cmd_history = {"motor  closed 80"..., "motor  clos", '\000' <repeats 68 times>, "motor closed 800"..., '\000' <repeats 79 times>, '\000' <repeats 79 times>},
+  line = '\000' <repeats 80 times>,
+  line_position = 0,
+  line_curpos = 0,
+  device = 0x20100f70 <uart_obj+28>
+}
+$3 = SL_ALIGN
+$4 = SL_OK
+$5 = 800
+$6 = -4.81539536
+$7 = -2.35096002
+$8 = 0.17474407
+$9 = 0.179785132
+$10 = MOTOR_FAULT
+$11 = FAULT_ADC
+$12 = 1
+$13 = 5038203
+$14 = 1
+$15 = 12715
+$16 = {{
+    current_thread = 0x201015ec <thread>,
+    irq_switch_flag = 1 '\001',
+    sched_lock_flag = 0 '\000',
+    critical_switch_flag = 0 '\000',
+    current_priority = 16 '\020',
+    priority_table = {{
+        next = 0x201020dc <_cpus+8>,
+        prev = 0x201020dc <_cpus+8>
+      }, {
+        next = 0x201020e4 <_cpus+16>,
+        prev = 0x201020e4 <_cpus+16>
+      }, {
+        next = 0x201020ec <_cpus+24>,
+        prev = 0x201020ec <_cpus+24>
+      }, {
+        next = 0x201020f4 <_cpus+32>,
+        prev = 0x201020f4 <_cpus+32>
+      }, {
+        next = 0x201020fc <_cpus+40>,
+        prev = 0x201020fc <_cpus+40>
+      }, {
+        next = 0x20102104 <_cpus+48>,
+        prev = 0x20102104 <_cpus+48>
+      }, {
+        next = 0x2010210c <_cpus+56>,
+        prev = 0x2010210c <_cpus+56>
+      }, {
+        next = 0x20102114 <_cpus+64>,
+        prev = 0x20102114 <_cpus+64>
+      }, {
+        next = 0x2010211c <_cpus+72>,
+        prev = 0x2010211c <_cpus+72>
+      }, {
+        next = 0x20102124 <_cpus+80>,
+        prev = 0x20102124 <_cpus+80>
+      }, {
+        next = 0x2010212c <_cpus+88>,
+        prev = 0x2010212c <_cpus+88>
+      }, {
+        next = 0x20102134 <_cpus+96>,
+        prev = 0x20102134 <_cpus+96>
+      }, {
+        next = 0x2010213c <_cpus+104>,
+        prev = 0x2010213c <_cpus+104>
+      }, {
+        next = 0x20102144 <_cpus+112>,
+        prev = 0x20102144 <_cpus+112>
+      }, {
+        next = 0x2010214c <_cpus+120>,
+        prev = 0x2010214c <_cpus+120>
+      }, {
+        next = 0x20102154 <_cpus+128>,
+        prev = 0x20102154 <_cpus+128>
+      }...},
+    priority_group = 2148532224,
+    tick = 63740,
+    idle_thread = 0x201024f0 <idle_thread>,
+    irq_nest = 1
+  }, {
+    current_thread = 0x201025a0 <idle_thread+176>,
+    irq_switch_flag = 0 '\000',
+    sched_lock_flag = 0 '\000',
+    critical_switch_flag = 0 '\000',
+    current_priority = 31 '\037',
+    priority_table = {{
+        next = 0x201021f4 <_cpus+288>,
+        prev = 0x201021f4 <_cpus+288>
+      }, {
+        next = 0x201021fc <_cpus+296>,
+        prev = 0x201021fc <_cpus+296>
+      }, {
+        next = 0x20102204 <_cpus+304>,
+        prev = 0x20102204 <_cpus+304>
+      }, {
+        next = 0x2010220c <_cpus+312>,
+        prev = 0x2010220c <_cpus+312>
+      }, {
+        next = 0x20102214 <_cpus+320>,
+        prev = 0x20102214 <_cpus+320>
+      }, {
+        next = 0x2010221c <_cpus+328>,
+        prev = 0x2010221c <_cpus+328>
+      }, {
+        next = 0x20102224 <_cpus+336>,
+        prev = 0x20102224 <_cpus+336>
+      }, {
+        next = 0x2010222c <_cpus+344>,
+        prev = 0x2010222c <_cpus+344>
+      }, {
+        next = 0x20102234 <_cpus+352>,
+        prev = 0x20102234 <_cpus+352>
+      }, {
+        next = 0x2010223c <_cpus+360>,
+        prev = 0x2010223c <_cpus+360>
+      }, {
+        next = 0x20102244 <_cpus+368>,
+        prev = 0x20102244 <_cpus+368>
+      }, {
+        next = 0x2010224c <_cpus+376>,
+        prev = 0x2010224c <_cpus+376>
+      }, {
+        next = 0x20102254 <_cpus+384>,
+        prev = 0x20102254 <_cpus+384>
+      }, {
+        next = 0x2010225c <_cpus+392>,
+        prev = 0x2010225c <_cpus+392>
+      }, {
+        next = 0x20102264 <_cpus+400>,
+        prev = 0x20102264 <_cpus+400>
+      }, {
+        next = 0x2010226c <_cpus+408>,
+        prev = 0x2010226c <_cpus+408>
+      }...},
+    priority_group = 0,
+    tick = 252176,
+    idle_thread = 0x201025a0 <idle_thread+176>,
+    irq_nest = 0
+  }}
+0x20001328:	0x20101b9c	0x00000135	0x0801d9e4	0x08019ee0
+0x20001338:	0x201015ec	0x001020d4	0x20001348	0x08010837
+0x20001348:	0xffffffff	0x00000000	0x201016a0	0x2011c920
+0x20001358:	0x00000000	0xffffff01	0x20001368	0x080104bb
+0x20001368:	0x00000002	0x00000000	0x20001378	0x080119ef
+0x20001378:	0x00000002	0x20100f70	0x00000000	0x00000002
+0x20001388:	0x00000000	0x2011dc20	0x05ffffff	0x00000000
+0x20001398:	0x200013a0	0x0800a569	0x201021e8	0x20100f70
+0xe000ed00:	0x411fc272	0x04c618d6	0x20000000	0xfa050000
+0xe000ed10:	0x00000000	0x00060200	0x00000000	0x00000000
+0xe000ed28:	0x00000000	0x00000000	0x00000001	0x00000000
+0xe000ed38:	0x00000000	0x00000000	0x00000030	0x00000200
+0xe000e118:	0x00000040	0x00000001	0x00000000	0x00000000
+0xe000e128:	0x00000000	0x00000000	0x00000000	0x00000000
+0x40042010:	0x1e000038	0x40f80000	0x002c0000	0x00000041
+0x40042020:	0x00000000	0x00000000	0x00c00033	0x00000000

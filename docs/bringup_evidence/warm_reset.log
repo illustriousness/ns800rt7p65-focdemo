@@ -1,0 +1,30 @@
+motor stop
+msh >
+msh >
+resetinfo
+boot reset sys=00002010 cpu1=00002010 cpu2=0000301f
+msh >
+msh >
+reboot�
+ \ | /
+- RT -     Thread Operating System
+ / | \     5.3.1 build Oct  8 2026 17:56:45
+ 2006 - 2026 Copyright by RT-Thread team
+[smp] CPU2 boot ready
+NS800RT7P65 RT-Thread full BSP + SMP
+boot reset sys=00002010 cpu1=00002010 cpu2=0000301f
+Use 'motor start', 'motor closed', 'motor status', 'motor stop' and 'help'.
+msh >
+resetinfo
+boot reset sys=00002010 cpu1=00002010 cpu2=0000301f
+msh >
+msh >
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2363 overflow=0
+electrical_mHz=0 vbus_mV=24149 I_mA=-35,44,12 peak_mA=0 raw=1563,1539,1557,1199
+msh >
+
+msh >smp
+smp ready=c020c020 cpu0=15 mask0=1 cpu1=17 mask1=2 shared=32 ipi0=1 ipi1=19 shell_cpu=0
+msh >
+

@@ -1,0 +1,10 @@
+
+msh >
+msh >smp
+smp ready=c020c020 cpu0=6500 mask0=1 cpu1=6504 mask1=2 shared=13004 ipi0=1 ipi1=6506 shell_cpu=0
+msh >
+ms
+msh >
+msh >smp
+smp ready=c020c020 cpu0=6702 mask0=1 cpu1=6706 mask1=2 shared=13408 ipi0=1 ipi1=6708 shell_cpu=0
+mSMP test passed: cpu0 +202, cpu1 +202, mask0=0x1, mask1=0x2, shared=13408, ipi0=1, ipi1=6708, shell_cpu=0

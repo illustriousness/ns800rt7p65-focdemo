@@ -1,0 +1,15 @@
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=5160 overflow=0
+controller=sguan mode=SMO lib_status=0 math=upstream smo=upstream if=upstream
+electrical_mHz=0
+ \ | /
+- RT -     Thread Operating System
+ / | \     5.3.1 build Oct 29 2026 19:04:36
+ 2006 - 2026 Copyright by RT-Thread team
+[smp] CPU2 boot ready
+NS800RT7P65 RT-Thread full BSP + SMP
+boot reset sys=0000101e cpu1=0000101e cpu2=0000301f
+Sguan FOC enabled: motor closed | speed | status | stop; startup is idle.
+CANopen/CiA402 protocol bench controls remain DISCONNECTED.
+CANopen node=1 bitrate=1000000 cpu=1 controls=DISCONNECTED
+msh >

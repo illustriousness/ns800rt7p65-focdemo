@@ -1,0 +1,18 @@
+digraph HW {
+  graph [rankdir=TB, bgcolor="white", fontname="Noto Sans CJK SC", fontsize=12,
+         pad=0.3, nodesep=0.40, ranksep=0.45];
+  node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=12,
+        color="#4a5568", fillcolor="#edf2f7", penwidth=1.2, margin="0.16,0.10"];
+  edge [color="#4a5568", arrowsize=0.7, fontname="Noto Sans CJK SC", fontsize=10];
+
+  PC [label="PC 上位机\nZLG USBCANFD-100U\nJ-Link VCOM", fillcolor="#e2e8f0"];
+  MCU [label="NSSinePad\nNS800RT7P65D\n双 Cortex-M7\nRT-Thread 5.3.1 SMP", fillcolor="#bee3f8", color="#2b6cb0", penwidth=1.5];
+  POWER [label="ATK-PD6010B\n24 V 三相功率板\n低侧电流采样", fillcolor="#fefcbf", color="#b7791f"];
+  MOTOR [label="ATK-BL57H95D20E\n无刷电机\n无编码器", fillcolor="#c6f6d5", color="#2f855a"];
+
+  PC -> MCU [label="CAN 1 Mbit/s（CANopen）\nUART 115200（FinSH）"];
+  MCU -> POWER [label="EPWM8/9/10\n1 µs 死区"];
+  POWER -> MOTOR [label="三相 U/V/W"];
+  POWER -> MCU [label="三相电流 / 母线电压", style=dashed];
+  MCU -> POWER [label="CTRL_SD / Trip", style=dashed, color="#c53030", fontcolor="#c53030"];
+}

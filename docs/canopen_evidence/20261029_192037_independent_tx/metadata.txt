@@ -1,0 +1,17 @@
+capture_format_version=1
+receive_only=true
+started_at=2026-10-29T19:20:37+0800
+label=independent_tx
+notes=
+requested_duration_s=4
+device_type=33
+device_index=0
+channel_index=0
+clock_hz=80000000
+aset=28,9,4,1
+dset=13,4,4,0
+mode=classic
+termination=on
+actual_elapsed_us=4018876
+total_frames=9
+completed=true

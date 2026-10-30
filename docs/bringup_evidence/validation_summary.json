@@ -1,0 +1,59 @@
+{
+  "sensorless_forward_500": {
+    "total_samples": 61,
+    "closed_samples": 49,
+    "test_duration_seconds": 30.701,
+    "peak_current_mA": 1427,
+    "max_isr_body_ns": 35240,
+    "active_overflow_counter_values": [
+      141
+    ],
+    "frozen_forced_angles_mrad": [
+      -1320
+    ],
+    "final_state": "idle",
+    "final_electrical_mHz": 0,
+    "targets_rpm": [
+      500,
+      600
+    ]
+  },
+  "sensorless_reverse_500": {
+    "total_samples": 37,
+    "closed_samples": 25,
+    "test_duration_seconds": 18.667,
+    "peak_current_mA": 1204,
+    "max_isr_body_ns": 39057,
+    "active_overflow_counter_values": [
+      0
+    ],
+    "frozen_forced_angles_mrad": [
+      1320
+    ],
+    "final_state": "idle",
+    "final_electrical_mHz": 0,
+    "targets_rpm": [
+      -600,
+      -500
+    ]
+  },
+  "sensorless_final_800": {
+    "total_samples": 41,
+    "closed_samples": 25,
+    "test_duration_seconds": 20.682,
+    "peak_current_mA": 1578,
+    "max_isr_body_ns": 39120,
+    "active_overflow_counter_values": [
+      0
+    ],
+    "frozen_forced_angles_mrad": [
+      -340
+    ],
+    "final_state": "idle",
+    "final_electrical_mHz": 0,
+    "targets_rpm": [
+      700,
+      800
+    ]
+  }
+}

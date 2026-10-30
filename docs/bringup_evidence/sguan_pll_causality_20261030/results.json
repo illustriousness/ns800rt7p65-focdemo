@@ -1,0 +1,523 @@
+{
+  "zero-A": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 2,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 30503,
+      "end_adc": 31526,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 3167,
+      "completed": 1
+    },
+    "sha256": "47d656a3471604706c8cb0a416496c5165db5c3493fee766b3c4e46b1df30f04",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 7.9175,
+    "dwt_interval_us_min_median_max": [
+      30.855,
+      50.0,
+      66.445
+    ],
+    "flags_unique": [
+      0
+    ],
+    "emf_alpha_range_V": [
+      -1.3195468187332153,
+      1.3195466995239258
+    ],
+    "emf_alpha": {
+      "band_rms": 0.8185083441762981,
+      "peak_bin_Hz": 839.84375
+    },
+    "observer_current_error_rms_A": 0.3942127662806081,
+    "detector_error_std_V": 0.0,
+    "detector_error": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "input_current_alpha": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "switching_alpha": {
+      "band_rms": 5.723805886281602,
+      "peak_bin_Hz": 839.84375
+    },
+    "emf_alpha_full_spectrum": {
+      "band_rms": 0.8192085516253514,
+      "peak_bin_Hz": 839.84375
+    },
+    "switching_period_samples_median": 24.0,
+    "switching_Hz_from_period": 833.3333333333334
+  },
+  "zero-B2": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 1,
+      "kind": 2,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 53083,
+      "end_adc": 54106,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 3399,
+      "completed": 1
+    },
+    "sha256": "bb1d13a1c39d271d8d05b48347b760b94aec7384fe2c61d4af82c53e0b598a98",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 8.497499999999999,
+    "dwt_interval_us_min_median_max": [
+      32.91,
+      50.0,
+      67.1675
+    ],
+    "flags_unique": [
+      0
+    ],
+    "emf_alpha_range_V": [
+      0.0,
+      0.0
+    ],
+    "emf_alpha": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "observer_current_error_rms_A": 0.0,
+    "detector_error_std_V": 0.0,
+    "detector_error": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "input_current_alpha": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "switching_alpha": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "emf_alpha_full_spectrum": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    }
+  },
+  "zero-A2": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 2,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 53403,
+      "end_adc": 54426,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 3086,
+      "completed": 1
+    },
+    "sha256": "f1d7674caacbe43451363d701e5db576008353d36f6640bbb03abdafb5ca3b22",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 7.715,
+    "dwt_interval_us_min_median_max": [
+      32.66,
+      50.0,
+      67.0075
+    ],
+    "flags_unique": [
+      0
+    ],
+    "emf_alpha_range_V": [
+      -1.3195468187332153,
+      1.3195466995239258
+    ],
+    "emf_alpha": {
+      "band_rms": 0.8185083441762981,
+      "peak_bin_Hz": 839.84375
+    },
+    "observer_current_error_rms_A": 0.3942127662806081,
+    "detector_error_std_V": 0.0,
+    "detector_error": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "input_current_alpha": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "switching_alpha": {
+      "band_rms": 5.723805886281602,
+      "peak_bin_Hz": 839.84375
+    },
+    "emf_alpha_full_spectrum": {
+      "band_rms": 0.8192085516253514,
+      "peak_bin_Hz": 839.84375
+    },
+    "switching_period_samples_median": 24.0,
+    "switching_Hz_from_period": 833.3333333333334
+  },
+  "zero-C": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 2,
+      "kind": 2,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 52983,
+      "end_adc": 54006,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 3383,
+      "completed": 1
+    },
+    "sha256": "f18fe09a8b5b2cf732ef87f54bced22ec6d8647a870573394c761972a6608b7f",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 8.4575,
+    "dwt_interval_us_min_median_max": [
+      32.6375,
+      50.0,
+      66.8825
+    ],
+    "flags_unique": [
+      0
+    ],
+    "emf_alpha_range_V": [
+      -0.1223510354757309,
+      0.12235106527805328
+    ],
+    "emf_alpha": {
+      "band_rms": 3.2956031673144384e-07,
+      "peak_bin_Hz": 214.84375
+    },
+    "observer_current_error_rms_A": 0.37974680960184953,
+    "detector_error_std_V": 0.0,
+    "detector_error": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "input_current_alpha": {
+      "band_rms": 0.0,
+      "peak_bin_Hz": null
+    },
+    "switching_alpha": {
+      "band_rms": 2.783321222287301e-06,
+      "peak_bin_Hz": 2988.28125
+    },
+    "emf_alpha_full_spectrum": {
+      "band_rms": 0.11997599982344426,
+      "peak_bin_Hz": 5000.0
+    },
+    "switching_period_samples_median": 4.0,
+    "switching_Hz_from_period": 5000.0
+  },
+  "motor-A1": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 191961,
+      "end_adc": 192984,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 11076,
+      "completed": 1
+    },
+    "sha256": "6f5f55771b4e4079050a3e237ecd4c63ad4fb050439277b7b0f74aa55d193652",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 27.69,
+    "dwt_interval_us_min_median_max": [
+      19.5575,
+      50.0,
+      83.85
+    ],
+    "flags_unique": [
+      3
+    ],
+    "emf_alpha_range_V": [
+      -3.3356359004974365,
+      3.062204599380493
+    ],
+    "emf_alpha": {
+      "band_rms": 0.8458452475035176,
+      "peak_bin_Hz": 781.25
+    },
+    "observer_current_error_rms_A": 0.5067596867459643,
+    "detector_error_std_V": 0.8133842213105571,
+    "detector_error": {
+      "band_rms": 0.8413403040341156,
+      "peak_bin_Hz": 820.3125
+    },
+    "input_current_alpha": {
+      "band_rms": 0.04491081454596574,
+      "peak_bin_Hz": 234.375
+    },
+    "switching_alpha": {
+      "band_rms": 5.596448352953857,
+      "peak_bin_Hz": 800.78125
+    },
+    "raw_rpm_mean": 502.4766665335702,
+    "raw_rpm_std": 776.8780767947846,
+    "raw_rpm_range": [
+      -1432.3499003521563,
+      2001.088933519473
+    ],
+    "filtered_rpm_mean": 495.9227368287445,
+    "filtered_rpm_std": 6.581365943930965,
+    "PI_integral_rpm_std": 9.691650550229179,
+    "raw_rpm_error_correlation": 0.9999221897615372,
+    "raw_rpm_error_coherence_600_1200": 0.9999997857430659,
+    "raw_rpm": {
+      "band_rms": 803.4779468660162,
+      "peak_bin_Hz": 820.3125
+    },
+    "pll_angle_deg": {
+      "band_rms": 1.9693436362817607,
+      "peak_bin_Hz": 800.78125
+    },
+    "control_angle_deg": {
+      "band_rms": 1.9693436362817607,
+      "peak_bin_Hz": 800.78125
+    },
+    "id": {
+      "band_rms": 0.04904191854585596,
+      "peak_bin_Hz": 234.375
+    },
+    "iq": {
+      "band_rms": 0.024466409299871476,
+      "peak_bin_Hz": 253.90625
+    },
+    "phase_current_peak_A": 1.3073420524597168,
+    "bus_mean_V": 23.571909070014954,
+    "phase_current_in_window_max_A": 0.6994748115539551,
+    "observer_recurrence_max_error_A": 6.109476089616317e-08,
+    "switching_reconstruction_max_error_V": 0.0,
+    "detector_exact_trig_max_difference_V": 0.03495490170131632,
+    "detector_library_lookup_max_difference_V": 1.1083509754428178e-07,
+    "PI_recurrence_max_error_rpm": 0.00011127516536468818
+  },
+  "motor-B1": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 1,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 215221,
+      "end_adc": 216244,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 11350,
+      "completed": 1
+    },
+    "sha256": "f674bdae302a3bcb92f4c5a65185e9bb283cea19a384bf0c78e3be00da05f02d",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 28.375,
+    "dwt_interval_us_min_median_max": [
+      21.1975,
+      50.0,
+      80.85
+    ],
+    "flags_unique": [
+      3
+    ],
+    "emf_alpha_range_V": [
+      -1.919940710067749,
+      1.6474859714508057
+    ],
+    "emf_alpha": {
+      "band_rms": 0.03973890372918189,
+      "peak_bin_Hz": 703.125
+    },
+    "observer_current_error_rms_A": 0.16339287383117976,
+    "detector_error_std_V": 0.0883755836761341,
+    "detector_error": {
+      "band_rms": 0.040039757861372816,
+      "peak_bin_Hz": 722.65625
+    },
+    "input_current_alpha": {
+      "band_rms": 0.02439575219529667,
+      "peak_bin_Hz": 214.84375
+    },
+    "switching_alpha": {
+      "band_rms": 0.21299227068000842,
+      "peak_bin_Hz": 703.125
+    },
+    "raw_rpm_mean": 499.4855239914817,
+    "raw_rpm_std": 84.87212639941413,
+    "raw_rpm_range": [
+      188.04647328522995,
+      697.2378773185432
+    ],
+    "filtered_rpm_mean": 501.10851914494975,
+    "filtered_rpm_std": 8.494202599866144,
+    "PI_integral_rpm_std": 8.055651891617167,
+    "raw_rpm_error_correlation": 0.995486014728613,
+    "raw_rpm_error_coherence_600_1200": 0.9999998102918717,
+    "raw_rpm": {
+      "band_rms": 38.23347220712319,
+      "peak_bin_Hz": 722.65625
+    },
+    "pll_angle_deg": {
+      "band_rms": 0.1484919364296949,
+      "peak_bin_Hz": 292.96875
+    },
+    "control_angle_deg": {
+      "band_rms": 0.1484919364296949,
+      "peak_bin_Hz": 292.96875
+    },
+    "id": {
+      "band_rms": 0.0276696550398733,
+      "peak_bin_Hz": 292.96875
+    },
+    "iq": {
+      "band_rms": 0.027174268770458223,
+      "peak_bin_Hz": 214.84375
+    },
+    "phase_current_peak_A": 1.2129545211791992,
+    "bus_mean_V": 23.57674777507782,
+    "phase_current_in_window_max_A": 0.718986988067627,
+    "observer_recurrence_max_error_A": 3.650784492510023e-08,
+    "switching_reconstruction_max_error_V": 2.086162567138672e-07,
+    "detector_exact_trig_max_difference_V": 0.02308111631863463,
+    "detector_library_lookup_max_difference_V": 5.717990347875457e-08,
+    "PI_recurrence_max_error_rpm": 4.0536461207107966e-05
+  },
+  "motor-A2": {
+    "header": {
+      "magic": 1347177556,
+      "version": 1,
+      "variant": 0,
+      "kind": 1,
+      "count": 1024,
+      "capacity": 1024,
+      "sample_bytes": 112,
+      "cpu_hz": 400000000,
+      "fs": 20000,
+      "start_adc": 214801,
+      "end_adc": 215824,
+      "overflow_start": 0,
+      "overflow_end": 0,
+      "abort": 0,
+      "max_isr": 11008,
+      "completed": 1
+    },
+    "sha256": "d4cc885ce0aed9414a6669ee743d81f7200eed8717d66277e23a192efc3d072e",
+    "duration_ms": 51.2,
+    "fft_bin_Hz": 19.53125,
+    "isr_max_us": 27.52,
+    "dwt_interval_us_min_median_max": [
+      19.8675,
+      50.0,
+      94.44
+    ],
+    "flags_unique": [
+      3
+    ],
+    "emf_alpha_range_V": [
+      -3.2359306812286377,
+      3.222747802734375
+    ],
+    "emf_alpha": {
+      "band_rms": 0.8039199847222347,
+      "peak_bin_Hz": 859.375
+    },
+    "observer_current_error_rms_A": 0.48293429107841324,
+    "detector_error_std_V": 0.9327066883780765,
+    "detector_error": {
+      "band_rms": 0.9185629215276344,
+      "peak_bin_Hz": 859.375
+    },
+    "input_current_alpha": {
+      "band_rms": 0.027519687698405466,
+      "peak_bin_Hz": 859.375
+    },
+    "switching_alpha": {
+      "band_rms": 5.583465407201967,
+      "peak_bin_Hz": 859.375
+    },
+    "raw_rpm_mean": 498.6111428318526,
+    "raw_rpm_std": 890.7494486277728,
+    "raw_rpm_range": [
+      -1356.8392630774572,
+      2618.163120851624
+    ],
+    "filtered_rpm_mean": 498.6298555902788,
+    "filtered_rpm_std": 9.235498744487911,
+    "PI_integral_rpm_std": 12.22891398045768,
+    "raw_rpm_error_correlation": 0.9999057557019421,
+    "raw_rpm_error_coherence_600_1200": 0.9999997747074799,
+    "raw_rpm": {
+      "band_rms": 877.2177947701754,
+      "peak_bin_Hz": 859.375
+    },
+    "pll_angle_deg": {
+      "band_rms": 2.0691314836207084,
+      "peak_bin_Hz": 781.25
+    },
+    "control_angle_deg": {
+      "band_rms": 2.0691314836207084,
+      "peak_bin_Hz": 781.25
+    },
+    "id": {
+      "band_rms": 0.030385038715274662,
+      "peak_bin_Hz": 839.84375
+    },
+    "iq": {
+      "band_rms": 0.028579105726886097,
+      "peak_bin_Hz": 214.84375
+    },
+    "phase_current_peak_A": 1.3081550598144531,
+    "bus_mean_V": 23.578537702560425,
+    "phase_current_in_window_max_A": 0.579071044921875,
+    "observer_recurrence_max_error_A": 6.109476089616317e-08,
+    "switching_reconstruction_max_error_V": 0.0,
+    "detector_exact_trig_max_difference_V": 0.03660325516911089,
+    "detector_library_lookup_max_difference_V": 1.2115972936044273e-07,
+    "PI_recurrence_max_error_rpm": 0.00012593161266005737
+  },
+  "comparison": {
+    "B_raw_std_reduction_vs_A1_pct": 89.0752321458759,
+    "B_raw_std_reduction_vs_A2_pct": 90.4718294768341
+  }
+}

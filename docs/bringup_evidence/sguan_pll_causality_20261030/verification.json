@@ -1,0 +1,22 @@
+{
+  "startup_regression.py": {
+    "returncode": 0,
+    "stdout": "BSP startup selection, IRQ vector order and CPU1/CPU2 ITCM copy layouts passed\n",
+    "stderr": ""
+  },
+  "sguan_change_review.py": {
+    "returncode": 0,
+    "stdout": "Original IF/current/position/PID initialization, SMO, math and public state preserved\nSupervisor: read-only observation, bounded confirmation/loss/startup and invalid data passed\nLibrary SMO and NLFO configurations both compile; no production sources changed\n",
+    "stderr": ""
+  },
+  "foc_ipc_regression.py": {
+    "returncode": 0,
+    "stdout": "IPC: bounded snapshots, concurrent publication, mailbox ordering and wrap passed\nControl loop: async requests, state checks, STOP priority and initialization cancellation passed\n",
+    "stderr": ""
+  },
+  "sguan_integration_regression.py": {
+    "returncode": 0,
+    "stdout": "SVPWM physical-voltage normalization passed in all sectors\n500 rpm: independent PMSM plant passed at four initial angles\n800 rpm: independent PMSM plant passed at four initial angles\n-500 rpm: independent PMSM plant passed at four initial angles\n-800 rpm: independent PMSM plant passed at four initial angles\n500 rpm: blocked rotor rejected within startup deadline\n-500 rpm: blocked rotor rejected within startup deadline\nDirect submodule compilation and single-source board settings passed\n",
+    "stderr": ""
+  }
+}

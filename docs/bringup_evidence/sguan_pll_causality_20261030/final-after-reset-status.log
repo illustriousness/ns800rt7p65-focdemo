@@ -1,0 +1,13 @@
+motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=141260 overflow=0
+controller=sguan mode=SMO lib_status=0 math=upstream smo=upstream if=upstream
+electrical_mHz=0 vbus_mV=23525 I_mA=-21,5,11 peak_mA=0 raw=1561,1545,1558,1168
+cpu_hz=400000000 isr_cycles=305/418 ISR_ns=1045 control_cycles=0/0 low_cycles=0/0
+loop=stopped err=0 target_rpm=0 est_rpm=0 pll_rpm=0 forced_rpm=0
+Idq_mA=0,0 Iqref_mA=0 emf_mV=0 pll_error_mV=0 lock_ms=0 blend_pct=0
+transitions=0 angle_mrad=0 forced_mrad=0 current_error_mA=0
+if_stage=0 startup_ms=0 lost_ms=0 phase_mrad=0 wm_err_mrad=0 speed_abs_mrad=0 gain_pct=0
+emath_sincos=0/0/0 emath_trig=0/0/0
+emath_sqrt=0/0/0
+command_seq=0 result=0 stop_seq=0 comm_cpu=1
+msh >

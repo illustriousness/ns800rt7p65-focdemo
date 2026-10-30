@@ -1,0 +1,478 @@
+[18:24:12.467] tio 3.9
+[18:24:12.467] Press ctrl-t q to quit
+[18:24:12.467] Connected to /dev/serial/by-id/usb-SEGGER_J-Link_004294967295-if00
+[18:24:12.467] Running script tests/console_edit.lua
+
+msh >motor stop
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2614471 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=-2,44,12 peak_mA=0 raw=1558,1539,1557,1197
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2614836 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=4,-9,0 peak_mA=0 raw=1557,1547,1559,1191
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2615195 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=11,-49,32 peak_mA=0 raw=1556,1553,1554,1190
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2615582 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-2,-2,5 peak_mA=0 raw=1558,1546,1558,1191
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2615953 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-15,4,5 peak_mA=0 raw=1560,1545,1558,1192
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2616324 overflow=0
+electrical_mHz=0 vbus_mV=24190 I_mA=-82,57,32 peak_mA=0 raw=1570,1537,1554,1201
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2616726 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=18,30,-61 peak_mA=0 raw=1555,1541,1568,1194
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2617114 overflow=0
+electrical_mHz=0 vbus_mV=23928 I_mA=-28,4,-101 peak_mA=0 raw=1562,1545,1574,1188
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2617522 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=24,-2,-41 peak_mA=0 raw=1554,1546,1565,1190
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2617891 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-2,-9,-14 peak_mA=0 raw=1558,1547,1561,1191
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2618263 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-42,4,5 peak_mA=0 raw=1564,1545,1558,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2618608 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-49,-69,86 peak_mA=0 raw=1565,1556,1546,1192
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2618973 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-22,-9,32 peak_mA=0 raw=1561,1547,1554,1194
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2619335 overflow=0
+electrical_mHz=0 vbus_mV=24089 I_mA=-55,17,79 peak_mA=0 raw=1566,1543,1547,1196
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2619722 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=24,-49,-14 peak_mA=0 raw=1554,1553,1561,1190
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2620113 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=11,4,26 peak_mA=0 raw=1556,1545,1555,1193
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2620486 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=-28,-56,46 peak_mA=0 raw=1562,1554,1552,1189
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2620904 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=38,-22,-27 peak_mA=0 raw=1552,1549,1563,1189
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2621293 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=24,64,-61 peak_mA=0 raw=1554,1536,1568,1197
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2621702 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-22,17,12 peak_mA=0 raw=1561,1543,1557,1193
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2622071 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-2,24,0 peak_mA=0 raw=1558,1542,1559,1195
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2622414 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=18,17,-27 peak_mA=0 raw=1555,1543,1563,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2622768 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-8,-9,19 peak_mA=0 raw=1559,1547,1556,1191
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2623133 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=11,-9,5 peak_mA=0 raw=1556,1547,1558,1191
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2623495 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=11,-2,-20 peak_mA=0 raw=1556,1546,1562,1192
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2623882 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=38,10,-34 peak_mA=0 raw=1552,1544,1564,1194
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2624254 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=11,-2,-20 peak_mA=0 raw=1556,1546,1562,1191
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2624626 overflow=0
+electrical_mHz=0 vbus_mV=24230 I_mA=-2,17,106 peak_mA=0 raw=1558,1543,1543,1203
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2625044 overflow=0
+electrical_mHz=0 vbus_mV=23928 I_mA=58,-49,-14 peak_mA=0 raw=1549,1553,1561,1188
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2625428 overflow=0
+electrical_mHz=0 vbus_mV=24169 I_mA=-15,57,-7 peak_mA=0 raw=1560,1537,1560,1200
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2625838 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=51,-42,5 peak_mA=0 raw=1550,1552,1558,1190
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2626202 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=18,-9,-20 peak_mA=0 raw=1555,1547,1562,1190
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2626548 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=-8,-56,5 peak_mA=0 raw=1559,1554,1558,1189
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2626874 overflow=0
+electrical_mHz=0 vbus_mV=24230 I_mA=-15,151,-54 peak_mA=0 raw=1560,1523,1567,1203
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2627224 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=11,-9,0 peak_mA=0 raw=1556,1547,1559,1193
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2627575 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=18,4,12 peak_mA=0 raw=1555,1545,1557,1193
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2627964 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=18,-2,5 peak_mA=0 raw=1555,1546,1558,1191
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2628333 overflow=0
+electrical_mHz=0 vbus_mV=23867 I_mA=11,-76,-27 peak_mA=0 raw=1556,1557,1563,1185
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2628704 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-2,30,5 peak_mA=0 raw=1558,1541,1558,1195
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2629106 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=18,24,-7 peak_mA=0 raw=1555,1542,1560,1190
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2629506 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-8,-15,0 peak_mA=0 raw=1559,1548,1559,1194
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2629904 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-22,-83,39 peak_mA=0 raw=1561,1558,1553,1195
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2630271 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-2,4,12 peak_mA=0 raw=1558,1545,1557,1192
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2630644 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=18,4,12 peak_mA=0 raw=1555,1545,1557,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2630992 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=31,-9,-14 peak_mA=0 raw=1553,1547,1561,1194
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2631353 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-15,-9,-14 peak_mA=0 raw=1560,1547,1561,1192
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2631715 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-28,4,19 peak_mA=0 raw=1562,1545,1556,1191
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2632104 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=31,24,26 peak_mA=0 raw=1553,1542,1555,1189
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2632475 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-8,44,-14 peak_mA=0 raw=1559,1539,1561,1195
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2632845 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=18,-22,-14 peak_mA=0 raw=1555,1549,1561,1190
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2633246 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-22,44,12 peak_mA=0 raw=1561,1539,1557,1192
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2633631 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=-8,24,-7 peak_mA=0 raw=1559,1542,1560,1197
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2634038 overflow=0
+electrical_mHz=0 vbus_mV=23867 I_mA=11,-9,-14 peak_mA=0 raw=1556,1547,1561,1185
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2634406 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-2,-22,-7 peak_mA=0 raw=1558,1549,1560,1194
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2634782 overflow=0
+electrical_mHz=0 vbus_mV=24250 I_mA=-183,44,120 peak_mA=0 raw=1585,1539,1541,1204
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2635116 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-15,-29,12 peak_mA=0 raw=1560,1550,1557,1191
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2635457 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=31,17,-7 peak_mA=0 raw=1553,1543,1560,1195
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2635815 overflow=0
+electrical_mHz=0 vbus_mV=24089 I_mA=-2,17,19 peak_mA=0 raw=1558,1543,1556,1196
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2636202 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=24,44,-27 peak_mA=0 raw=1554,1539,1563,1194
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2636573 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=24,-2,-14 peak_mA=0 raw=1554,1546,1561,1189
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2636944 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-15,-9,26 peak_mA=0 raw=1560,1547,1555,1193
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2637343 overflow=0
+electrical_mHz=0 vbus_mV=24230 I_mA=-129,-49,39 peak_mA=0 raw=1577,1553,1553,1203
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2637729 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-22,-9,0 peak_mA=0 raw=1561,1547,1559,1193
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2638138 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-2,24,0 peak_mA=0 raw=1558,1542,1559,1193
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2638515 overflow=0
+electrical_mHz=0 vbus_mV=23928 I_mA=51,-49,-14 peak_mA=0 raw=1550,1553,1561,1188
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2638883 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-2,17,19 peak_mA=0 raw=1558,1543,1556,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2639228 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=4,-2,-20 peak_mA=0 raw=1557,1546,1562,1192
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2639566 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=18,4,-20 peak_mA=0 raw=1555,1545,1562,1189
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2639915 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=38,4,-20 peak_mA=0 raw=1552,1545,1562,1192
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2640282 overflow=0
+electrical_mHz=0 vbus_mV=23867 I_mA=-15,-103,-20 peak_mA=0 raw=1560,1561,1562,1185
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2640656 overflow=0
+electrical_mHz=0 vbus_mV=23908 I_mA=51,-76,19 peak_mA=0 raw=1550,1557,1556,1187
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2641024 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-2,-2,26 peak_mA=0 raw=1558,1546,1555,1193
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2641423 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=4,-9,19 peak_mA=0 raw=1557,1547,1556,1194
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2641822 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-15,-9,0 peak_mA=0 raw=1560,1547,1559,1193
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2642223 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-15,4,-14 peak_mA=0 raw=1560,1545,1561,1192
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2642590 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-2,-36,0 peak_mA=0 raw=1558,1551,1559,1192
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2642936 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=-28,-56,39 peak_mA=0 raw=1562,1554,1553,1190
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2643288 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=71,-9,-27 peak_mA=0 raw=1547,1547,1563,1191
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2643633 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=-2,4,-7 peak_mA=0 raw=1558,1545,1560,1192
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2643978 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=11,-2,12 peak_mA=0 raw=1556,1546,1557,1193
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2644363 overflow=0
+electrical_mHz=0 vbus_mV=24169 I_mA=18,17,-20 peak_mA=0 raw=1555,1543,1562,1200
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2644735 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=18,4,-7 peak_mA=0 raw=1555,1545,1560,1193
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2645104 overflow=0
+electrical_mHz=0 vbus_mV=23767 I_mA=71,-96,-54 peak_mA=0 raw=1547,1560,1567,1180
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2645506 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-2,4,0 peak_mA=0 raw=1558,1545,1559,1193
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2645903 overflow=0
+electrical_mHz=0 vbus_mV=23908 I_mA=4,4,-7 peak_mA=0 raw=1557,1545,1560,1187
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2646303 overflow=0
+electrical_mHz=0 vbus_mV=23887 I_mA=-8,-62,5 peak_mA=0 raw=1559,1555,1558,1186
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2646671 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-2,-2,19 peak_mA=0 raw=1558,1546,1556,1194
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2647044 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-82,-29,59 peak_mA=0 raw=1570,1550,1550,1195
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2647388 overflow=0
+electrical_mHz=0 vbus_mV=24149 I_mA=18,-2,-34 peak_mA=0 raw=1555,1546,1564,1199
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2647733 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=-8,-2,12 peak_mA=0 raw=1559,1546,1557,1189
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2648083 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=65,4,-47 peak_mA=0 raw=1548,1545,1566,1190
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2648463 overflow=0
+electrical_mHz=0 vbus_mV=24149 I_mA=18,98,-81 peak_mA=0 raw=1555,1531,1571,1199
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2648835 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=38,-2,-161 peak_mA=0 raw=1552,1546,1583,1192
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2649204 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-2,4,19 peak_mA=0 raw=1558,1545,1556,1195
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2649604 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=44,4,-54 peak_mA=0 raw=1551,1545,1567,1191
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2650005 overflow=0
+electrical_mHz=0 vbus_mV=24089 I_mA=-28,24,-94 peak_mA=0 raw=1562,1542,1573,1196
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2650404 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=11,-22,5 peak_mA=0 raw=1556,1549,1558,1194
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2650771 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-2,10,-14 peak_mA=0 raw=1558,1544,1561,1194
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2651117 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-8,44,-67 peak_mA=0 raw=1559,1539,1569,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2651469 overflow=0
+electrical_mHz=0 vbus_mV=24089 I_mA=-62,-29,66 peak_mA=0 raw=1567,1550,1549,1196
+msh >motor status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2651813 overflow=0
+electrical_mHz=0 vbus_mV=24230 I_mA=-15,4,0 peak_mA=0 raw=1560,1545,1559,1203
+msh >motor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2652155 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-22,30,-7 peak_mA=0 raw=1561,1541,1560,1195
+msh >mo
+motor
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2652544 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-116,-2,46 peak_mA=0 raw=1575,1546,1552,1193
+msh >motor statux[6D[Kstatus
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2652913 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-8,-9,-14 peak_mA=0 raw=1559,1547,1561,1194
+msh >[2Kmsh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2653264 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-2,-2,12 peak_mA=0 raw=1558,1546,1557,1193
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2653663 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=-2,-49,39 peak_mA=0 raw=1558,1553,1553,1190
+msh >motor statuxmotor statux s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2654068 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-42,44,-14 peak_mA=0 raw=1564,1539,1561,1194
+msh >motor xstatusstatus 
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2654464 overflow=0
+electrical_mHz=0 vbus_mV=23887 I_mA=-15,-9,26 peak_mA=0 raw=1560,1547,1555,1186
+msh >motor statux[6D[6C s
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2654835 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=4,30,-7 peak_mA=0 raw=1557,1541,1560,1193
+msh >  motor  status   
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2655174 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-8,-9,-14 peak_mA=0 raw=1559,1547,1561,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2655530 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=-2,10,-14 peak_mA=0 raw=1558,1544,1561,1190
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2655857 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=58,44,0 peak_mA=0 raw=1549,1539,1559,1195
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2656175 overflow=0
+electrical_mHz=0 vbus_mV=23887 I_mA=18,-76,-7 peak_mA=0 raw=1555,1557,1560,1186
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2656498 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=31,-22,12 peak_mA=0 raw=1553,1549,1557,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2656851 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=31,-9,26 peak_mA=0 raw=1553,1547,1555,1195
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2657178 overflow=0
+electrical_mHz=0 vbus_mV=23948 I_mA=78,-9,-41 peak_mA=0 raw=1546,1547,1565,1189
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2657504 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-49,10,140 peak_mA=0 raw=1565,1544,1538,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2657824 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=18,-9,0 peak_mA=0 raw=1555,1547,1559,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2658166 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-15,10,26 peak_mA=0 raw=1560,1544,1555,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2658498 overflow=0
+electrical_mHz=0 vbus_mV=24089 I_mA=-49,-9,46 peak_mA=0 raw=1565,1547,1552,1196
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2658818 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-2,-9,26 peak_mA=0 raw=1558,1547,1555,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2659142 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-2,-2,0 peak_mA=0 raw=1558,1546,1559,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2659485 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=-2,64,-94 peak_mA=0 raw=1558,1536,1573,1197
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2659807 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=18,-2,-7 peak_mA=0 raw=1555,1546,1560,1192
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2660131 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=24,44,-20 peak_mA=0 raw=1554,1539,1562,1197
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2660454 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-8,10,5 peak_mA=0 raw=1559,1544,1558,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2660805 overflow=0
+electrical_mHz=0 vbus_mV=23908 I_mA=18,-49,19 peak_mA=0 raw=1555,1553,1556,1187
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2661136 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=18,-9,5 peak_mA=0 raw=1555,1547,1558,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2661457 overflow=0
+electrical_mHz=0 vbus_mV=23908 I_mA=-2,-9,12 peak_mA=0 raw=1558,1547,1557,1187
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2661776 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=24,-29,5 peak_mA=0 raw=1554,1550,1558,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2662125 overflow=0
+electrical_mHz=0 vbus_mV=24149 I_mA=-122,44,26 peak_mA=0 raw=1576,1539,1555,1199
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2662452 overflow=0
+electrical_mHz=0 vbus_mV=24008 I_mA=4,4,-27 peak_mA=0 raw=1557,1545,1563,1192
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2662768 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=18,71,-47 peak_mA=0 raw=1555,1535,1566,1197
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2663091 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=4,24,0 peak_mA=0 raw=1557,1542,1559,1195
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2663425 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-2,10,52 peak_mA=0 raw=1558,1544,1551,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2663753 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=-15,51,-27 peak_mA=0 raw=1560,1538,1563,1197
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2664078 overflow=0
+electrical_mHz=0 vbus_mV=24109 I_mA=-35,44,19 peak_mA=0 raw=1563,1539,1556,1197
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2664398 overflow=0
+electrical_mHz=0 vbus_mV=24049 I_mA=-2,-2,12 peak_mA=0 raw=1558,1546,1557,1194
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2664745 overflow=0
+electrical_mHz=0 vbus_mV=24069 I_mA=-8,4,-14 peak_mA=0 raw=1559,1545,1561,1195
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2665071 overflow=0
+electrical_mHz=0 vbus_mV=23968 I_mA=-2,-29,0 peak_mA=0 raw=1558,1550,1559,1190
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2665388 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=11,-2,-7 peak_mA=0 raw=1556,1546,1560,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2665709 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=18,-9,-27 peak_mA=0 raw=1555,1547,1563,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2666051 overflow=0
+electrical_mHz=0 vbus_mV=24290 I_mA=11,-9,-7 peak_mA=0 raw=1556,1547,1560,1206
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2666378 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=4,-2,12 peak_mA=0 raw=1557,1546,1557,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2666698 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=-2,17,-14 peak_mA=0 raw=1558,1543,1561,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2667018 overflow=0
+electrical_mHz=0 vbus_mV=24089 I_mA=44,84,-74 peak_mA=0 raw=1551,1533,1570,1196
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2667365 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=11,-62,-88 peak_mA=0 raw=1556,1555,1572,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2667695 overflow=0
+electrical_mHz=0 vbus_mV=23988 I_mA=-28,-2,-20 peak_mA=0 raw=1562,1546,1562,1191
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2668015 overflow=0
+electrical_mHz=0 vbus_mV=24028 I_mA=4,-22,0 peak_mA=0 raw=1557,1549,1559,1193
+msh >motor status
+motor idle fault=none ready=1 cal=1 pwm=20000Hz adc=2668334 overflow=0
+electrical_mHz=0 vbus_mV=24129 I_mA=-22,98,0 peak_mA=0 raw=1561,1531,1559,1198
+msh >CONSOLE_REGRESSION_PASS 150 native tio commands
+[18:25:38.789] Disconnected
