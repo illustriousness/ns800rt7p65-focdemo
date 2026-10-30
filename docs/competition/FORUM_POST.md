@@ -107,7 +107,7 @@
 
 ![图 1 实板调试连接](hardware_setup.jpg)
 
-**图 1** 实板调试连接：NSSinePad NS800RT7P65D、ATK-PD6010B 功率板、ATK-BL57H95D20E 电机、ZLG USBCANFD-100U 与 J-Link VCOM。照片为开发阶段接线，功率级默认关断。
+**图 1** 实板调试连接：NSSinePad NS800RT7P65D、ATK-PD6010B 功率板、ATK-BL57H95D20E 电机、ZLG USBCANFD-100U 与 J-Link VCOM。照片为开发阶段接线；固件上电默认关断功率级。
 
 ![图 2 硬件拓扑](hardware_topology.png)
 
