@@ -1,0 +1,12 @@
+[
+ {
+  "name": "CMSIS_CORE",
+  "path": "/packages/system/CMSIS/CMSIS-Core",
+  "ver": "latest"
+ },
+ {
+  "name": "NOVOSNS_SERIES_DRIVER",
+  "path": "/packages/peripherals/hal-sdk/novosns/novosns-series",
+  "ver": "latest"
+ }
+]

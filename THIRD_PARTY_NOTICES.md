@@ -8,7 +8,8 @@
 | RT-Thread | `rt-thread/`、`rt-thread/` 相关 BSP | Apache-2.0 | 上游 RT-Thread 5.3.1 及 NOVOSENSE BSP |
 | CANopenNode | `libraries/CANopenNode/` | Apache-2.0 | 上游 v4.1，保留 `LICENSE` |
 | SguanFOC | `libraries/SguanFOC_Library/` | MIT | 上游 v3.1.0 浮点库，保留 `LICENSE`；本板适配见 `patches/sguan-ns800.patch` |
-| CMSIS / 芯片头文件 | `rt-thread/`、厂商 BSP 依赖 | 各自上游许可证 | 由 RT-Thread/NOVOSENSE BSP 提供 |
+| CMSIS-Core | `packages/CMSIS-Core-latest/` | Apache-2.0 | 保留 `LICENSE.txt` |
+| novosns-series | `packages/novosns-series-latest/` | BSD-3-Clause | 保留 `LICENSE` |
 | NOVOSENSE NS800 SDK | 不随公开仓库分发 | 厂商授权 | 仅用于 J-Link 下载/调试；请从官方渠道获取并通过 `NS800_SDK_ZIP` 指定 |
 
 ## 本板修改

@@ -1,0 +1,9 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+path = [cwd + '/Inc', cwd + '/Inc/ti']
+src = Glob('Src/*.c')
+
+group = DefineGroup('StdDriver', src, depend = [''], CPPPATH = path)
+Return('group')

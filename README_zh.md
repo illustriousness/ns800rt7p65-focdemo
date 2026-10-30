@@ -54,6 +54,9 @@ scons --pyconfig-silent
 ./scripts/build.sh
 ```
 
+公开仓库包含 `packages/` 依赖快照（CMSIS-Core、novosns-series），正常构建不需要联网。
+若该目录缺失，再执行 `pkgs --update` 获取依赖。
+
 SguanFOC 以 Git 子模块维护于 `libraries/SguanFOC_Library`，基于 v3.1.0 浮点库。
 本板的算法修正与 `UserData_*` 配置以 `patches/sguan-ns800.patch` 发布，应用在
 上游基点之上；`applications/sguan/` 仅保留硬件接口和构建集成。这样公开仓库

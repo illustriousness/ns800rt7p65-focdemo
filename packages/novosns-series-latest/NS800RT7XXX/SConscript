@@ -1,0 +1,27 @@
+import os
+import rtconfig
+from building import *
+
+cwd = GetCurrentDir()
+
+path = [cwd + '/Device/Inc']
+
+src = [
+    os.path.join('Device', 'Src', 'system_NS800RT7xxx.c'),
+]
+
+toolchain_startup = {
+    'gcc': os.path.join('Device', 'Src', 'gcc', 'startup_NS800RT7xxx.S'),
+    'armcc': os.path.join('Device', 'Src', 'arm', 'startup_NS800RT7xxx.s'),
+    'armclang': os.path.join('Device', 'Src', 'arm', 'startup_NS800RT7xxx.s'),
+    'iccarm': os.path.join('Device', 'Src', 'iar', 'startup_NS800RT7xxx.s'),
+}
+
+startup_src = toolchain_startup.get(rtconfig.PLATFORM)
+if startup_src:
+    src.append(startup_src)
+
+group = DefineGroup('Device', src, depend=[''], CPPPATH=path)
+group = group + SConscript(os.path.join('StdDriver', 'SConscript'))
+
+Return('group')
